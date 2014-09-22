@@ -14,7 +14,18 @@
 
 
 //消息类型：网关服务相关
-#define MSG_TYPE_LOGIN (100)
+#define MSG_TYPE_LOGIN (100) //登陆是特例，网关要处理
+#define MSG_TYPE_LOGIN_RESULT (101)
+#define MSG_TYPE_LOGIN_QUEUE (102)
+
+//消息类型：版本服务相关
+#define MSG_CHECK_VERSION (10000)
+#define MSG_CHECK_VERSION_RESULT (10001)
+
+//消息类型：登陆服务（用户账号服务）相关
+#define MSG_TYPE_REGISTER (20000)
+#define MSG_TYPE_REGISTER_RESULT (20001)
+
 
 //消息类型：控制服务相关
 
