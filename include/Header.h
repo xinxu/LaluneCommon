@@ -12,9 +12,11 @@
 #define MSG_HEADER_BASE_SIZE (16)
 #define MSG_DATA(d) (*(uint16_t*)((d) + MSG_HEADER_BASE_SIZE))
 
+//约定：偶数的都是发到服务器的包，奇数的都是服务器发出去的
 
 //消息类型：网关服务相关
-#define MSG_TYPE_LOGIN (100) //登陆是特例，网关要处理
+#define MSG_TYPE_CONNECT_OTHER (99) //负载均衡：告诉客户端连别的服务
+#define MSG_TYPE_LOGIN (100) //登陆相关是特例，网关要处理
 #define MSG_TYPE_LOGIN_RESULT (101)
 #define MSG_TYPE_LOGIN_QUEUE (102)
 
@@ -27,9 +29,15 @@
 #define MSG_TYPE_REGISTER_RESULT (20001)
 
 
-//消息类型：控制服务相关
-
-#define MSG_TYPE_CONTROL_SERVER_SAY_HELLO (500000)
+//消息类型：控制服务相关（这些其实只在和控制服务的连接里发）
+#define MSG_TYPE_CONTROL_SERVER_SAY_HELLO (500000) //也许还得有个HELLO_RESULT，需要的时候再加好了。
+#define MSG_TYPE_CONTROL_SERVER_ADDR_INFO_REFRESH (500011) //这个是群体的刷新，后三个都是单体的
+#define MSG_TYPE_CONTROL_SERVER_ADDR_INFO_ADD (500013)
+#define MSG_TYPE_CONTROL_SERVER_ADDR_INFO_REMOVE (500015)
+#define MSG_TYPE_CONTROL_SERVER_ADDR_INFO_RESTART (500017)
+#define MSG_TYPE_CONTROL_SERVER_REPORT_LOAD (500020)
+#define MSG_TYPE_CONTROL_SERVER_CMD (500050)
+#define MSG_TYPE_CONTROL_SERVER_CMD_RESULT (500051)
 
 //服务器类型（每个服务器的消息的分段就是[ID * 10000, (ID+1) * 10000)，这样消息类型转ServerType就除以10000
 #define SERVER_TYPE_GATEWAY_SERVER (0)
