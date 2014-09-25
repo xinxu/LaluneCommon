@@ -33,12 +33,177 @@ void  protobuf_AddDesc_Account_2eproto();
 void protobuf_AssignDesc_Account_2eproto();
 void protobuf_ShutdownFile_Account_2eproto();
 
+class RandomNickRequest;
+class RandomNickResponce;
 class AutoRegisterRequest;
 class AutoRegisterResponce;
 class LoginRequest;
 class LoginResponce;
 
 // ===================================================================
+
+class RandomNickRequest : public ::google_lalune::protobuf::Message {
+ public:
+  RandomNickRequest();
+  virtual ~RandomNickRequest();
+
+  RandomNickRequest(const RandomNickRequest& from);
+
+  inline RandomNickRequest& operator=(const RandomNickRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google_lalune::protobuf::Descriptor* descriptor();
+  static const RandomNickRequest& default_instance();
+
+  void Swap(RandomNickRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  RandomNickRequest* New() const;
+  void CopyFrom(const ::google_lalune::protobuf::Message& from);
+  void MergeFrom(const ::google_lalune::protobuf::Message& from);
+  void CopyFrom(const RandomNickRequest& from);
+  void MergeFrom(const RandomNickRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google_lalune::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
+  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google_lalune::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 gender = 1;
+  inline bool has_gender() const;
+  inline void clear_gender();
+  static const int kGenderFieldNumber = 1;
+  inline ::google_lalune::protobuf::int32 gender() const;
+  inline void set_gender(::google_lalune::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:lalune.RandomNickRequest)
+ private:
+  inline void set_has_gender();
+  inline void clear_has_gender();
+
+  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google_lalune::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google_lalune::protobuf::int32 gender_;
+  friend void  protobuf_AddDesc_Account_2eproto();
+  friend void protobuf_AssignDesc_Account_2eproto();
+  friend void protobuf_ShutdownFile_Account_2eproto();
+
+  void InitAsDefaultInstance();
+  static RandomNickRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class RandomNickResponce : public ::google_lalune::protobuf::Message {
+ public:
+  RandomNickResponce();
+  virtual ~RandomNickResponce();
+
+  RandomNickResponce(const RandomNickResponce& from);
+
+  inline RandomNickResponce& operator=(const RandomNickResponce& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google_lalune::protobuf::Descriptor* descriptor();
+  static const RandomNickResponce& default_instance();
+
+  void Swap(RandomNickResponce* other);
+
+  // implements Message ----------------------------------------------
+
+  RandomNickResponce* New() const;
+  void CopyFrom(const ::google_lalune::protobuf::Message& from);
+  void MergeFrom(const ::google_lalune::protobuf::Message& from);
+  void CopyFrom(const RandomNickResponce& from);
+  void MergeFrom(const RandomNickResponce& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google_lalune::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
+  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google_lalune::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required string nick = 1;
+  inline bool has_nick() const;
+  inline void clear_nick();
+  static const int kNickFieldNumber = 1;
+  inline const ::std::string& nick() const;
+  inline void set_nick(const ::std::string& value);
+  inline void set_nick(const char* value);
+  inline void set_nick(const char* value, size_t size);
+  inline ::std::string* mutable_nick();
+  inline ::std::string* release_nick();
+  inline void set_allocated_nick(::std::string* nick);
+
+  // @@protoc_insertion_point(class_scope:lalune.RandomNickResponce)
+ private:
+  inline void set_has_nick();
+  inline void clear_has_nick();
+
+  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google_lalune::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::std::string* nick_;
+  friend void  protobuf_AddDesc_Account_2eproto();
+  friend void protobuf_AssignDesc_Account_2eproto();
+  friend void protobuf_ShutdownFile_Account_2eproto();
+
+  void InitAsDefaultInstance();
+  static RandomNickResponce* default_instance_;
+};
+// -------------------------------------------------------------------
 
 class AutoRegisterRequest : public ::google_lalune::protobuf::Message {
  public:
@@ -177,17 +342,24 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int64 uid = 1;
+  // required int32 code = 1;
+  inline bool has_code() const;
+  inline void clear_code();
+  static const int kCodeFieldNumber = 1;
+  inline ::google_lalune::protobuf::int32 code() const;
+  inline void set_code(::google_lalune::protobuf::int32 value);
+
+  // optional int64 uid = 2;
   inline bool has_uid() const;
   inline void clear_uid();
-  static const int kUidFieldNumber = 1;
+  static const int kUidFieldNumber = 2;
   inline ::google_lalune::protobuf::int64 uid() const;
   inline void set_uid(::google_lalune::protobuf::int64 value);
 
-  // required string pwd = 2;
+  // optional string pwd = 3;
   inline bool has_pwd() const;
   inline void clear_pwd();
-  static const int kPwdFieldNumber = 2;
+  static const int kPwdFieldNumber = 3;
   inline const ::std::string& pwd() const;
   inline void set_pwd(const ::std::string& value);
   inline void set_pwd(const char* value);
@@ -196,12 +368,28 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_pwd();
   inline void set_allocated_pwd(::std::string* pwd);
 
+  // optional string errStr = 4;
+  inline bool has_errstr() const;
+  inline void clear_errstr();
+  static const int kErrStrFieldNumber = 4;
+  inline const ::std::string& errstr() const;
+  inline void set_errstr(const ::std::string& value);
+  inline void set_errstr(const char* value);
+  inline void set_errstr(const char* value, size_t size);
+  inline ::std::string* mutable_errstr();
+  inline ::std::string* release_errstr();
+  inline void set_allocated_errstr(::std::string* errstr);
+
   // @@protoc_insertion_point(class_scope:lalune.AutoRegisterResponce)
  private:
+  inline void set_has_code();
+  inline void clear_has_code();
   inline void set_has_uid();
   inline void clear_has_uid();
   inline void set_has_pwd();
   inline void clear_has_pwd();
+  inline void set_has_errstr();
+  inline void clear_has_errstr();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
@@ -209,6 +397,8 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
   mutable int _cached_size_;
   ::google_lalune::protobuf::int64 uid_;
   ::std::string* pwd_;
+  ::std::string* errstr_;
+  ::google_lalune::protobuf::int32 code_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
   friend void protobuf_ShutdownFile_Account_2eproto();
@@ -372,30 +562,30 @@ class LoginResponce : public ::google_lalune::protobuf::Message {
   inline ::google_lalune::protobuf::int32 code() const;
   inline void set_code(::google_lalune::protobuf::int32 value);
 
-  // optional string errorString = 2;
-  inline bool has_errorstring() const;
-  inline void clear_errorstring();
-  static const int kErrorStringFieldNumber = 2;
-  inline const ::std::string& errorstring() const;
-  inline void set_errorstring(const ::std::string& value);
-  inline void set_errorstring(const char* value);
-  inline void set_errorstring(const char* value, size_t size);
-  inline ::std::string* mutable_errorstring();
-  inline ::std::string* release_errorstring();
-  inline void set_allocated_errorstring(::std::string* errorstring);
+  // optional string errStr = 2;
+  inline bool has_errstr() const;
+  inline void clear_errstr();
+  static const int kErrStrFieldNumber = 2;
+  inline const ::std::string& errstr() const;
+  inline void set_errstr(const ::std::string& value);
+  inline void set_errstr(const char* value);
+  inline void set_errstr(const char* value, size_t size);
+  inline ::std::string* mutable_errstr();
+  inline ::std::string* release_errstr();
+  inline void set_allocated_errstr(::std::string* errstr);
 
   // @@protoc_insertion_point(class_scope:lalune.LoginResponce)
  private:
   inline void set_has_code();
   inline void clear_has_code();
-  inline void set_has_errorstring();
-  inline void clear_has_errorstring();
+  inline void set_has_errstr();
+  inline void clear_has_errstr();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::std::string* errorstring_;
+  ::std::string* errstr_;
   ::google_lalune::protobuf::int32 code_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
@@ -408,6 +598,114 @@ class LoginResponce : public ::google_lalune::protobuf::Message {
 
 
 // ===================================================================
+
+// RandomNickRequest
+
+// required int32 gender = 1;
+inline bool RandomNickRequest::has_gender() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RandomNickRequest::set_has_gender() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RandomNickRequest::clear_has_gender() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RandomNickRequest::clear_gender() {
+  gender_ = 0;
+  clear_has_gender();
+}
+inline ::google_lalune::protobuf::int32 RandomNickRequest::gender() const {
+  // @@protoc_insertion_point(field_get:lalune.RandomNickRequest.gender)
+  return gender_;
+}
+inline void RandomNickRequest::set_gender(::google_lalune::protobuf::int32 value) {
+  set_has_gender();
+  gender_ = value;
+  // @@protoc_insertion_point(field_set:lalune.RandomNickRequest.gender)
+}
+
+// -------------------------------------------------------------------
+
+// RandomNickResponce
+
+// required string nick = 1;
+inline bool RandomNickResponce::has_nick() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void RandomNickResponce::set_has_nick() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void RandomNickResponce::clear_has_nick() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void RandomNickResponce::clear_nick() {
+  if (nick_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nick_->clear();
+  }
+  clear_has_nick();
+}
+inline const ::std::string& RandomNickResponce::nick() const {
+  // @@protoc_insertion_point(field_get:lalune.RandomNickResponce.nick)
+  return *nick_;
+}
+inline void RandomNickResponce::set_nick(const ::std::string& value) {
+  set_has_nick();
+  if (nick_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.RandomNickResponce.nick)
+}
+inline void RandomNickResponce::set_nick(const char* value) {
+  set_has_nick();
+  if (nick_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.RandomNickResponce.nick)
+}
+inline void RandomNickResponce::set_nick(const char* value, size_t size) {
+  set_has_nick();
+  if (nick_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nick_ = new ::std::string;
+  }
+  nick_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.RandomNickResponce.nick)
+}
+inline ::std::string* RandomNickResponce::mutable_nick() {
+  set_has_nick();
+  if (nick_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    nick_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:lalune.RandomNickResponce.nick)
+  return nick_;
+}
+inline ::std::string* RandomNickResponce::release_nick() {
+  clear_has_nick();
+  if (nick_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = nick_;
+    nick_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void RandomNickResponce::set_allocated_nick(::std::string* nick) {
+  if (nick_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete nick_;
+  }
+  if (nick) {
+    set_has_nick();
+    nick_ = nick;
+  } else {
+    clear_has_nick();
+    nick_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:lalune.RandomNickResponce.nick)
+}
+
+// -------------------------------------------------------------------
 
 // AutoRegisterRequest
 
@@ -491,15 +789,39 @@ inline void AutoRegisterRequest::set_allocated_nick(::std::string* nick) {
 
 // AutoRegisterResponce
 
-// required int64 uid = 1;
-inline bool AutoRegisterResponce::has_uid() const {
+// required int32 code = 1;
+inline bool AutoRegisterResponce::has_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void AutoRegisterResponce::set_has_uid() {
+inline void AutoRegisterResponce::set_has_code() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void AutoRegisterResponce::clear_has_uid() {
+inline void AutoRegisterResponce::clear_has_code() {
   _has_bits_[0] &= ~0x00000001u;
+}
+inline void AutoRegisterResponce::clear_code() {
+  code_ = 0;
+  clear_has_code();
+}
+inline ::google_lalune::protobuf::int32 AutoRegisterResponce::code() const {
+  // @@protoc_insertion_point(field_get:lalune.AutoRegisterResponce.code)
+  return code_;
+}
+inline void AutoRegisterResponce::set_code(::google_lalune::protobuf::int32 value) {
+  set_has_code();
+  code_ = value;
+  // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.code)
+}
+
+// optional int64 uid = 2;
+inline bool AutoRegisterResponce::has_uid() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AutoRegisterResponce::set_has_uid() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AutoRegisterResponce::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void AutoRegisterResponce::clear_uid() {
   uid_ = GOOGLE_LONGLONG(0);
@@ -515,15 +837,15 @@ inline void AutoRegisterResponce::set_uid(::google_lalune::protobuf::int64 value
   // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.uid)
 }
 
-// required string pwd = 2;
+// optional string pwd = 3;
 inline bool AutoRegisterResponce::has_pwd() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void AutoRegisterResponce::set_has_pwd() {
-  _has_bits_[0] |= 0x00000002u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void AutoRegisterResponce::clear_has_pwd() {
-  _has_bits_[0] &= ~0x00000002u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void AutoRegisterResponce::clear_pwd() {
   if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -589,6 +911,82 @@ inline void AutoRegisterResponce::set_allocated_pwd(::std::string* pwd) {
     pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   // @@protoc_insertion_point(field_set_allocated:lalune.AutoRegisterResponce.pwd)
+}
+
+// optional string errStr = 4;
+inline bool AutoRegisterResponce::has_errstr() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void AutoRegisterResponce::set_has_errstr() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void AutoRegisterResponce::clear_has_errstr() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void AutoRegisterResponce::clear_errstr() {
+  if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_->clear();
+  }
+  clear_has_errstr();
+}
+inline const ::std::string& AutoRegisterResponce::errstr() const {
+  // @@protoc_insertion_point(field_get:lalune.AutoRegisterResponce.errStr)
+  return *errstr_;
+}
+inline void AutoRegisterResponce::set_errstr(const ::std::string& value) {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
+  }
+  errstr_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.errStr)
+}
+inline void AutoRegisterResponce::set_errstr(const char* value) {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
+  }
+  errstr_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.AutoRegisterResponce.errStr)
+}
+inline void AutoRegisterResponce::set_errstr(const char* value, size_t size) {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
+  }
+  errstr_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.AutoRegisterResponce.errStr)
+}
+inline ::std::string* AutoRegisterResponce::mutable_errstr() {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:lalune.AutoRegisterResponce.errStr)
+  return errstr_;
+}
+inline ::std::string* AutoRegisterResponce::release_errstr() {
+  clear_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = errstr_;
+    errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void AutoRegisterResponce::set_allocated_errstr(::std::string* errstr) {
+  if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete errstr_;
+  }
+  if (errstr) {
+    set_has_errstr();
+    errstr_ = errstr;
+  } else {
+    clear_has_errstr();
+    errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:lalune.AutoRegisterResponce.errStr)
 }
 
 // -------------------------------------------------------------------
@@ -723,80 +1121,80 @@ inline void LoginResponce::set_code(::google_lalune::protobuf::int32 value) {
   // @@protoc_insertion_point(field_set:lalune.LoginResponce.code)
 }
 
-// optional string errorString = 2;
-inline bool LoginResponce::has_errorstring() const {
+// optional string errStr = 2;
+inline bool LoginResponce::has_errstr() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
-inline void LoginResponce::set_has_errorstring() {
+inline void LoginResponce::set_has_errstr() {
   _has_bits_[0] |= 0x00000002u;
 }
-inline void LoginResponce::clear_has_errorstring() {
+inline void LoginResponce::clear_has_errstr() {
   _has_bits_[0] &= ~0x00000002u;
 }
-inline void LoginResponce::clear_errorstring() {
-  if (errorstring_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    errorstring_->clear();
+inline void LoginResponce::clear_errstr() {
+  if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_->clear();
   }
-  clear_has_errorstring();
+  clear_has_errstr();
 }
-inline const ::std::string& LoginResponce::errorstring() const {
-  // @@protoc_insertion_point(field_get:lalune.LoginResponce.errorString)
-  return *errorstring_;
+inline const ::std::string& LoginResponce::errstr() const {
+  // @@protoc_insertion_point(field_get:lalune.LoginResponce.errStr)
+  return *errstr_;
 }
-inline void LoginResponce::set_errorstring(const ::std::string& value) {
-  set_has_errorstring();
-  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    errorstring_ = new ::std::string;
+inline void LoginResponce::set_errstr(const ::std::string& value) {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
   }
-  errorstring_->assign(value);
-  // @@protoc_insertion_point(field_set:lalune.LoginResponce.errorString)
+  errstr_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.LoginResponce.errStr)
 }
-inline void LoginResponce::set_errorstring(const char* value) {
-  set_has_errorstring();
-  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    errorstring_ = new ::std::string;
+inline void LoginResponce::set_errstr(const char* value) {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
   }
-  errorstring_->assign(value);
-  // @@protoc_insertion_point(field_set_char:lalune.LoginResponce.errorString)
+  errstr_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.LoginResponce.errStr)
 }
-inline void LoginResponce::set_errorstring(const char* value, size_t size) {
-  set_has_errorstring();
-  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    errorstring_ = new ::std::string;
+inline void LoginResponce::set_errstr(const char* value, size_t size) {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
   }
-  errorstring_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:lalune.LoginResponce.errorString)
+  errstr_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.LoginResponce.errStr)
 }
-inline ::std::string* LoginResponce::mutable_errorstring() {
-  set_has_errorstring();
-  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    errorstring_ = new ::std::string;
+inline ::std::string* LoginResponce::mutable_errstr() {
+  set_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errstr_ = new ::std::string;
   }
-  // @@protoc_insertion_point(field_mutable:lalune.LoginResponce.errorString)
-  return errorstring_;
+  // @@protoc_insertion_point(field_mutable:lalune.LoginResponce.errStr)
+  return errstr_;
 }
-inline ::std::string* LoginResponce::release_errorstring() {
-  clear_has_errorstring();
-  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+inline ::std::string* LoginResponce::release_errstr() {
+  clear_has_errstr();
+  if (errstr_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
     return NULL;
   } else {
-    ::std::string* temp = errorstring_;
-    errorstring_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    ::std::string* temp = errstr_;
+    errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
     return temp;
   }
 }
-inline void LoginResponce::set_allocated_errorstring(::std::string* errorstring) {
-  if (errorstring_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete errorstring_;
+inline void LoginResponce::set_allocated_errstr(::std::string* errstr) {
+  if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete errstr_;
   }
-  if (errorstring) {
-    set_has_errorstring();
-    errorstring_ = errorstring;
+  if (errstr) {
+    set_has_errstr();
+    errstr_ = errstr;
   } else {
-    clear_has_errorstring();
-    errorstring_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    clear_has_errstr();
+    errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   }
-  // @@protoc_insertion_point(field_set_allocated:lalune.LoginResponce.errorString)
+  // @@protoc_insertion_point(field_set_allocated:lalune.LoginResponce.errStr)
 }
 
 

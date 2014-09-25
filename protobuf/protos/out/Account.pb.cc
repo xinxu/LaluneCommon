@@ -20,6 +20,12 @@ namespace lalune {
 
 namespace {
 
+const ::google_lalune::protobuf::Descriptor* RandomNickRequest_descriptor_ = NULL;
+const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
+  RandomNickRequest_reflection_ = NULL;
+const ::google_lalune::protobuf::Descriptor* RandomNickResponce_descriptor_ = NULL;
+const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
+  RandomNickResponce_reflection_ = NULL;
 const ::google_lalune::protobuf::Descriptor* AutoRegisterRequest_descriptor_ = NULL;
 const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
   AutoRegisterRequest_reflection_ = NULL;
@@ -42,7 +48,37 @@ void protobuf_AssignDesc_Account_2eproto() {
     ::google_lalune::protobuf::DescriptorPool::generated_pool()->FindFileByName(
       "Account.proto");
   GOOGLE_CHECK(file != NULL);
-  AutoRegisterRequest_descriptor_ = file->message_type(0);
+  RandomNickRequest_descriptor_ = file->message_type(0);
+  static const int RandomNickRequest_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RandomNickRequest, gender_),
+  };
+  RandomNickRequest_reflection_ =
+    new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
+      RandomNickRequest_descriptor_,
+      RandomNickRequest::default_instance_,
+      RandomNickRequest_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RandomNickRequest, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RandomNickRequest, _unknown_fields_),
+      -1,
+      ::google_lalune::protobuf::DescriptorPool::generated_pool(),
+      ::google_lalune::protobuf::MessageFactory::generated_factory(),
+      sizeof(RandomNickRequest));
+  RandomNickResponce_descriptor_ = file->message_type(1);
+  static const int RandomNickResponce_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RandomNickResponce, nick_),
+  };
+  RandomNickResponce_reflection_ =
+    new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
+      RandomNickResponce_descriptor_,
+      RandomNickResponce::default_instance_,
+      RandomNickResponce_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RandomNickResponce, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(RandomNickResponce, _unknown_fields_),
+      -1,
+      ::google_lalune::protobuf::DescriptorPool::generated_pool(),
+      ::google_lalune::protobuf::MessageFactory::generated_factory(),
+      sizeof(RandomNickResponce));
+  AutoRegisterRequest_descriptor_ = file->message_type(2);
   static const int AutoRegisterRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AutoRegisterRequest, nick_),
   };
@@ -57,10 +93,12 @@ void protobuf_AssignDesc_Account_2eproto() {
       ::google_lalune::protobuf::DescriptorPool::generated_pool(),
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(AutoRegisterRequest));
-  AutoRegisterResponce_descriptor_ = file->message_type(1);
-  static const int AutoRegisterResponce_offsets_[2] = {
+  AutoRegisterResponce_descriptor_ = file->message_type(3);
+  static const int AutoRegisterResponce_offsets_[4] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AutoRegisterResponce, code_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AutoRegisterResponce, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AutoRegisterResponce, pwd_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(AutoRegisterResponce, errstr_),
   };
   AutoRegisterResponce_reflection_ =
     new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
@@ -73,7 +111,7 @@ void protobuf_AssignDesc_Account_2eproto() {
       ::google_lalune::protobuf::DescriptorPool::generated_pool(),
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(AutoRegisterResponce));
-  LoginRequest_descriptor_ = file->message_type(2);
+  LoginRequest_descriptor_ = file->message_type(4);
   static const int LoginRequest_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, uid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginRequest, pwd_),
@@ -89,10 +127,10 @@ void protobuf_AssignDesc_Account_2eproto() {
       ::google_lalune::protobuf::DescriptorPool::generated_pool(),
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(LoginRequest));
-  LoginResponce_descriptor_ = file->message_type(3);
+  LoginResponce_descriptor_ = file->message_type(5);
   static const int LoginResponce_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponce, code_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponce, errorstring_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(LoginResponce, errstr_),
   };
   LoginResponce_reflection_ =
     new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
@@ -118,6 +156,10 @@ inline void protobuf_AssignDescriptorsOnce() {
 void protobuf_RegisterTypes(const ::std::string&) {
   protobuf_AssignDescriptorsOnce();
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    RandomNickRequest_descriptor_, &RandomNickRequest::default_instance());
+  ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    RandomNickResponce_descriptor_, &RandomNickResponce::default_instance());
+  ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     AutoRegisterRequest_descriptor_, &AutoRegisterRequest::default_instance());
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     AutoRegisterResponce_descriptor_, &AutoRegisterResponce::default_instance());
@@ -130,6 +172,10 @@ void protobuf_RegisterTypes(const ::std::string&) {
 }  // namespace
 
 void protobuf_ShutdownFile_Account_2eproto() {
+  delete RandomNickRequest::default_instance_;
+  delete RandomNickRequest_reflection_;
+  delete RandomNickResponce::default_instance_;
+  delete RandomNickResponce_reflection_;
   delete AutoRegisterRequest::default_instance_;
   delete AutoRegisterRequest_reflection_;
   delete AutoRegisterResponce::default_instance_;
@@ -147,18 +193,24 @@ void protobuf_AddDesc_Account_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\rAccount.proto\022\006lalune\"#\n\023AutoRegisterR"
-    "equest\022\014\n\004nick\030\001 \002(\t\"0\n\024AutoRegisterResp"
-    "once\022\013\n\003uid\030\001 \002(\003\022\013\n\003pwd\030\002 \002(\t\"(\n\014LoginR"
-    "equest\022\013\n\003uid\030\001 \002(\003\022\013\n\003pwd\030\002 \002(\t\"2\n\rLogi"
-    "nResponce\022\014\n\004code\030\001 \002(\005\022\023\n\013errorString\030\002"
-    " \001(\t", 204);
+    "\n\rAccount.proto\022\006lalune\"#\n\021RandomNickReq"
+    "uest\022\016\n\006gender\030\001 \002(\005\"\"\n\022RandomNickRespon"
+    "ce\022\014\n\004nick\030\001 \002(\t\"#\n\023AutoRegisterRequest\022"
+    "\014\n\004nick\030\001 \002(\t\"N\n\024AutoRegisterResponce\022\014\n"
+    "\004code\030\001 \002(\005\022\013\n\003uid\030\002 \001(\003\022\013\n\003pwd\030\003 \001(\t\022\016\n"
+    "\006errStr\030\004 \001(\t\"(\n\014LoginRequest\022\013\n\003uid\030\001 \002"
+    "(\003\022\013\n\003pwd\030\002 \002(\t\"-\n\rLoginResponce\022\014\n\004code"
+    "\030\001 \002(\005\022\016\n\006errStr\030\002 \001(\t", 302);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Account.proto", &protobuf_RegisterTypes);
+  RandomNickRequest::default_instance_ = new RandomNickRequest();
+  RandomNickResponce::default_instance_ = new RandomNickResponce();
   AutoRegisterRequest::default_instance_ = new AutoRegisterRequest();
   AutoRegisterResponce::default_instance_ = new AutoRegisterResponce();
   LoginRequest::default_instance_ = new LoginRequest();
   LoginResponce::default_instance_ = new LoginResponce();
+  RandomNickRequest::default_instance_->InitAsDefaultInstance();
+  RandomNickResponce::default_instance_->InitAsDefaultInstance();
   AutoRegisterRequest::default_instance_->InitAsDefaultInstance();
   AutoRegisterResponce::default_instance_->InitAsDefaultInstance();
   LoginRequest::default_instance_->InitAsDefaultInstance();
@@ -172,6 +224,473 @@ struct StaticDescriptorInitializer_Account_2eproto {
     protobuf_AddDesc_Account_2eproto();
   }
 } static_descriptor_initializer_Account_2eproto_;
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int RandomNickRequest::kGenderFieldNumber;
+#endif  // !_MSC_VER
+
+RandomNickRequest::RandomNickRequest()
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:lalune.RandomNickRequest)
+}
+
+void RandomNickRequest::InitAsDefaultInstance() {
+}
+
+RandomNickRequest::RandomNickRequest(const RandomNickRequest& from)
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:lalune.RandomNickRequest)
+}
+
+void RandomNickRequest::SharedCtor() {
+  _cached_size_ = 0;
+  gender_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+RandomNickRequest::~RandomNickRequest() {
+  // @@protoc_insertion_point(destructor:lalune.RandomNickRequest)
+  SharedDtor();
+}
+
+void RandomNickRequest::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void RandomNickRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google_lalune::protobuf::Descriptor* RandomNickRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RandomNickRequest_descriptor_;
+}
+
+const RandomNickRequest& RandomNickRequest::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Account_2eproto();
+  return *default_instance_;
+}
+
+RandomNickRequest* RandomNickRequest::default_instance_ = NULL;
+
+RandomNickRequest* RandomNickRequest::New() const {
+  return new RandomNickRequest;
+}
+
+void RandomNickRequest::Clear() {
+  gender_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool RandomNickRequest::MergePartialFromCodedStream(
+    ::google_lalune::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google_lalune::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:lalune.RandomNickRequest)
+  for (;;) {
+    ::std::pair< ::google_lalune::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 gender = 1;
+      case 1: {
+        if (tag == 8) {
+          DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google_lalune::protobuf::int32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &gender_)));
+          set_has_gender();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google_lalune::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google_lalune::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google_lalune::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:lalune.RandomNickRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:lalune.RandomNickRequest)
+  return false;
+#undef DO_
+}
+
+void RandomNickRequest::SerializeWithCachedSizes(
+    ::google_lalune::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:lalune.RandomNickRequest)
+  // required int32 gender = 1;
+  if (has_gender()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->gender(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:lalune.RandomNickRequest)
+}
+
+::google_lalune::protobuf::uint8* RandomNickRequest::SerializeWithCachedSizesToArray(
+    ::google_lalune::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:lalune.RandomNickRequest)
+  // required int32 gender = 1;
+  if (has_gender()) {
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->gender(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:lalune.RandomNickRequest)
+  return target;
+}
+
+int RandomNickRequest::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 gender = 1;
+    if (has_gender()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::Int32Size(
+          this->gender());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google_lalune::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void RandomNickRequest::MergeFrom(const ::google_lalune::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const RandomNickRequest* source =
+    ::google_lalune::protobuf::internal::dynamic_cast_if_available<const RandomNickRequest*>(
+      &from);
+  if (source == NULL) {
+    ::google_lalune::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void RandomNickRequest::MergeFrom(const RandomNickRequest& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_gender()) {
+      set_gender(from.gender());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void RandomNickRequest::CopyFrom(const ::google_lalune::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RandomNickRequest::CopyFrom(const RandomNickRequest& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RandomNickRequest::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void RandomNickRequest::Swap(RandomNickRequest* other) {
+  if (other != this) {
+    std::swap(gender_, other->gender_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google_lalune::protobuf::Metadata RandomNickRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google_lalune::protobuf::Metadata metadata;
+  metadata.descriptor = RandomNickRequest_descriptor_;
+  metadata.reflection = RandomNickRequest_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int RandomNickResponce::kNickFieldNumber;
+#endif  // !_MSC_VER
+
+RandomNickResponce::RandomNickResponce()
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:lalune.RandomNickResponce)
+}
+
+void RandomNickResponce::InitAsDefaultInstance() {
+}
+
+RandomNickResponce::RandomNickResponce(const RandomNickResponce& from)
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:lalune.RandomNickResponce)
+}
+
+void RandomNickResponce::SharedCtor() {
+  ::google_lalune::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  nick_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+RandomNickResponce::~RandomNickResponce() {
+  // @@protoc_insertion_point(destructor:lalune.RandomNickResponce)
+  SharedDtor();
+}
+
+void RandomNickResponce::SharedDtor() {
+  if (nick_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete nick_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void RandomNickResponce::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google_lalune::protobuf::Descriptor* RandomNickResponce::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return RandomNickResponce_descriptor_;
+}
+
+const RandomNickResponce& RandomNickResponce::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Account_2eproto();
+  return *default_instance_;
+}
+
+RandomNickResponce* RandomNickResponce::default_instance_ = NULL;
+
+RandomNickResponce* RandomNickResponce::New() const {
+  return new RandomNickResponce;
+}
+
+void RandomNickResponce::Clear() {
+  if (has_nick()) {
+    if (nick_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+      nick_->clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool RandomNickResponce::MergePartialFromCodedStream(
+    ::google_lalune::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google_lalune::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:lalune.RandomNickResponce)
+  for (;;) {
+    ::std::pair< ::google_lalune::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required string nick = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_nick()));
+          ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->nick().data(), this->nick().length(),
+            ::google_lalune::protobuf::internal::WireFormat::PARSE,
+            "nick");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google_lalune::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google_lalune::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google_lalune::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:lalune.RandomNickResponce)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:lalune.RandomNickResponce)
+  return false;
+#undef DO_
+}
+
+void RandomNickResponce::SerializeWithCachedSizes(
+    ::google_lalune::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:lalune.RandomNickResponce)
+  // required string nick = 1;
+  if (has_nick()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->nick().data(), this->nick().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "nick");
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->nick(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:lalune.RandomNickResponce)
+}
+
+::google_lalune::protobuf::uint8* RandomNickResponce::SerializeWithCachedSizesToArray(
+    ::google_lalune::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:lalune.RandomNickResponce)
+  // required string nick = 1;
+  if (has_nick()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->nick().data(), this->nick().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "nick");
+    target =
+      ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->nick(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:lalune.RandomNickResponce)
+  return target;
+}
+
+int RandomNickResponce::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required string nick = 1;
+    if (has_nick()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
+          this->nick());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google_lalune::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void RandomNickResponce::MergeFrom(const ::google_lalune::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const RandomNickResponce* source =
+    ::google_lalune::protobuf::internal::dynamic_cast_if_available<const RandomNickResponce*>(
+      &from);
+  if (source == NULL) {
+    ::google_lalune::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void RandomNickResponce::MergeFrom(const RandomNickResponce& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_nick()) {
+      set_nick(from.nick());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void RandomNickResponce::CopyFrom(const ::google_lalune::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void RandomNickResponce::CopyFrom(const RandomNickResponce& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool RandomNickResponce::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void RandomNickResponce::Swap(RandomNickResponce* other) {
+  if (other != this) {
+    std::swap(nick_, other->nick_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google_lalune::protobuf::Metadata RandomNickResponce::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google_lalune::protobuf::Metadata metadata;
+  metadata.descriptor = RandomNickResponce_descriptor_;
+  metadata.reflection = RandomNickResponce_reflection_;
+  return metadata;
+}
+
 
 // ===================================================================
 
@@ -420,8 +939,10 @@ void AutoRegisterRequest::Swap(AutoRegisterRequest* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int AutoRegisterResponce::kCodeFieldNumber;
 const int AutoRegisterResponce::kUidFieldNumber;
 const int AutoRegisterResponce::kPwdFieldNumber;
+const int AutoRegisterResponce::kErrStrFieldNumber;
 #endif  // !_MSC_VER
 
 AutoRegisterResponce::AutoRegisterResponce()
@@ -443,8 +964,10 @@ AutoRegisterResponce::AutoRegisterResponce(const AutoRegisterResponce& from)
 void AutoRegisterResponce::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  code_ = 0;
   uid_ = GOOGLE_LONGLONG(0);
   pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -456,6 +979,9 @@ AutoRegisterResponce::~AutoRegisterResponce() {
 void AutoRegisterResponce::SharedDtor() {
   if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete pwd_;
+  }
+  if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete errstr_;
   }
   if (this != default_instance_) {
   }
@@ -483,11 +1009,17 @@ AutoRegisterResponce* AutoRegisterResponce::New() const {
 }
 
 void AutoRegisterResponce::Clear() {
-  if (_has_bits_[0 / 32] & 3) {
+  if (_has_bits_[0 / 32] & 15) {
+    code_ = 0;
     uid_ = GOOGLE_LONGLONG(0);
     if (has_pwd()) {
       if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
         pwd_->clear();
+      }
+    }
+    if (has_errstr()) {
+      if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        errstr_->clear();
       }
     }
   }
@@ -505,9 +1037,24 @@ bool AutoRegisterResponce::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 uid = 1;
+      // required int32 code = 1;
       case 1: {
         if (tag == 8) {
+          DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google_lalune::protobuf::int32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &code_)));
+          set_has_code();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_uid;
+        break;
+      }
+
+      // optional int64 uid = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_uid:
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google_lalune::protobuf::int64, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT64>(
                  input, &uid_)));
@@ -515,13 +1062,13 @@ bool AutoRegisterResponce::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_pwd;
+        if (input->ExpectTag(26)) goto parse_pwd;
         break;
       }
 
-      // required string pwd = 2;
-      case 2: {
-        if (tag == 18) {
+      // optional string pwd = 3;
+      case 3: {
+        if (tag == 26) {
          parse_pwd:
           DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
                 input, this->mutable_pwd()));
@@ -529,6 +1076,23 @@ bool AutoRegisterResponce::MergePartialFromCodedStream(
             this->pwd().data(), this->pwd().length(),
             ::google_lalune::protobuf::internal::WireFormat::PARSE,
             "pwd");
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(34)) goto parse_errStr;
+        break;
+      }
+
+      // optional string errStr = 4;
+      case 4: {
+        if (tag == 34) {
+         parse_errStr:
+          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_errstr()));
+          ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->errstr().data(), this->errstr().length(),
+            ::google_lalune::protobuf::internal::WireFormat::PARSE,
+            "errstr");
         } else {
           goto handle_unusual;
         }
@@ -561,19 +1125,34 @@ failure:
 void AutoRegisterResponce::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:lalune.AutoRegisterResponce)
-  // required int64 uid = 1;
-  if (has_uid()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64(1, this->uid(), output);
+  // required int32 code = 1;
+  if (has_code()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->code(), output);
   }
 
-  // required string pwd = 2;
+  // optional int64 uid = 2;
+  if (has_uid()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64(2, this->uid(), output);
+  }
+
+  // optional string pwd = 3;
   if (has_pwd()) {
     ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->pwd().data(), this->pwd().length(),
       ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
       "pwd");
     ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->pwd(), output);
+      3, this->pwd(), output);
+  }
+
+  // optional string errStr = 4;
+  if (has_errstr()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->errstr().data(), this->errstr().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "errstr");
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      4, this->errstr(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -586,12 +1165,17 @@ void AutoRegisterResponce::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* AutoRegisterResponce::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:lalune.AutoRegisterResponce)
-  // required int64 uid = 1;
-  if (has_uid()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->uid(), target);
+  // required int32 code = 1;
+  if (has_code()) {
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->code(), target);
   }
 
-  // required string pwd = 2;
+  // optional int64 uid = 2;
+  if (has_uid()) {
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->uid(), target);
+  }
+
+  // optional string pwd = 3;
   if (has_pwd()) {
     ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
       this->pwd().data(), this->pwd().length(),
@@ -599,7 +1183,18 @@ void AutoRegisterResponce::SerializeWithCachedSizes(
       "pwd");
     target =
       ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->pwd(), target);
+        3, this->pwd(), target);
+  }
+
+  // optional string errStr = 4;
+  if (has_errstr()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->errstr().data(), this->errstr().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "errstr");
+    target =
+      ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
+        4, this->errstr(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -614,18 +1209,32 @@ int AutoRegisterResponce::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 uid = 1;
+    // required int32 code = 1;
+    if (has_code()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::Int32Size(
+          this->code());
+    }
+
+    // optional int64 uid = 2;
     if (has_uid()) {
       total_size += 1 +
         ::google_lalune::protobuf::internal::WireFormatLite::Int64Size(
           this->uid());
     }
 
-    // required string pwd = 2;
+    // optional string pwd = 3;
     if (has_pwd()) {
       total_size += 1 +
         ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
           this->pwd());
+    }
+
+    // optional string errStr = 4;
+    if (has_errstr()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
+          this->errstr());
     }
 
   }
@@ -655,11 +1264,17 @@ void AutoRegisterResponce::MergeFrom(const ::google_lalune::protobuf::Message& f
 void AutoRegisterResponce::MergeFrom(const AutoRegisterResponce& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_code()) {
+      set_code(from.code());
+    }
     if (from.has_uid()) {
       set_uid(from.uid());
     }
     if (from.has_pwd()) {
       set_pwd(from.pwd());
+    }
+    if (from.has_errstr()) {
+      set_errstr(from.errstr());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -678,15 +1293,17 @@ void AutoRegisterResponce::CopyFrom(const AutoRegisterResponce& from) {
 }
 
 bool AutoRegisterResponce::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   return true;
 }
 
 void AutoRegisterResponce::Swap(AutoRegisterResponce* other) {
   if (other != this) {
+    std::swap(code_, other->code_);
     std::swap(uid_, other->uid_);
     std::swap(pwd_, other->pwd_);
+    std::swap(errstr_, other->errstr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -991,7 +1608,7 @@ void LoginRequest::Swap(LoginRequest* other) {
 
 #ifndef _MSC_VER
 const int LoginResponce::kCodeFieldNumber;
-const int LoginResponce::kErrorStringFieldNumber;
+const int LoginResponce::kErrStrFieldNumber;
 #endif  // !_MSC_VER
 
 LoginResponce::LoginResponce()
@@ -1014,7 +1631,7 @@ void LoginResponce::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   code_ = 0;
-  errorstring_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -1024,8 +1641,8 @@ LoginResponce::~LoginResponce() {
 }
 
 void LoginResponce::SharedDtor() {
-  if (errorstring_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete errorstring_;
+  if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete errstr_;
   }
   if (this != default_instance_) {
   }
@@ -1055,9 +1672,9 @@ LoginResponce* LoginResponce::New() const {
 void LoginResponce::Clear() {
   if (_has_bits_[0 / 32] & 3) {
     code_ = 0;
-    if (has_errorstring()) {
-      if (errorstring_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        errorstring_->clear();
+    if (has_errstr()) {
+      if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        errstr_->clear();
       }
     }
   }
@@ -1085,20 +1702,20 @@ bool LoginResponce::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_errorString;
+        if (input->ExpectTag(18)) goto parse_errStr;
         break;
       }
 
-      // optional string errorString = 2;
+      // optional string errStr = 2;
       case 2: {
         if (tag == 18) {
-         parse_errorString:
+         parse_errStr:
           DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_errorstring()));
+                input, this->mutable_errstr()));
           ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->errorstring().data(), this->errorstring().length(),
+            this->errstr().data(), this->errstr().length(),
             ::google_lalune::protobuf::internal::WireFormat::PARSE,
-            "errorstring");
+            "errstr");
         } else {
           goto handle_unusual;
         }
@@ -1136,14 +1753,14 @@ void LoginResponce::SerializeWithCachedSizes(
     ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->code(), output);
   }
 
-  // optional string errorString = 2;
-  if (has_errorstring()) {
+  // optional string errStr = 2;
+  if (has_errstr()) {
     ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->errorstring().data(), this->errorstring().length(),
+      this->errstr().data(), this->errstr().length(),
       ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
-      "errorstring");
+      "errstr");
     ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      2, this->errorstring(), output);
+      2, this->errstr(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1161,15 +1778,15 @@ void LoginResponce::SerializeWithCachedSizes(
     target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->code(), target);
   }
 
-  // optional string errorString = 2;
-  if (has_errorstring()) {
+  // optional string errStr = 2;
+  if (has_errstr()) {
     ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->errorstring().data(), this->errorstring().length(),
+      this->errstr().data(), this->errstr().length(),
       ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
-      "errorstring");
+      "errstr");
     target =
       ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
-        2, this->errorstring(), target);
+        2, this->errstr(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1191,11 +1808,11 @@ int LoginResponce::ByteSize() const {
           this->code());
     }
 
-    // optional string errorString = 2;
-    if (has_errorstring()) {
+    // optional string errStr = 2;
+    if (has_errstr()) {
       total_size += 1 +
         ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
-          this->errorstring());
+          this->errstr());
     }
 
   }
@@ -1228,8 +1845,8 @@ void LoginResponce::MergeFrom(const LoginResponce& from) {
     if (from.has_code()) {
       set_code(from.code());
     }
-    if (from.has_errorstring()) {
-      set_errorstring(from.errorstring());
+    if (from.has_errstr()) {
+      set_errstr(from.errstr());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1256,7 +1873,7 @@ bool LoginResponce::IsInitialized() const {
 void LoginResponce::Swap(LoginResponce* other) {
   if (other != this) {
     std::swap(code_, other->code_);
-    std::swap(errorstring_, other->errorstring_);
+    std::swap(errstr_, other->errstr_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
