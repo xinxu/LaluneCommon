@@ -10,7 +10,7 @@
 #define MSG_ENCRYPTION_TYPE(d) (*(uint8_t*)((d) + 13))
 #define MSG_RESERVED(d) (*(uint16_t*)((d) + 14))
 #define MSG_HEADER_BASE_SIZE (16)
-#define MSG_DATA(d) (*(uint16_t*)((d) + MSG_HEADER_BASE_SIZE))
+#define MSG_DATA(d) ((d) + MSG_HEADER_BASE_SIZE)
 
 //约定：偶数的都是发到服务器的包，奇数的都是服务器发出去的
 
@@ -42,6 +42,8 @@
 #define MSG_TYPE_CONTROL_SERVER_REPORT_LOAD (500020)
 #define MSG_TYPE_CONTROL_SERVER_CMD (500050)
 #define MSG_TYPE_CONTROL_SERVER_CMD_RESULT (500051)
+
+#define MSG_TYPE_SPAN (10000)
 
 //服务器类型（每个服务器的消息的分段就是[ID * 10000, (ID+1) * 10000)，这样消息类型转ServerType就除以10000
 #define SERVER_TYPE_GATEWAY_SERVER (0)
