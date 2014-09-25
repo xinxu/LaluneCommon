@@ -35,6 +35,8 @@ void protobuf_ShutdownFile_Account_2eproto();
 
 class AutoRegisterRequest;
 class AutoRegisterResponce;
+class LoginRequest;
+class LoginResponce;
 
 // ===================================================================
 
@@ -182,22 +184,225 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
   inline ::google_lalune::protobuf::int64 uid() const;
   inline void set_uid(::google_lalune::protobuf::int64 value);
 
+  // required string pwd = 2;
+  inline bool has_pwd() const;
+  inline void clear_pwd();
+  static const int kPwdFieldNumber = 2;
+  inline const ::std::string& pwd() const;
+  inline void set_pwd(const ::std::string& value);
+  inline void set_pwd(const char* value);
+  inline void set_pwd(const char* value, size_t size);
+  inline ::std::string* mutable_pwd();
+  inline ::std::string* release_pwd();
+  inline void set_allocated_pwd(::std::string* pwd);
+
   // @@protoc_insertion_point(class_scope:lalune.AutoRegisterResponce)
  private:
   inline void set_has_uid();
   inline void clear_has_uid();
+  inline void set_has_pwd();
+  inline void clear_has_pwd();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::google_lalune::protobuf::int64 uid_;
+  ::std::string* pwd_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
   friend void protobuf_ShutdownFile_Account_2eproto();
 
   void InitAsDefaultInstance();
   static AutoRegisterResponce* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LoginRequest : public ::google_lalune::protobuf::Message {
+ public:
+  LoginRequest();
+  virtual ~LoginRequest();
+
+  LoginRequest(const LoginRequest& from);
+
+  inline LoginRequest& operator=(const LoginRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google_lalune::protobuf::Descriptor* descriptor();
+  static const LoginRequest& default_instance();
+
+  void Swap(LoginRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  LoginRequest* New() const;
+  void CopyFrom(const ::google_lalune::protobuf::Message& from);
+  void MergeFrom(const ::google_lalune::protobuf::Message& from);
+  void CopyFrom(const LoginRequest& from);
+  void MergeFrom(const LoginRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google_lalune::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
+  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google_lalune::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int64 uid = 1;
+  inline bool has_uid() const;
+  inline void clear_uid();
+  static const int kUidFieldNumber = 1;
+  inline ::google_lalune::protobuf::int64 uid() const;
+  inline void set_uid(::google_lalune::protobuf::int64 value);
+
+  // required string pwd = 2;
+  inline bool has_pwd() const;
+  inline void clear_pwd();
+  static const int kPwdFieldNumber = 2;
+  inline const ::std::string& pwd() const;
+  inline void set_pwd(const ::std::string& value);
+  inline void set_pwd(const char* value);
+  inline void set_pwd(const char* value, size_t size);
+  inline ::std::string* mutable_pwd();
+  inline ::std::string* release_pwd();
+  inline void set_allocated_pwd(::std::string* pwd);
+
+  // @@protoc_insertion_point(class_scope:lalune.LoginRequest)
+ private:
+  inline void set_has_uid();
+  inline void clear_has_uid();
+  inline void set_has_pwd();
+  inline void clear_has_pwd();
+
+  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google_lalune::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google_lalune::protobuf::int64 uid_;
+  ::std::string* pwd_;
+  friend void  protobuf_AddDesc_Account_2eproto();
+  friend void protobuf_AssignDesc_Account_2eproto();
+  friend void protobuf_ShutdownFile_Account_2eproto();
+
+  void InitAsDefaultInstance();
+  static LoginRequest* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class LoginResponce : public ::google_lalune::protobuf::Message {
+ public:
+  LoginResponce();
+  virtual ~LoginResponce();
+
+  LoginResponce(const LoginResponce& from);
+
+  inline LoginResponce& operator=(const LoginResponce& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google_lalune::protobuf::Descriptor* descriptor();
+  static const LoginResponce& default_instance();
+
+  void Swap(LoginResponce* other);
+
+  // implements Message ----------------------------------------------
+
+  LoginResponce* New() const;
+  void CopyFrom(const ::google_lalune::protobuf::Message& from);
+  void MergeFrom(const ::google_lalune::protobuf::Message& from);
+  void CopyFrom(const LoginResponce& from);
+  void MergeFrom(const LoginResponce& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google_lalune::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
+  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google_lalune::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 code = 1;
+  inline bool has_code() const;
+  inline void clear_code();
+  static const int kCodeFieldNumber = 1;
+  inline ::google_lalune::protobuf::int32 code() const;
+  inline void set_code(::google_lalune::protobuf::int32 value);
+
+  // optional string errorString = 2;
+  inline bool has_errorstring() const;
+  inline void clear_errorstring();
+  static const int kErrorStringFieldNumber = 2;
+  inline const ::std::string& errorstring() const;
+  inline void set_errorstring(const ::std::string& value);
+  inline void set_errorstring(const char* value);
+  inline void set_errorstring(const char* value, size_t size);
+  inline ::std::string* mutable_errorstring();
+  inline ::std::string* release_errorstring();
+  inline void set_allocated_errorstring(::std::string* errorstring);
+
+  // @@protoc_insertion_point(class_scope:lalune.LoginResponce)
+ private:
+  inline void set_has_code();
+  inline void clear_has_code();
+  inline void set_has_errorstring();
+  inline void clear_has_errorstring();
+
+  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google_lalune::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::std::string* errorstring_;
+  ::google_lalune::protobuf::int32 code_;
+  friend void  protobuf_AddDesc_Account_2eproto();
+  friend void protobuf_AssignDesc_Account_2eproto();
+  friend void protobuf_ShutdownFile_Account_2eproto();
+
+  void InitAsDefaultInstance();
+  static LoginResponce* default_instance_;
 };
 // ===================================================================
 
@@ -308,6 +513,290 @@ inline void AutoRegisterResponce::set_uid(::google_lalune::protobuf::int64 value
   set_has_uid();
   uid_ = value;
   // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.uid)
+}
+
+// required string pwd = 2;
+inline bool AutoRegisterResponce::has_pwd() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void AutoRegisterResponce::set_has_pwd() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void AutoRegisterResponce::clear_has_pwd() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void AutoRegisterResponce::clear_pwd() {
+  if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_->clear();
+  }
+  clear_has_pwd();
+}
+inline const ::std::string& AutoRegisterResponce::pwd() const {
+  // @@protoc_insertion_point(field_get:lalune.AutoRegisterResponce.pwd)
+  return *pwd_;
+}
+inline void AutoRegisterResponce::set_pwd(const ::std::string& value) {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  pwd_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.pwd)
+}
+inline void AutoRegisterResponce::set_pwd(const char* value) {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  pwd_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.AutoRegisterResponce.pwd)
+}
+inline void AutoRegisterResponce::set_pwd(const char* value, size_t size) {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  pwd_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.AutoRegisterResponce.pwd)
+}
+inline ::std::string* AutoRegisterResponce::mutable_pwd() {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:lalune.AutoRegisterResponce.pwd)
+  return pwd_;
+}
+inline ::std::string* AutoRegisterResponce::release_pwd() {
+  clear_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = pwd_;
+    pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void AutoRegisterResponce::set_allocated_pwd(::std::string* pwd) {
+  if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete pwd_;
+  }
+  if (pwd) {
+    set_has_pwd();
+    pwd_ = pwd;
+  } else {
+    clear_has_pwd();
+    pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:lalune.AutoRegisterResponce.pwd)
+}
+
+// -------------------------------------------------------------------
+
+// LoginRequest
+
+// required int64 uid = 1;
+inline bool LoginRequest::has_uid() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LoginRequest::set_has_uid() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LoginRequest::clear_has_uid() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LoginRequest::clear_uid() {
+  uid_ = GOOGLE_LONGLONG(0);
+  clear_has_uid();
+}
+inline ::google_lalune::protobuf::int64 LoginRequest::uid() const {
+  // @@protoc_insertion_point(field_get:lalune.LoginRequest.uid)
+  return uid_;
+}
+inline void LoginRequest::set_uid(::google_lalune::protobuf::int64 value) {
+  set_has_uid();
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:lalune.LoginRequest.uid)
+}
+
+// required string pwd = 2;
+inline bool LoginRequest::has_pwd() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LoginRequest::set_has_pwd() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LoginRequest::clear_has_pwd() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LoginRequest::clear_pwd() {
+  if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_->clear();
+  }
+  clear_has_pwd();
+}
+inline const ::std::string& LoginRequest::pwd() const {
+  // @@protoc_insertion_point(field_get:lalune.LoginRequest.pwd)
+  return *pwd_;
+}
+inline void LoginRequest::set_pwd(const ::std::string& value) {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  pwd_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.LoginRequest.pwd)
+}
+inline void LoginRequest::set_pwd(const char* value) {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  pwd_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.LoginRequest.pwd)
+}
+inline void LoginRequest::set_pwd(const char* value, size_t size) {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  pwd_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.LoginRequest.pwd)
+}
+inline ::std::string* LoginRequest::mutable_pwd() {
+  set_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    pwd_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:lalune.LoginRequest.pwd)
+  return pwd_;
+}
+inline ::std::string* LoginRequest::release_pwd() {
+  clear_has_pwd();
+  if (pwd_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = pwd_;
+    pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void LoginRequest::set_allocated_pwd(::std::string* pwd) {
+  if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete pwd_;
+  }
+  if (pwd) {
+    set_has_pwd();
+    pwd_ = pwd;
+  } else {
+    clear_has_pwd();
+    pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:lalune.LoginRequest.pwd)
+}
+
+// -------------------------------------------------------------------
+
+// LoginResponce
+
+// required int32 code = 1;
+inline bool LoginResponce::has_code() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void LoginResponce::set_has_code() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void LoginResponce::clear_has_code() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void LoginResponce::clear_code() {
+  code_ = 0;
+  clear_has_code();
+}
+inline ::google_lalune::protobuf::int32 LoginResponce::code() const {
+  // @@protoc_insertion_point(field_get:lalune.LoginResponce.code)
+  return code_;
+}
+inline void LoginResponce::set_code(::google_lalune::protobuf::int32 value) {
+  set_has_code();
+  code_ = value;
+  // @@protoc_insertion_point(field_set:lalune.LoginResponce.code)
+}
+
+// optional string errorString = 2;
+inline bool LoginResponce::has_errorstring() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void LoginResponce::set_has_errorstring() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void LoginResponce::clear_has_errorstring() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void LoginResponce::clear_errorstring() {
+  if (errorstring_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errorstring_->clear();
+  }
+  clear_has_errorstring();
+}
+inline const ::std::string& LoginResponce::errorstring() const {
+  // @@protoc_insertion_point(field_get:lalune.LoginResponce.errorString)
+  return *errorstring_;
+}
+inline void LoginResponce::set_errorstring(const ::std::string& value) {
+  set_has_errorstring();
+  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errorstring_ = new ::std::string;
+  }
+  errorstring_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.LoginResponce.errorString)
+}
+inline void LoginResponce::set_errorstring(const char* value) {
+  set_has_errorstring();
+  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errorstring_ = new ::std::string;
+  }
+  errorstring_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.LoginResponce.errorString)
+}
+inline void LoginResponce::set_errorstring(const char* value, size_t size) {
+  set_has_errorstring();
+  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errorstring_ = new ::std::string;
+  }
+  errorstring_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.LoginResponce.errorString)
+}
+inline ::std::string* LoginResponce::mutable_errorstring() {
+  set_has_errorstring();
+  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    errorstring_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:lalune.LoginResponce.errorString)
+  return errorstring_;
+}
+inline ::std::string* LoginResponce::release_errorstring() {
+  clear_has_errorstring();
+  if (errorstring_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = errorstring_;
+    errorstring_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void LoginResponce::set_allocated_errorstring(::std::string* errorstring) {
+  if (errorstring_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete errorstring_;
+  }
+  if (errorstring) {
+    set_has_errorstring();
+    errorstring_ = errorstring;
+  } else {
+    clear_has_errorstring();
+    errorstring_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:lalune.LoginResponce.errorString)
 }
 
 
