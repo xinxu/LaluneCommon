@@ -11,6 +11,7 @@
 #define MSG_RESERVED(d) (*(uint16_t*)((d) + 14))
 #define MSG_HEADER_BASE_SIZE (16)
 #define MSG_DATA(d) ((d) + MSG_HEADER_BASE_SIZE)
+#define MSG_DATA_LEN(d) (MSG_LENGTH(d) - MSG_HEADER_BASE_SIZE)
 
 //约定：偶数的都是发到服务器的包，奇数的都是服务器发出去的
 
