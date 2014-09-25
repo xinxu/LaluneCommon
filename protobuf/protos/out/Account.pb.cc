@@ -102,7 +102,7 @@ void protobuf_AddDesc_Account_2eproto() {
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rAccount.proto\022\006lalune\"#\n\023AutoRegisterR"
     "equest\022\014\n\004nick\030\001 \002(\t\"#\n\024AutoRegisterResp"
-    "once\022\013\n\003uid\030\001 \002(\t", 97);
+    "once\022\013\n\003uid\030\001 \002(\003", 97);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Account.proto", &protobuf_RegisterTypes);
   AutoRegisterRequest::default_instance_ = new AutoRegisterRequest();
@@ -386,9 +386,8 @@ AutoRegisterResponce::AutoRegisterResponce(const AutoRegisterResponce& from)
 }
 
 void AutoRegisterResponce::SharedCtor() {
-  ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  uid_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  uid_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -398,9 +397,6 @@ AutoRegisterResponce::~AutoRegisterResponce() {
 }
 
 void AutoRegisterResponce::SharedDtor() {
-  if (uid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete uid_;
-  }
   if (this != default_instance_) {
   }
 }
@@ -427,11 +423,7 @@ AutoRegisterResponce* AutoRegisterResponce::New() const {
 }
 
 void AutoRegisterResponce::Clear() {
-  if (has_uid()) {
-    if (uid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-      uid_->clear();
-    }
-  }
+  uid_ = GOOGLE_LONGLONG(0);
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -446,15 +438,13 @@ bool AutoRegisterResponce::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required string uid = 1;
+      // required int64 uid = 1;
       case 1: {
-        if (tag == 10) {
-          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_uid()));
-          ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->uid().data(), this->uid().length(),
-            ::google_lalune::protobuf::internal::WireFormat::PARSE,
-            "uid");
+        if (tag == 8) {
+          DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google_lalune::protobuf::int64, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                 input, &uid_)));
+          set_has_uid();
         } else {
           goto handle_unusual;
         }
@@ -487,14 +477,9 @@ failure:
 void AutoRegisterResponce::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:lalune.AutoRegisterResponce)
-  // required string uid = 1;
+  // required int64 uid = 1;
   if (has_uid()) {
-    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->uid().data(), this->uid().length(),
-      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
-      "uid");
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->uid(), output);
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64(1, this->uid(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -507,15 +492,9 @@ void AutoRegisterResponce::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* AutoRegisterResponce::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:lalune.AutoRegisterResponce)
-  // required string uid = 1;
+  // required int64 uid = 1;
   if (has_uid()) {
-    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->uid().data(), this->uid().length(),
-      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
-      "uid");
-    target =
-      ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->uid(), target);
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->uid(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -530,10 +509,10 @@ int AutoRegisterResponce::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required string uid = 1;
+    // required int64 uid = 1;
     if (has_uid()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
+        ::google_lalune::protobuf::internal::WireFormatLite::Int64Size(
           this->uid());
     }
 

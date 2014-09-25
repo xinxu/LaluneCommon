@@ -175,17 +175,12 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required string uid = 1;
+  // required int64 uid = 1;
   inline bool has_uid() const;
   inline void clear_uid();
   static const int kUidFieldNumber = 1;
-  inline const ::std::string& uid() const;
-  inline void set_uid(const ::std::string& value);
-  inline void set_uid(const char* value);
-  inline void set_uid(const char* value, size_t size);
-  inline ::std::string* mutable_uid();
-  inline ::std::string* release_uid();
-  inline void set_allocated_uid(::std::string* uid);
+  inline ::google_lalune::protobuf::int64 uid() const;
+  inline void set_uid(::google_lalune::protobuf::int64 value);
 
   // @@protoc_insertion_point(class_scope:lalune.AutoRegisterResponce)
  private:
@@ -196,7 +191,7 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::std::string* uid_;
+  ::google_lalune::protobuf::int64 uid_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
   friend void protobuf_ShutdownFile_Account_2eproto();
@@ -291,7 +286,7 @@ inline void AutoRegisterRequest::set_allocated_nick(::std::string* nick) {
 
 // AutoRegisterResponce
 
-// required string uid = 1;
+// required int64 uid = 1;
 inline bool AutoRegisterResponce::has_uid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -302,69 +297,17 @@ inline void AutoRegisterResponce::clear_has_uid() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void AutoRegisterResponce::clear_uid() {
-  if (uid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    uid_->clear();
-  }
+  uid_ = GOOGLE_LONGLONG(0);
   clear_has_uid();
 }
-inline const ::std::string& AutoRegisterResponce::uid() const {
+inline ::google_lalune::protobuf::int64 AutoRegisterResponce::uid() const {
   // @@protoc_insertion_point(field_get:lalune.AutoRegisterResponce.uid)
-  return *uid_;
-}
-inline void AutoRegisterResponce::set_uid(const ::std::string& value) {
-  set_has_uid();
-  if (uid_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    uid_ = new ::std::string;
-  }
-  uid_->assign(value);
-  // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.uid)
-}
-inline void AutoRegisterResponce::set_uid(const char* value) {
-  set_has_uid();
-  if (uid_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    uid_ = new ::std::string;
-  }
-  uid_->assign(value);
-  // @@protoc_insertion_point(field_set_char:lalune.AutoRegisterResponce.uid)
-}
-inline void AutoRegisterResponce::set_uid(const char* value, size_t size) {
-  set_has_uid();
-  if (uid_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    uid_ = new ::std::string;
-  }
-  uid_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:lalune.AutoRegisterResponce.uid)
-}
-inline ::std::string* AutoRegisterResponce::mutable_uid() {
-  set_has_uid();
-  if (uid_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    uid_ = new ::std::string;
-  }
-  // @@protoc_insertion_point(field_mutable:lalune.AutoRegisterResponce.uid)
   return uid_;
 }
-inline ::std::string* AutoRegisterResponce::release_uid() {
-  clear_has_uid();
-  if (uid_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    return NULL;
-  } else {
-    ::std::string* temp = uid_;
-    uid_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-    return temp;
-  }
-}
-inline void AutoRegisterResponce::set_allocated_uid(::std::string* uid) {
-  if (uid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete uid_;
-  }
-  if (uid) {
-    set_has_uid();
-    uid_ = uid;
-  } else {
-    clear_has_uid();
-    uid_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-  }
-  // @@protoc_insertion_point(field_set_allocated:lalune.AutoRegisterResponce.uid)
+inline void AutoRegisterResponce::set_uid(::google_lalune::protobuf::int64 value) {
+  set_has_uid();
+  uid_ = value;
+  // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.uid)
 }
 
 
