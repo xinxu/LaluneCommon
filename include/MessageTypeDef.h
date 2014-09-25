@@ -1,4 +1,4 @@
-﻿#ifndef __COMMON_HEADER_H_
+#ifndef __COMMON_HEADER_H_
 #define __COMMON_HEADER_H_
 
 //客户端包头定义
@@ -27,6 +27,8 @@
 //消息类型：登陆服务（用户账号服务）相关
 #define MSG_TYPE_REGISTER (20000)
 #define MSG_TYPE_REGISTER_RESULT (20001)
+#define MSG_TYPE_AUTOREGISTER (20002)
+#define MSG_TYPE_AUTOREGISTER_RESULT (20003)
 
 
 //消息类型：控制服务相关（这些其实只在和控制服务的连接里发）
