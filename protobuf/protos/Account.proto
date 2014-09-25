@@ -1,12 +1,22 @@
 package lalune;
 
+message RandomNickRequest {
+	required int32 gender = 1;
+}
+
+message RandomNickResponce {
+	required string nick = 1;
+}
+
 message AutoRegisterRequest {
 	required string nick = 1;
 }
 
 message AutoRegisterResponce {
-	required int64 uid = 1;
-	required string pwd = 2;
+	required int32 code = 1;
+	optional int64 uid = 2;
+	optional string pwd = 3;
+	optional string errStr = 4;
 }
 
 message LoginRequest {
@@ -16,5 +26,5 @@ message LoginRequest {
 
 message LoginResponce {
 	required int32 code = 1;
-	optional string errorString = 2;
+	optional string errStr = 2;
 }
