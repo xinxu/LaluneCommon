@@ -6,4 +6,15 @@ message AutoRegisterRequest {
 
 message AutoRegisterResponce {
 	required int64 uid = 1;
+	required string pwd = 2;
+}
+
+message LoginRequest {
+	required int64 uid = 1;
+	required string pwd = 2;
+}
+
+message LoginResponce {
+	required int32 code = 1;
+	optional string errorString = 2;
 }
