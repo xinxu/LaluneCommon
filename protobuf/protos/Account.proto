@@ -1,0 +1,9 @@
+package lalune;
+
+message AutoRegisterRequest {
+	required string nick = 1;
+}
+
+message AutoRegisterResponce {
+	required string uid = 1;
+}
