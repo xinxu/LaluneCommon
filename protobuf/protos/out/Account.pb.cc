@@ -194,13 +194,13 @@ void protobuf_AddDesc_Account_2eproto() {
 
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\rAccount.proto\022\006lalune\"#\n\021RandomNickReq"
-    "uest\022\016\n\006gender\030\001 \002(\005\"\"\n\022RandomNickRespon"
+    "uest\022\016\n\006gender\030\001 \002(\r\"\"\n\022RandomNickRespon"
     "ce\022\014\n\004nick\030\001 \002(\t\"#\n\023AutoRegisterRequest\022"
     "\014\n\004nick\030\001 \002(\t\"N\n\024AutoRegisterResponce\022\014\n"
-    "\004code\030\001 \002(\005\022\013\n\003uid\030\002 \001(\003\022\013\n\003pwd\030\003 \001(\t\022\016\n"
+    "\004code\030\001 \002(\r\022\013\n\003uid\030\002 \001(\r\022\013\n\003pwd\030\003 \001(\t\022\016\n"
     "\006errStr\030\004 \001(\t\"(\n\014LoginRequest\022\013\n\003uid\030\001 \002"
-    "(\003\022\013\n\003pwd\030\002 \002(\t\"-\n\rLoginResponce\022\014\n\004code"
-    "\030\001 \002(\005\022\016\n\006errStr\030\002 \001(\t", 302);
+    "(\r\022\013\n\003pwd\030\002 \002(\t\"-\n\rLoginResponce\022\014\n\004code"
+    "\030\001 \002(\r\022\016\n\006errStr\030\002 \001(\t", 302);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Account.proto", &protobuf_RegisterTypes);
   RandomNickRequest::default_instance_ = new RandomNickRequest();
@@ -249,7 +249,7 @@ RandomNickRequest::RandomNickRequest(const RandomNickRequest& from)
 
 void RandomNickRequest::SharedCtor() {
   _cached_size_ = 0;
-  gender_ = 0;
+  gender_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -285,7 +285,7 @@ RandomNickRequest* RandomNickRequest::New() const {
 }
 
 void RandomNickRequest::Clear() {
-  gender_ = 0;
+  gender_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -300,11 +300,11 @@ bool RandomNickRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 gender = 1;
+      // required uint32 gender = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::int32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &gender_)));
           set_has_gender();
         } else {
@@ -339,9 +339,9 @@ failure:
 void RandomNickRequest::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:lalune.RandomNickRequest)
-  // required int32 gender = 1;
+  // required uint32 gender = 1;
   if (has_gender()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->gender(), output);
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(1, this->gender(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -354,9 +354,9 @@ void RandomNickRequest::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* RandomNickRequest::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:lalune.RandomNickRequest)
-  // required int32 gender = 1;
+  // required uint32 gender = 1;
   if (has_gender()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->gender(), target);
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->gender(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -371,10 +371,10 @@ int RandomNickRequest::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int32 gender = 1;
+    // required uint32 gender = 1;
     if (has_gender()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::Int32Size(
+        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
           this->gender());
     }
 
@@ -964,8 +964,8 @@ AutoRegisterResponce::AutoRegisterResponce(const AutoRegisterResponce& from)
 void AutoRegisterResponce::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  code_ = 0;
-  uid_ = GOOGLE_LONGLONG(0);
+  code_ = 0u;
+  uid_ = 0u;
   pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -1009,9 +1009,18 @@ AutoRegisterResponce* AutoRegisterResponce::New() const {
 }
 
 void AutoRegisterResponce::Clear() {
+#define OFFSET_OF_FIELD_(f) (reinterpret_cast<char*>(      \
+  &reinterpret_cast<AutoRegisterResponce*>(16)->f) - \
+   reinterpret_cast<char*>(16))
+
+#define ZR_(first, last) do {                              \
+    size_t f = OFFSET_OF_FIELD_(first);                    \
+    size_t n = OFFSET_OF_FIELD_(last) - f + sizeof(last);  \
+    ::memset(&first, 0, n);                                \
+  } while (0)
+
   if (_has_bits_[0 / 32] & 15) {
-    code_ = 0;
-    uid_ = GOOGLE_LONGLONG(0);
+    ZR_(code_, uid_);
     if (has_pwd()) {
       if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
         pwd_->clear();
@@ -1023,6 +1032,10 @@ void AutoRegisterResponce::Clear() {
       }
     }
   }
+
+#undef OFFSET_OF_FIELD_
+#undef ZR_
+
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1037,11 +1050,11 @@ bool AutoRegisterResponce::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 code = 1;
+      // required uint32 code = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::int32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &code_)));
           set_has_code();
         } else {
@@ -1051,12 +1064,12 @@ bool AutoRegisterResponce::MergePartialFromCodedStream(
         break;
       }
 
-      // optional int64 uid = 2;
+      // optional uint32 uid = 2;
       case 2: {
         if (tag == 16) {
          parse_uid:
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::int64, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &uid_)));
           set_has_uid();
         } else {
@@ -1125,14 +1138,14 @@ failure:
 void AutoRegisterResponce::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:lalune.AutoRegisterResponce)
-  // required int32 code = 1;
+  // required uint32 code = 1;
   if (has_code()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->code(), output);
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(1, this->code(), output);
   }
 
-  // optional int64 uid = 2;
+  // optional uint32 uid = 2;
   if (has_uid()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64(2, this->uid(), output);
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(2, this->uid(), output);
   }
 
   // optional string pwd = 3;
@@ -1165,14 +1178,14 @@ void AutoRegisterResponce::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* AutoRegisterResponce::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:lalune.AutoRegisterResponce)
-  // required int32 code = 1;
+  // required uint32 code = 1;
   if (has_code()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->code(), target);
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->code(), target);
   }
 
-  // optional int64 uid = 2;
+  // optional uint32 uid = 2;
   if (has_uid()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64ToArray(2, this->uid(), target);
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(2, this->uid(), target);
   }
 
   // optional string pwd = 3;
@@ -1209,17 +1222,17 @@ int AutoRegisterResponce::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int32 code = 1;
+    // required uint32 code = 1;
     if (has_code()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::Int32Size(
+        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
           this->code());
     }
 
-    // optional int64 uid = 2;
+    // optional uint32 uid = 2;
     if (has_uid()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::Int64Size(
+        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
           this->uid());
     }
 
@@ -1345,7 +1358,7 @@ LoginRequest::LoginRequest(const LoginRequest& from)
 void LoginRequest::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  uid_ = GOOGLE_LONGLONG(0);
+  uid_ = 0u;
   pwd_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1386,7 +1399,7 @@ LoginRequest* LoginRequest::New() const {
 
 void LoginRequest::Clear() {
   if (_has_bits_[0 / 32] & 3) {
-    uid_ = GOOGLE_LONGLONG(0);
+    uid_ = 0u;
     if (has_pwd()) {
       if (pwd_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
         pwd_->clear();
@@ -1407,11 +1420,11 @@ bool LoginRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int64 uid = 1;
+      // required uint32 uid = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::int64, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT64>(
+                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &uid_)));
           set_has_uid();
         } else {
@@ -1463,9 +1476,9 @@ failure:
 void LoginRequest::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:lalune.LoginRequest)
-  // required int64 uid = 1;
+  // required uint32 uid = 1;
   if (has_uid()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64(1, this->uid(), output);
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(1, this->uid(), output);
   }
 
   // required string pwd = 2;
@@ -1488,9 +1501,9 @@ void LoginRequest::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* LoginRequest::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:lalune.LoginRequest)
-  // required int64 uid = 1;
+  // required uint32 uid = 1;
   if (has_uid()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt64ToArray(1, this->uid(), target);
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->uid(), target);
   }
 
   // required string pwd = 2;
@@ -1516,10 +1529,10 @@ int LoginRequest::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int64 uid = 1;
+    // required uint32 uid = 1;
     if (has_uid()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::Int64Size(
+        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
           this->uid());
     }
 
@@ -1630,7 +1643,7 @@ LoginResponce::LoginResponce(const LoginResponce& from)
 void LoginResponce::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  code_ = 0;
+  code_ = 0u;
   errstr_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1671,7 +1684,7 @@ LoginResponce* LoginResponce::New() const {
 
 void LoginResponce::Clear() {
   if (_has_bits_[0 / 32] & 3) {
-    code_ = 0;
+    code_ = 0u;
     if (has_errstr()) {
       if (errstr_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
         errstr_->clear();
@@ -1692,11 +1705,11 @@ bool LoginResponce::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 code = 1;
+      // required uint32 code = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::int32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
                  input, &code_)));
           set_has_code();
         } else {
@@ -1748,9 +1761,9 @@ failure:
 void LoginResponce::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:lalune.LoginResponce)
-  // required int32 code = 1;
+  // required uint32 code = 1;
   if (has_code()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->code(), output);
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(1, this->code(), output);
   }
 
   // optional string errStr = 2;
@@ -1773,9 +1786,9 @@ void LoginResponce::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* LoginResponce::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:lalune.LoginResponce)
-  // required int32 code = 1;
+  // required uint32 code = 1;
   if (has_code()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->code(), target);
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->code(), target);
   }
 
   // optional string errStr = 2;
@@ -1801,10 +1814,10 @@ int LoginResponce::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int32 code = 1;
+    // required uint32 code = 1;
     if (has_code()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::Int32Size(
+        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
           this->code());
     }
 

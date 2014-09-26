@@ -5,11 +5,11 @@
 
 #define MSG_LENGTH(d) (*(uint32_t*)(d))
 #define MSG_TYPE(d) (*(uint32_t*)((d) + 4))
-#define MSG_OPERATION_ID(d) (*(uint32_t*)((d) + 8))
-#define MSG_ERROR(d) (*(uint8_t*)((d) + 12)) //后端服务给前端服务返回的错误。如果有错误，那么默认后面的Protobuf就没有了，除非另有约定
-#define MSG_ENCRYPTION_TYPE(d) (*(uint8_t*)((d) + 13))
-#define MSG_RESERVED(d) (*(uint16_t*)((d) + 14))
-#define MSG_HEADER_BASE_SIZE (16)
+#define MSG_AFTER_TYPE_POS (8)
+#define MSG_ERROR(d) (*(uint8_t*)((d) + MSG_AFTER_TYPE_POS)) //后端服务给前端服务返回的错误。如果有错误，那么默认后面的Protobuf就没有了，除非另有约定
+#define MSG_ENCRYPTION_TYPE(d) (*(uint8_t*)((d) + MSG_AFTER_TYPE_POS + 1))
+#define MSG_RESERVED(d) (*(uint16_t*)((d) + MSG_AFTER_TYPE_POS + 2))
+#define MSG_HEADER_BASE_SIZE (MSG_AFTER_TYPE_POS + 4)
 #define MSG_DATA(d) ((d) + MSG_HEADER_BASE_SIZE)
 #define MSG_DATA_LEN(d) (MSG_LENGTH(d) - MSG_HEADER_BASE_SIZE)
 

@@ -95,12 +95,12 @@ class RandomNickRequest : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int32 gender = 1;
+  // required uint32 gender = 1;
   inline bool has_gender() const;
   inline void clear_gender();
   static const int kGenderFieldNumber = 1;
-  inline ::google_lalune::protobuf::int32 gender() const;
-  inline void set_gender(::google_lalune::protobuf::int32 value);
+  inline ::google_lalune::protobuf::uint32 gender() const;
+  inline void set_gender(::google_lalune::protobuf::uint32 value);
 
   // @@protoc_insertion_point(class_scope:lalune.RandomNickRequest)
  private:
@@ -111,7 +111,7 @@ class RandomNickRequest : public ::google_lalune::protobuf::Message {
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google_lalune::protobuf::int32 gender_;
+  ::google_lalune::protobuf::uint32 gender_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
   friend void protobuf_ShutdownFile_Account_2eproto();
@@ -342,19 +342,19 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int32 code = 1;
+  // required uint32 code = 1;
   inline bool has_code() const;
   inline void clear_code();
   static const int kCodeFieldNumber = 1;
-  inline ::google_lalune::protobuf::int32 code() const;
-  inline void set_code(::google_lalune::protobuf::int32 value);
+  inline ::google_lalune::protobuf::uint32 code() const;
+  inline void set_code(::google_lalune::protobuf::uint32 value);
 
-  // optional int64 uid = 2;
+  // optional uint32 uid = 2;
   inline bool has_uid() const;
   inline void clear_uid();
   static const int kUidFieldNumber = 2;
-  inline ::google_lalune::protobuf::int64 uid() const;
-  inline void set_uid(::google_lalune::protobuf::int64 value);
+  inline ::google_lalune::protobuf::uint32 uid() const;
+  inline void set_uid(::google_lalune::protobuf::uint32 value);
 
   // optional string pwd = 3;
   inline bool has_pwd() const;
@@ -395,10 +395,10 @@ class AutoRegisterResponce : public ::google_lalune::protobuf::Message {
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google_lalune::protobuf::int64 uid_;
+  ::google_lalune::protobuf::uint32 code_;
+  ::google_lalune::protobuf::uint32 uid_;
   ::std::string* pwd_;
   ::std::string* errstr_;
-  ::google_lalune::protobuf::int32 code_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
   friend void protobuf_ShutdownFile_Account_2eproto();
@@ -461,12 +461,12 @@ class LoginRequest : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int64 uid = 1;
+  // required uint32 uid = 1;
   inline bool has_uid() const;
   inline void clear_uid();
   static const int kUidFieldNumber = 1;
-  inline ::google_lalune::protobuf::int64 uid() const;
-  inline void set_uid(::google_lalune::protobuf::int64 value);
+  inline ::google_lalune::protobuf::uint32 uid() const;
+  inline void set_uid(::google_lalune::protobuf::uint32 value);
 
   // required string pwd = 2;
   inline bool has_pwd() const;
@@ -491,8 +491,8 @@ class LoginRequest : public ::google_lalune::protobuf::Message {
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google_lalune::protobuf::int64 uid_;
   ::std::string* pwd_;
+  ::google_lalune::protobuf::uint32 uid_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
   friend void protobuf_ShutdownFile_Account_2eproto();
@@ -555,12 +555,12 @@ class LoginResponce : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required int32 code = 1;
+  // required uint32 code = 1;
   inline bool has_code() const;
   inline void clear_code();
   static const int kCodeFieldNumber = 1;
-  inline ::google_lalune::protobuf::int32 code() const;
-  inline void set_code(::google_lalune::protobuf::int32 value);
+  inline ::google_lalune::protobuf::uint32 code() const;
+  inline void set_code(::google_lalune::protobuf::uint32 value);
 
   // optional string errStr = 2;
   inline bool has_errstr() const;
@@ -586,7 +586,7 @@ class LoginResponce : public ::google_lalune::protobuf::Message {
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::std::string* errstr_;
-  ::google_lalune::protobuf::int32 code_;
+  ::google_lalune::protobuf::uint32 code_;
   friend void  protobuf_AddDesc_Account_2eproto();
   friend void protobuf_AssignDesc_Account_2eproto();
   friend void protobuf_ShutdownFile_Account_2eproto();
@@ -601,7 +601,7 @@ class LoginResponce : public ::google_lalune::protobuf::Message {
 
 // RandomNickRequest
 
-// required int32 gender = 1;
+// required uint32 gender = 1;
 inline bool RandomNickRequest::has_gender() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -612,14 +612,14 @@ inline void RandomNickRequest::clear_has_gender() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void RandomNickRequest::clear_gender() {
-  gender_ = 0;
+  gender_ = 0u;
   clear_has_gender();
 }
-inline ::google_lalune::protobuf::int32 RandomNickRequest::gender() const {
+inline ::google_lalune::protobuf::uint32 RandomNickRequest::gender() const {
   // @@protoc_insertion_point(field_get:lalune.RandomNickRequest.gender)
   return gender_;
 }
-inline void RandomNickRequest::set_gender(::google_lalune::protobuf::int32 value) {
+inline void RandomNickRequest::set_gender(::google_lalune::protobuf::uint32 value) {
   set_has_gender();
   gender_ = value;
   // @@protoc_insertion_point(field_set:lalune.RandomNickRequest.gender)
@@ -789,7 +789,7 @@ inline void AutoRegisterRequest::set_allocated_nick(::std::string* nick) {
 
 // AutoRegisterResponce
 
-// required int32 code = 1;
+// required uint32 code = 1;
 inline bool AutoRegisterResponce::has_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -800,20 +800,20 @@ inline void AutoRegisterResponce::clear_has_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void AutoRegisterResponce::clear_code() {
-  code_ = 0;
+  code_ = 0u;
   clear_has_code();
 }
-inline ::google_lalune::protobuf::int32 AutoRegisterResponce::code() const {
+inline ::google_lalune::protobuf::uint32 AutoRegisterResponce::code() const {
   // @@protoc_insertion_point(field_get:lalune.AutoRegisterResponce.code)
   return code_;
 }
-inline void AutoRegisterResponce::set_code(::google_lalune::protobuf::int32 value) {
+inline void AutoRegisterResponce::set_code(::google_lalune::protobuf::uint32 value) {
   set_has_code();
   code_ = value;
   // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.code)
 }
 
-// optional int64 uid = 2;
+// optional uint32 uid = 2;
 inline bool AutoRegisterResponce::has_uid() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -824,14 +824,14 @@ inline void AutoRegisterResponce::clear_has_uid() {
   _has_bits_[0] &= ~0x00000002u;
 }
 inline void AutoRegisterResponce::clear_uid() {
-  uid_ = GOOGLE_LONGLONG(0);
+  uid_ = 0u;
   clear_has_uid();
 }
-inline ::google_lalune::protobuf::int64 AutoRegisterResponce::uid() const {
+inline ::google_lalune::protobuf::uint32 AutoRegisterResponce::uid() const {
   // @@protoc_insertion_point(field_get:lalune.AutoRegisterResponce.uid)
   return uid_;
 }
-inline void AutoRegisterResponce::set_uid(::google_lalune::protobuf::int64 value) {
+inline void AutoRegisterResponce::set_uid(::google_lalune::protobuf::uint32 value) {
   set_has_uid();
   uid_ = value;
   // @@protoc_insertion_point(field_set:lalune.AutoRegisterResponce.uid)
@@ -993,7 +993,7 @@ inline void AutoRegisterResponce::set_allocated_errstr(::std::string* errstr) {
 
 // LoginRequest
 
-// required int64 uid = 1;
+// required uint32 uid = 1;
 inline bool LoginRequest::has_uid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1004,14 +1004,14 @@ inline void LoginRequest::clear_has_uid() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void LoginRequest::clear_uid() {
-  uid_ = GOOGLE_LONGLONG(0);
+  uid_ = 0u;
   clear_has_uid();
 }
-inline ::google_lalune::protobuf::int64 LoginRequest::uid() const {
+inline ::google_lalune::protobuf::uint32 LoginRequest::uid() const {
   // @@protoc_insertion_point(field_get:lalune.LoginRequest.uid)
   return uid_;
 }
-inline void LoginRequest::set_uid(::google_lalune::protobuf::int64 value) {
+inline void LoginRequest::set_uid(::google_lalune::protobuf::uint32 value) {
   set_has_uid();
   uid_ = value;
   // @@protoc_insertion_point(field_set:lalune.LoginRequest.uid)
@@ -1097,7 +1097,7 @@ inline void LoginRequest::set_allocated_pwd(::std::string* pwd) {
 
 // LoginResponce
 
-// required int32 code = 1;
+// required uint32 code = 1;
 inline bool LoginResponce::has_code() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1108,14 +1108,14 @@ inline void LoginResponce::clear_has_code() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void LoginResponce::clear_code() {
-  code_ = 0;
+  code_ = 0u;
   clear_has_code();
 }
-inline ::google_lalune::protobuf::int32 LoginResponce::code() const {
+inline ::google_lalune::protobuf::uint32 LoginResponce::code() const {
   // @@protoc_insertion_point(field_get:lalune.LoginResponce.code)
   return code_;
 }
-inline void LoginResponce::set_code(::google_lalune::protobuf::int32 value) {
+inline void LoginResponce::set_code(::google_lalune::protobuf::uint32 value) {
   set_has_code();
   code_ = value;
   // @@protoc_insertion_point(field_set:lalune.LoginResponce.code)
