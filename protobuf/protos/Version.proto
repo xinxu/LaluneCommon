@@ -1,0 +1,24 @@
+package lalune;
+
+message CheckVersion {
+	required string version_name	= 1;
+}
+
+message VersionFile {
+	optional string url_prefix	= 2;
+	required string file_path	= 1;
+}
+
+message CheckVersionResult {	
+	required uint32 need_update	= 3;
+	optional string url_prefix	= 2;
+	repeated VersionFile file	= 1;
+}
+
+message AddVersion {
+	required string version_from	= 2;
+	required string version_to		= 3;
+	optional uint32 flag_mask		= 5;
+	optional string url_prefix	= 4;
+	repeated VersionFile file	= 1;
+}
