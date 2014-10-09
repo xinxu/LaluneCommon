@@ -276,12 +276,17 @@ class CheckVersionResult : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required uint32 need_update = 3;
-  inline bool has_need_update() const;
-  inline void clear_need_update();
-  static const int kNeedUpdateFieldNumber = 3;
-  inline ::google_lalune::protobuf::uint32 need_update() const;
-  inline void set_need_update(::google_lalune::protobuf::uint32 value);
+  // optional string now_version = 3;
+  inline bool has_now_version() const;
+  inline void clear_now_version();
+  static const int kNowVersionFieldNumber = 3;
+  inline const ::std::string& now_version() const;
+  inline void set_now_version(const ::std::string& value);
+  inline void set_now_version(const char* value);
+  inline void set_now_version(const char* value, size_t size);
+  inline ::std::string* mutable_now_version();
+  inline ::std::string* release_now_version();
+  inline void set_allocated_now_version(::std::string* now_version);
 
   // optional string url_prefix = 2;
   inline bool has_url_prefix() const;
@@ -309,8 +314,8 @@ class CheckVersionResult : public ::google_lalune::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:lalune.CheckVersionResult)
  private:
-  inline void set_has_need_update();
-  inline void clear_has_need_update();
+  inline void set_has_now_version();
+  inline void clear_has_now_version();
   inline void set_has_url_prefix();
   inline void clear_has_url_prefix();
 
@@ -318,9 +323,9 @@ class CheckVersionResult : public ::google_lalune::protobuf::Message {
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
+  ::std::string* now_version_;
   ::std::string* url_prefix_;
   ::google_lalune::protobuf::RepeatedPtrField< ::lalune::VersionFile > file_;
-  ::google_lalune::protobuf::uint32 need_update_;
   friend void  protobuf_AddDesc_Version_2eproto();
   friend void protobuf_AssignDesc_Version_2eproto();
   friend void protobuf_ShutdownFile_Version_2eproto();
@@ -708,28 +713,80 @@ inline void VersionFile::set_allocated_file_path(::std::string* file_path) {
 
 // CheckVersionResult
 
-// required uint32 need_update = 3;
-inline bool CheckVersionResult::has_need_update() const {
+// optional string now_version = 3;
+inline bool CheckVersionResult::has_now_version() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void CheckVersionResult::set_has_need_update() {
+inline void CheckVersionResult::set_has_now_version() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void CheckVersionResult::clear_has_need_update() {
+inline void CheckVersionResult::clear_has_now_version() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void CheckVersionResult::clear_need_update() {
-  need_update_ = 0u;
-  clear_has_need_update();
+inline void CheckVersionResult::clear_now_version() {
+  if (now_version_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    now_version_->clear();
+  }
+  clear_has_now_version();
 }
-inline ::google_lalune::protobuf::uint32 CheckVersionResult::need_update() const {
-  // @@protoc_insertion_point(field_get:lalune.CheckVersionResult.need_update)
-  return need_update_;
+inline const ::std::string& CheckVersionResult::now_version() const {
+  // @@protoc_insertion_point(field_get:lalune.CheckVersionResult.now_version)
+  return *now_version_;
 }
-inline void CheckVersionResult::set_need_update(::google_lalune::protobuf::uint32 value) {
-  set_has_need_update();
-  need_update_ = value;
-  // @@protoc_insertion_point(field_set:lalune.CheckVersionResult.need_update)
+inline void CheckVersionResult::set_now_version(const ::std::string& value) {
+  set_has_now_version();
+  if (now_version_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    now_version_ = new ::std::string;
+  }
+  now_version_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.CheckVersionResult.now_version)
+}
+inline void CheckVersionResult::set_now_version(const char* value) {
+  set_has_now_version();
+  if (now_version_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    now_version_ = new ::std::string;
+  }
+  now_version_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.CheckVersionResult.now_version)
+}
+inline void CheckVersionResult::set_now_version(const char* value, size_t size) {
+  set_has_now_version();
+  if (now_version_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    now_version_ = new ::std::string;
+  }
+  now_version_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.CheckVersionResult.now_version)
+}
+inline ::std::string* CheckVersionResult::mutable_now_version() {
+  set_has_now_version();
+  if (now_version_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    now_version_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:lalune.CheckVersionResult.now_version)
+  return now_version_;
+}
+inline ::std::string* CheckVersionResult::release_now_version() {
+  clear_has_now_version();
+  if (now_version_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = now_version_;
+    now_version_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void CheckVersionResult::set_allocated_now_version(::std::string* now_version) {
+  if (now_version_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete now_version_;
+  }
+  if (now_version) {
+    set_has_now_version();
+    now_version_ = now_version;
+  } else {
+    clear_has_now_version();
+    now_version_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:lalune.CheckVersionResult.now_version)
 }
 
 // optional string url_prefix = 2;

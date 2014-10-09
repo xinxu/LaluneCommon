@@ -75,7 +75,7 @@ void protobuf_AssignDesc_Version_2eproto() {
       sizeof(VersionFile));
   CheckVersionResult_descriptor_ = file->message_type(2);
   static const int CheckVersionResult_offsets_[3] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckVersionResult, need_update_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckVersionResult, now_version_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckVersionResult, url_prefix_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CheckVersionResult, file_),
   };
@@ -154,7 +154,7 @@ void protobuf_AddDesc_Version_2eproto() {
     "\n\rVersion.proto\022\006lalune\"$\n\014CheckVersion\022"
     "\024\n\014version_name\030\001 \002(\t\"4\n\013VersionFile\022\022\n\n"
     "url_prefix\030\002 \001(\t\022\021\n\tfile_path\030\001 \002(\t\"`\n\022C"
-    "heckVersionResult\022\023\n\013need_update\030\003 \002(\r\022\022"
+    "heckVersionResult\022\023\n\013now_version\030\003 \001(\t\022\022"
     "\n\nurl_prefix\030\002 \001(\t\022!\n\004file\030\001 \003(\0132\023.lalun"
     "e.VersionFile\"\200\001\n\nAddVersion\022\024\n\014version_"
     "from\030\002 \002(\t\022\022\n\nversion_to\030\003 \002(\t\022\021\n\tflag_m"
@@ -732,7 +732,7 @@ void VersionFile::Swap(VersionFile* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int CheckVersionResult::kNeedUpdateFieldNumber;
+const int CheckVersionResult::kNowVersionFieldNumber;
 const int CheckVersionResult::kUrlPrefixFieldNumber;
 const int CheckVersionResult::kFileFieldNumber;
 #endif  // !_MSC_VER
@@ -756,7 +756,7 @@ CheckVersionResult::CheckVersionResult(const CheckVersionResult& from)
 void CheckVersionResult::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  need_update_ = 0u;
+  now_version_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   url_prefix_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -767,6 +767,9 @@ CheckVersionResult::~CheckVersionResult() {
 }
 
 void CheckVersionResult::SharedDtor() {
+  if (now_version_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete now_version_;
+  }
   if (url_prefix_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete url_prefix_;
   }
@@ -797,7 +800,11 @@ CheckVersionResult* CheckVersionResult::New() const {
 
 void CheckVersionResult::Clear() {
   if (_has_bits_[0 / 32] & 3) {
-    need_update_ = 0u;
+    if (has_now_version()) {
+      if (now_version_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        now_version_->clear();
+      }
+    }
     if (has_url_prefix()) {
       if (url_prefix_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
         url_prefix_->clear();
@@ -846,18 +853,20 @@ bool CheckVersionResult::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(24)) goto parse_need_update;
+        if (input->ExpectTag(26)) goto parse_now_version;
         break;
       }
 
-      // required uint32 need_update = 3;
+      // optional string now_version = 3;
       case 3: {
-        if (tag == 24) {
-         parse_need_update:
-          DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &need_update_)));
-          set_has_need_update();
+        if (tag == 26) {
+         parse_now_version:
+          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_now_version()));
+          ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->now_version().data(), this->now_version().length(),
+            ::google_lalune::protobuf::internal::WireFormat::PARSE,
+            "now_version");
         } else {
           goto handle_unusual;
         }
@@ -906,9 +915,14 @@ void CheckVersionResult::SerializeWithCachedSizes(
       2, this->url_prefix(), output);
   }
 
-  // required uint32 need_update = 3;
-  if (has_need_update()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(3, this->need_update(), output);
+  // optional string now_version = 3;
+  if (has_now_version()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->now_version().data(), this->now_version().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "now_version");
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      3, this->now_version(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -939,9 +953,15 @@ void CheckVersionResult::SerializeWithCachedSizes(
         2, this->url_prefix(), target);
   }
 
-  // required uint32 need_update = 3;
-  if (has_need_update()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(3, this->need_update(), target);
+  // optional string now_version = 3;
+  if (has_now_version()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->now_version().data(), this->now_version().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "now_version");
+    target =
+      ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
+        3, this->now_version(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -956,11 +976,11 @@ int CheckVersionResult::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 need_update = 3;
-    if (has_need_update()) {
+    // optional string now_version = 3;
+    if (has_now_version()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
-          this->need_update());
+        ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
+          this->now_version());
     }
 
     // optional string url_prefix = 2;
@@ -1006,8 +1026,8 @@ void CheckVersionResult::MergeFrom(const CheckVersionResult& from) {
   GOOGLE_CHECK_NE(&from, this);
   file_.MergeFrom(from.file_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_need_update()) {
-      set_need_update(from.need_update());
+    if (from.has_now_version()) {
+      set_now_version(from.now_version());
     }
     if (from.has_url_prefix()) {
       set_url_prefix(from.url_prefix());
@@ -1029,7 +1049,6 @@ void CheckVersionResult::CopyFrom(const CheckVersionResult& from) {
 }
 
 bool CheckVersionResult::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
   if (!::google_lalune::protobuf::internal::AllAreInitialized(this->file())) return false;
   return true;
@@ -1037,7 +1056,7 @@ bool CheckVersionResult::IsInitialized() const {
 
 void CheckVersionResult::Swap(CheckVersionResult* other) {
   if (other != this) {
-    std::swap(need_update_, other->need_update_);
+    std::swap(now_version_, other->now_version_);
     std::swap(url_prefix_, other->url_prefix_);
     file_.Swap(&other->file_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);

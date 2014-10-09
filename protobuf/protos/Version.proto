@@ -10,7 +10,7 @@ message VersionFile {
 }
 
 message CheckVersionResult {	
-	required uint32 need_update	= 3;
+	optional string now_version	= 3;
 	optional string url_prefix	= 2;
 	repeated VersionFile file	= 1;
 }
