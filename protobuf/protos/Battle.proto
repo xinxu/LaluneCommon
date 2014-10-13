@@ -1,0 +1,61 @@
+package lalune;
+
+//和自动匹配服务的通信
+
+message MatchRequest
+{
+	required uint32 game_type	= 1;
+}
+
+message GamePlayer
+{
+	required string name		= 1;
+	required uint32 player_id	= 2;
+}
+
+message MatchResponse
+{
+	required bytes game_uuid	= 1;
+	repeated GamePlayer players	= 2;
+	required string game_server_ip	= 3;
+	required uint32 game_server_port	= 4;
+	required bytes access_token	= 5;
+}
+
+//和战斗服务之间的通信
+
+message ConnectToGame //连接战斗服务器，access_token是用来验证的，相当于临时密码
+{
+	required string player_name	= 1;
+	required bytes access_token	= 2;
+}
+
+message GameStart //启动游戏，并统一随机种子，及逻辑帧每帧时间
+{
+	required uint32 rand_seed	= 1;
+	required uint32 time_per_frame	= 2;
+}
+
+message PositionUpdate
+{
+	required float x	= 1;
+	required float y	= 2;
+}
+
+message GameAction //客户端发是每次发一条
+{
+	oneof action {	//每个操作或者移动，或者更新位置，或者不动
+		PositionUpdate pos_update	 = 1;		
+		bytes action_data	= 4;  
+		uint32	havnt_move	= 5;
+	}
+	optional uint32 time_from_game_start	= 2; //客户端发过来的时候不填时间和player_id，服务端发过去的有时间和player_id
+	optional uint32 player_id	= 3;
+}
+
+message GameActions //服务器发有可能一次发多个actions。即每个逻辑帧时间到了的时候，所以没有移动的角色，服务器要告知大家他们没有移动
+{
+	repeated GameAction actions	= 1;
+}
+
+
