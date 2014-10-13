@@ -30,25 +30,20 @@ message ConnectToGame //连接战斗服务器，access_token是用来验证的，相当于临时密码
 	required bytes access_token	= 2;
 }
 
+meesage ConnectToGameResponse //临时方案
+{
+	required uint32 team	= 1;
+}
+
 message GameStart //启动游戏，并统一随机种子，及逻辑帧每帧时间
 {
 	required uint32 rand_seed	= 1;
 	required uint32 time_per_frame	= 2;
 }
 
-message PositionUpdate
-{
-	required float x	= 1;
-	required float y	= 2;
-}
-
 message GameAction //客户端发是每次发一条
 {
-	oneof action {	//每个操作或者移动，或者更新位置，或者不动
-		PositionUpdate pos_update	 = 1;		
-		bytes action_data	= 4;  
-		uint32	havnt_move	= 5;
-	}
+	required bytes action_data	= 1;
 	optional uint32 time_from_game_start	= 2; //客户端发过来的时候不填时间和player_id，服务端发过去的有时间和player_id
 	optional uint32 player_id	= 3;
 }
