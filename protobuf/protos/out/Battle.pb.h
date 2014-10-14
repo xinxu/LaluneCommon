@@ -37,10 +37,9 @@ class MatchRequest;
 class GamePlayer;
 class MatchResponse;
 class ConnectToGame;
+class ConnectToGameResponse;
 class GameStart;
-class PositionUpdate;
 class GameAction;
-class GameActions;
 
 // ===================================================================
 
@@ -407,17 +406,12 @@ class ConnectToGame : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required string player_name = 1;
-  inline bool has_player_name() const;
-  inline void clear_player_name();
-  static const int kPlayerNameFieldNumber = 1;
-  inline const ::std::string& player_name() const;
-  inline void set_player_name(const ::std::string& value);
-  inline void set_player_name(const char* value);
-  inline void set_player_name(const char* value, size_t size);
-  inline ::std::string* mutable_player_name();
-  inline ::std::string* release_player_name();
-  inline void set_allocated_player_name(::std::string* player_name);
+  // required uint32 player_uid = 1;
+  inline bool has_player_uid() const;
+  inline void clear_player_uid();
+  static const int kPlayerUidFieldNumber = 1;
+  inline ::google_lalune::protobuf::uint32 player_uid() const;
+  inline void set_player_uid(::google_lalune::protobuf::uint32 value);
 
   // required bytes access_token = 2;
   inline bool has_access_token() const;
@@ -433,8 +427,8 @@ class ConnectToGame : public ::google_lalune::protobuf::Message {
 
   // @@protoc_insertion_point(class_scope:lalune.ConnectToGame)
  private:
-  inline void set_has_player_name();
-  inline void clear_has_player_name();
+  inline void set_has_player_uid();
+  inline void clear_has_player_uid();
   inline void set_has_access_token();
   inline void clear_has_access_token();
 
@@ -442,14 +436,93 @@ class ConnectToGame : public ::google_lalune::protobuf::Message {
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::std::string* player_name_;
   ::std::string* access_token_;
+  ::google_lalune::protobuf::uint32 player_uid_;
   friend void  protobuf_AddDesc_Battle_2eproto();
   friend void protobuf_AssignDesc_Battle_2eproto();
   friend void protobuf_ShutdownFile_Battle_2eproto();
 
   void InitAsDefaultInstance();
   static ConnectToGame* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class ConnectToGameResponse : public ::google_lalune::protobuf::Message {
+ public:
+  ConnectToGameResponse();
+  virtual ~ConnectToGameResponse();
+
+  ConnectToGameResponse(const ConnectToGameResponse& from);
+
+  inline ConnectToGameResponse& operator=(const ConnectToGameResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google_lalune::protobuf::Descriptor* descriptor();
+  static const ConnectToGameResponse& default_instance();
+
+  void Swap(ConnectToGameResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  ConnectToGameResponse* New() const;
+  void CopyFrom(const ::google_lalune::protobuf::Message& from);
+  void MergeFrom(const ::google_lalune::protobuf::Message& from);
+  void CopyFrom(const ConnectToGameResponse& from);
+  void MergeFrom(const ConnectToGameResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google_lalune::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
+  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google_lalune::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required uint32 team = 1;
+  inline bool has_team() const;
+  inline void clear_team();
+  static const int kTeamFieldNumber = 1;
+  inline ::google_lalune::protobuf::uint32 team() const;
+  inline void set_team(::google_lalune::protobuf::uint32 value);
+
+  // @@protoc_insertion_point(class_scope:lalune.ConnectToGameResponse)
+ private:
+  inline void set_has_team();
+  inline void clear_has_team();
+
+  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google_lalune::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google_lalune::protobuf::uint32 team_;
+  friend void  protobuf_AddDesc_Battle_2eproto();
+  friend void protobuf_AssignDesc_Battle_2eproto();
+  friend void protobuf_ShutdownFile_Battle_2eproto();
+
+  void InitAsDefaultInstance();
+  static ConnectToGameResponse* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -542,95 +615,6 @@ class GameStart : public ::google_lalune::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class PositionUpdate : public ::google_lalune::protobuf::Message {
- public:
-  PositionUpdate();
-  virtual ~PositionUpdate();
-
-  PositionUpdate(const PositionUpdate& from);
-
-  inline PositionUpdate& operator=(const PositionUpdate& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google_lalune::protobuf::Descriptor* descriptor();
-  static const PositionUpdate& default_instance();
-
-  void Swap(PositionUpdate* other);
-
-  // implements Message ----------------------------------------------
-
-  PositionUpdate* New() const;
-  void CopyFrom(const ::google_lalune::protobuf::Message& from);
-  void MergeFrom(const ::google_lalune::protobuf::Message& from);
-  void CopyFrom(const PositionUpdate& from);
-  void MergeFrom(const PositionUpdate& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google_lalune::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
-  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  ::google_lalune::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required float x = 1;
-  inline bool has_x() const;
-  inline void clear_x();
-  static const int kXFieldNumber = 1;
-  inline float x() const;
-  inline void set_x(float value);
-
-  // required float y = 2;
-  inline bool has_y() const;
-  inline void clear_y();
-  static const int kYFieldNumber = 2;
-  inline float y() const;
-  inline void set_y(float value);
-
-  // @@protoc_insertion_point(class_scope:lalune.PositionUpdate)
- private:
-  inline void set_has_x();
-  inline void clear_has_x();
-  inline void set_has_y();
-  inline void clear_has_y();
-
-  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google_lalune::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  float x_;
-  float y_;
-  friend void  protobuf_AddDesc_Battle_2eproto();
-  friend void protobuf_AssignDesc_Battle_2eproto();
-  friend void protobuf_ShutdownFile_Battle_2eproto();
-
-  void InitAsDefaultInstance();
-  static PositionUpdate* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class GameAction : public ::google_lalune::protobuf::Message {
  public:
   GameAction();
@@ -653,13 +637,6 @@ class GameAction : public ::google_lalune::protobuf::Message {
 
   static const ::google_lalune::protobuf::Descriptor* descriptor();
   static const GameAction& default_instance();
-
-  enum ActionCase {
-    kPosUpdate = 1,
-    kActionData = 4,
-    kHavntMove = 5,
-    ACTION_NOT_SET = 0,
-  };
 
   void Swap(GameAction* other);
 
@@ -691,19 +668,10 @@ class GameAction : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // optional .lalune.PositionUpdate pos_update = 1;
-  inline bool has_pos_update() const;
-  inline void clear_pos_update();
-  static const int kPosUpdateFieldNumber = 1;
-  inline const ::lalune::PositionUpdate& pos_update() const;
-  inline ::lalune::PositionUpdate* mutable_pos_update();
-  inline ::lalune::PositionUpdate* release_pos_update();
-  inline void set_allocated_pos_update(::lalune::PositionUpdate* pos_update);
-
-  // optional bytes action_data = 4;
+  // required bytes action_data = 1;
   inline bool has_action_data() const;
   inline void clear_action_data();
-  static const int kActionDataFieldNumber = 4;
+  static const int kActionDataFieldNumber = 1;
   inline const ::std::string& action_data() const;
   inline void set_action_data(const ::std::string& value);
   inline void set_action_data(const char* value);
@@ -712,143 +680,42 @@ class GameAction : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_action_data();
   inline void set_allocated_action_data(::std::string* action_data);
 
-  // optional uint32 havnt_move = 5;
-  inline bool has_havnt_move() const;
-  inline void clear_havnt_move();
-  static const int kHavntMoveFieldNumber = 5;
-  inline ::google_lalune::protobuf::uint32 havnt_move() const;
-  inline void set_havnt_move(::google_lalune::protobuf::uint32 value);
-
-  // optional uint32 time_from_game_start = 2;
+  // optional uint64 time_from_game_start = 2;
   inline bool has_time_from_game_start() const;
   inline void clear_time_from_game_start();
   static const int kTimeFromGameStartFieldNumber = 2;
-  inline ::google_lalune::protobuf::uint32 time_from_game_start() const;
-  inline void set_time_from_game_start(::google_lalune::protobuf::uint32 value);
+  inline ::google_lalune::protobuf::uint64 time_from_game_start() const;
+  inline void set_time_from_game_start(::google_lalune::protobuf::uint64 value);
 
-  // optional uint32 player_id = 3;
-  inline bool has_player_id() const;
-  inline void clear_player_id();
-  static const int kPlayerIdFieldNumber = 3;
-  inline ::google_lalune::protobuf::uint32 player_id() const;
-  inline void set_player_id(::google_lalune::protobuf::uint32 value);
+  // optional uint32 player_uid = 3;
+  inline bool has_player_uid() const;
+  inline void clear_player_uid();
+  static const int kPlayerUidFieldNumber = 3;
+  inline ::google_lalune::protobuf::uint32 player_uid() const;
+  inline void set_player_uid(::google_lalune::protobuf::uint32 value);
 
-  inline ActionCase action_case() const;
   // @@protoc_insertion_point(class_scope:lalune.GameAction)
  private:
-  inline void set_has_pos_update();
   inline void set_has_action_data();
-  inline void set_has_havnt_move();
+  inline void clear_has_action_data();
   inline void set_has_time_from_game_start();
   inline void clear_has_time_from_game_start();
-  inline void set_has_player_id();
-  inline void clear_has_player_id();
-
-  inline bool has_action();
-  void clear_action();
-  inline void clear_has_action();
+  inline void set_has_player_uid();
+  inline void clear_has_player_uid();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google_lalune::protobuf::uint32 time_from_game_start_;
-  ::google_lalune::protobuf::uint32 player_id_;
-  union ActionUnion {
-    ::lalune::PositionUpdate* pos_update_;
-    ::std::string* action_data_;
-    ::google_lalune::protobuf::uint32 havnt_move_;
-  } action_;
-  ::google_lalune::protobuf::uint32 _oneof_case_[1];
-
+  ::std::string* action_data_;
+  ::google_lalune::protobuf::uint64 time_from_game_start_;
+  ::google_lalune::protobuf::uint32 player_uid_;
   friend void  protobuf_AddDesc_Battle_2eproto();
   friend void protobuf_AssignDesc_Battle_2eproto();
   friend void protobuf_ShutdownFile_Battle_2eproto();
 
   void InitAsDefaultInstance();
   static GameAction* default_instance_;
-};
-// -------------------------------------------------------------------
-
-class GameActions : public ::google_lalune::protobuf::Message {
- public:
-  GameActions();
-  virtual ~GameActions();
-
-  GameActions(const GameActions& from);
-
-  inline GameActions& operator=(const GameActions& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google_lalune::protobuf::Descriptor* descriptor();
-  static const GameActions& default_instance();
-
-  void Swap(GameActions* other);
-
-  // implements Message ----------------------------------------------
-
-  GameActions* New() const;
-  void CopyFrom(const ::google_lalune::protobuf::Message& from);
-  void MergeFrom(const ::google_lalune::protobuf::Message& from);
-  void CopyFrom(const GameActions& from);
-  void MergeFrom(const GameActions& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google_lalune::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
-  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  ::google_lalune::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // repeated .lalune.GameAction actions = 1;
-  inline int actions_size() const;
-  inline void clear_actions();
-  static const int kActionsFieldNumber = 1;
-  inline const ::lalune::GameAction& actions(int index) const;
-  inline ::lalune::GameAction* mutable_actions(int index);
-  inline ::lalune::GameAction* add_actions();
-  inline const ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >&
-      actions() const;
-  inline ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >*
-      mutable_actions();
-
-  // @@protoc_insertion_point(class_scope:lalune.GameActions)
- private:
-
-  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google_lalune::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction > actions_;
-  friend void  protobuf_AddDesc_Battle_2eproto();
-  friend void protobuf_AssignDesc_Battle_2eproto();
-  friend void protobuf_ShutdownFile_Battle_2eproto();
-
-  void InitAsDefaultInstance();
-  static GameActions* default_instance_;
 };
 // ===================================================================
 
@@ -1275,80 +1142,28 @@ inline void MatchResponse::set_allocated_access_token(::std::string* access_toke
 
 // ConnectToGame
 
-// required string player_name = 1;
-inline bool ConnectToGame::has_player_name() const {
+// required uint32 player_uid = 1;
+inline bool ConnectToGame::has_player_uid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void ConnectToGame::set_has_player_name() {
+inline void ConnectToGame::set_has_player_uid() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void ConnectToGame::clear_has_player_name() {
+inline void ConnectToGame::clear_has_player_uid() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void ConnectToGame::clear_player_name() {
-  if (player_name_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    player_name_->clear();
-  }
-  clear_has_player_name();
+inline void ConnectToGame::clear_player_uid() {
+  player_uid_ = 0u;
+  clear_has_player_uid();
 }
-inline const ::std::string& ConnectToGame::player_name() const {
-  // @@protoc_insertion_point(field_get:lalune.ConnectToGame.player_name)
-  return *player_name_;
+inline ::google_lalune::protobuf::uint32 ConnectToGame::player_uid() const {
+  // @@protoc_insertion_point(field_get:lalune.ConnectToGame.player_uid)
+  return player_uid_;
 }
-inline void ConnectToGame::set_player_name(const ::std::string& value) {
-  set_has_player_name();
-  if (player_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    player_name_ = new ::std::string;
-  }
-  player_name_->assign(value);
-  // @@protoc_insertion_point(field_set:lalune.ConnectToGame.player_name)
-}
-inline void ConnectToGame::set_player_name(const char* value) {
-  set_has_player_name();
-  if (player_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    player_name_ = new ::std::string;
-  }
-  player_name_->assign(value);
-  // @@protoc_insertion_point(field_set_char:lalune.ConnectToGame.player_name)
-}
-inline void ConnectToGame::set_player_name(const char* value, size_t size) {
-  set_has_player_name();
-  if (player_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    player_name_ = new ::std::string;
-  }
-  player_name_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:lalune.ConnectToGame.player_name)
-}
-inline ::std::string* ConnectToGame::mutable_player_name() {
-  set_has_player_name();
-  if (player_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    player_name_ = new ::std::string;
-  }
-  // @@protoc_insertion_point(field_mutable:lalune.ConnectToGame.player_name)
-  return player_name_;
-}
-inline ::std::string* ConnectToGame::release_player_name() {
-  clear_has_player_name();
-  if (player_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    return NULL;
-  } else {
-    ::std::string* temp = player_name_;
-    player_name_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-    return temp;
-  }
-}
-inline void ConnectToGame::set_allocated_player_name(::std::string* player_name) {
-  if (player_name_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete player_name_;
-  }
-  if (player_name) {
-    set_has_player_name();
-    player_name_ = player_name;
-  } else {
-    clear_has_player_name();
-    player_name_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-  }
-  // @@protoc_insertion_point(field_set_allocated:lalune.ConnectToGame.player_name)
+inline void ConnectToGame::set_player_uid(::google_lalune::protobuf::uint32 value) {
+  set_has_player_uid();
+  player_uid_ = value;
+  // @@protoc_insertion_point(field_set:lalune.ConnectToGame.player_uid)
 }
 
 // required bytes access_token = 2;
@@ -1429,6 +1244,34 @@ inline void ConnectToGame::set_allocated_access_token(::std::string* access_toke
 
 // -------------------------------------------------------------------
 
+// ConnectToGameResponse
+
+// required uint32 team = 1;
+inline bool ConnectToGameResponse::has_team() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void ConnectToGameResponse::set_has_team() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void ConnectToGameResponse::clear_has_team() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void ConnectToGameResponse::clear_team() {
+  team_ = 0u;
+  clear_has_team();
+}
+inline ::google_lalune::protobuf::uint32 ConnectToGameResponse::team() const {
+  // @@protoc_insertion_point(field_get:lalune.ConnectToGameResponse.team)
+  return team_;
+}
+inline void ConnectToGameResponse::set_team(::google_lalune::protobuf::uint32 value) {
+  set_has_team();
+  team_ = value;
+  // @@protoc_insertion_point(field_set:lalune.ConnectToGameResponse.team)
+}
+
+// -------------------------------------------------------------------
+
 // GameStart
 
 // required uint32 rand_seed = 1;
@@ -1481,289 +1324,130 @@ inline void GameStart::set_time_per_frame(::google_lalune::protobuf::uint32 valu
 
 // -------------------------------------------------------------------
 
-// PositionUpdate
-
-// required float x = 1;
-inline bool PositionUpdate::has_x() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void PositionUpdate::set_has_x() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void PositionUpdate::clear_has_x() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void PositionUpdate::clear_x() {
-  x_ = 0;
-  clear_has_x();
-}
-inline float PositionUpdate::x() const {
-  // @@protoc_insertion_point(field_get:lalune.PositionUpdate.x)
-  return x_;
-}
-inline void PositionUpdate::set_x(float value) {
-  set_has_x();
-  x_ = value;
-  // @@protoc_insertion_point(field_set:lalune.PositionUpdate.x)
-}
-
-// required float y = 2;
-inline bool PositionUpdate::has_y() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void PositionUpdate::set_has_y() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void PositionUpdate::clear_has_y() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void PositionUpdate::clear_y() {
-  y_ = 0;
-  clear_has_y();
-}
-inline float PositionUpdate::y() const {
-  // @@protoc_insertion_point(field_get:lalune.PositionUpdate.y)
-  return y_;
-}
-inline void PositionUpdate::set_y(float value) {
-  set_has_y();
-  y_ = value;
-  // @@protoc_insertion_point(field_set:lalune.PositionUpdate.y)
-}
-
-// -------------------------------------------------------------------
-
 // GameAction
 
-// optional .lalune.PositionUpdate pos_update = 1;
-inline bool GameAction::has_pos_update() const {
-  return action_case() == kPosUpdate;
-}
-inline void GameAction::set_has_pos_update() {
-  _oneof_case_[0] = kPosUpdate;
-}
-inline void GameAction::clear_pos_update() {
-  if (has_pos_update()) {
-    delete action_.pos_update_;
-    clear_has_action();
-  }
-}
-inline const ::lalune::PositionUpdate& GameAction::pos_update() const {
-  return has_pos_update() ? *action_.pos_update_
-                      : ::lalune::PositionUpdate::default_instance();
-}
-inline ::lalune::PositionUpdate* GameAction::mutable_pos_update() {
-  if (!has_pos_update()) {
-    clear_action();
-    set_has_pos_update();
-    action_.pos_update_ = new ::lalune::PositionUpdate;
-  }
-  return action_.pos_update_;
-}
-inline ::lalune::PositionUpdate* GameAction::release_pos_update() {
-  if (has_pos_update()) {
-    clear_has_action();
-    ::lalune::PositionUpdate* temp = action_.pos_update_;
-    action_.pos_update_ = NULL;
-    return temp;
-  } else {
-    return NULL;
-  }
-}
-inline void GameAction::set_allocated_pos_update(::lalune::PositionUpdate* pos_update) {
-  clear_action();
-  if (pos_update) {
-    set_has_pos_update();
-    action_.pos_update_ = pos_update;
-  }
-}
-
-// optional bytes action_data = 4;
+// required bytes action_data = 1;
 inline bool GameAction::has_action_data() const {
-  return action_case() == kActionData;
+  return (_has_bits_[0] & 0x00000001u) != 0;
 }
 inline void GameAction::set_has_action_data() {
-  _oneof_case_[0] = kActionData;
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void GameAction::clear_has_action_data() {
+  _has_bits_[0] &= ~0x00000001u;
 }
 inline void GameAction::clear_action_data() {
-  if (has_action_data()) {
-    delete action_.action_data_;
-    clear_has_action();
+  if (action_data_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    action_data_->clear();
   }
+  clear_has_action_data();
 }
 inline const ::std::string& GameAction::action_data() const {
-  if (has_action_data()) {
-    return *action_.action_data_;
-  }
-  return ::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited();
+  // @@protoc_insertion_point(field_get:lalune.GameAction.action_data)
+  return *action_data_;
 }
 inline void GameAction::set_action_data(const ::std::string& value) {
-  if (!has_action_data()) {
-    clear_action();
-    set_has_action_data();
-    action_.action_data_ = new ::std::string;
+  set_has_action_data();
+  if (action_data_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    action_data_ = new ::std::string;
   }
-  action_.action_data_->assign(value);
+  action_data_->assign(value);
+  // @@protoc_insertion_point(field_set:lalune.GameAction.action_data)
 }
 inline void GameAction::set_action_data(const char* value) {
-  if (!has_action_data()) {
-    clear_action();
-    set_has_action_data();
-    action_.action_data_ = new ::std::string;
+  set_has_action_data();
+  if (action_data_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    action_data_ = new ::std::string;
   }
-  action_.action_data_->assign(value);
+  action_data_->assign(value);
+  // @@protoc_insertion_point(field_set_char:lalune.GameAction.action_data)
 }
 inline void GameAction::set_action_data(const void* value, size_t size) {
-  if (!has_action_data()) {
-    clear_action();
-    set_has_action_data();
-    action_.action_data_ = new ::std::string;
+  set_has_action_data();
+  if (action_data_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    action_data_ = new ::std::string;
   }
-  action_.action_data_->assign(
-      reinterpret_cast<const char*>(value), size);
+  action_data_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:lalune.GameAction.action_data)
 }
 inline ::std::string* GameAction::mutable_action_data() {
-  if (!has_action_data()) {
-    clear_action();
-    set_has_action_data();
-    action_.action_data_ = new ::std::string;
+  set_has_action_data();
+  if (action_data_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    action_data_ = new ::std::string;
   }
-  return action_.action_data_;
+  // @@protoc_insertion_point(field_mutable:lalune.GameAction.action_data)
+  return action_data_;
 }
 inline ::std::string* GameAction::release_action_data() {
-  if (has_action_data()) {
-    clear_has_action();
-    ::std::string* temp = action_.action_data_;
-    action_.action_data_ = NULL;
-    return temp;
-  } else {
+  clear_has_action_data();
+  if (action_data_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
     return NULL;
+  } else {
+    ::std::string* temp = action_data_;
+    action_data_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
   }
 }
 inline void GameAction::set_allocated_action_data(::std::string* action_data) {
-  clear_action();
+  if (action_data_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete action_data_;
+  }
   if (action_data) {
     set_has_action_data();
-    action_.action_data_ = action_data;
+    action_data_ = action_data;
+  } else {
+    clear_has_action_data();
+    action_data_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   }
+  // @@protoc_insertion_point(field_set_allocated:lalune.GameAction.action_data)
 }
 
-// optional uint32 havnt_move = 5;
-inline bool GameAction::has_havnt_move() const {
-  return action_case() == kHavntMove;
-}
-inline void GameAction::set_has_havnt_move() {
-  _oneof_case_[0] = kHavntMove;
-}
-inline void GameAction::clear_havnt_move() {
-  if (has_havnt_move()) {
-    action_.havnt_move_ = 0u;
-    clear_has_action();
-  }
-}
-inline ::google_lalune::protobuf::uint32 GameAction::havnt_move() const {
-  if (has_havnt_move()) {
-    return action_.havnt_move_;
-  }
-  return 0u;
-}
-inline void GameAction::set_havnt_move(::google_lalune::protobuf::uint32 value) {
-  if (!has_havnt_move()) {
-    clear_action();
-    set_has_havnt_move();
-  }
-  action_.havnt_move_ = value;
-}
-
-// optional uint32 time_from_game_start = 2;
+// optional uint64 time_from_game_start = 2;
 inline bool GameAction::has_time_from_game_start() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void GameAction::set_has_time_from_game_start() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void GameAction::clear_has_time_from_game_start() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void GameAction::clear_time_from_game_start() {
-  time_from_game_start_ = 0u;
+  time_from_game_start_ = GOOGLE_ULONGLONG(0);
   clear_has_time_from_game_start();
 }
-inline ::google_lalune::protobuf::uint32 GameAction::time_from_game_start() const {
+inline ::google_lalune::protobuf::uint64 GameAction::time_from_game_start() const {
   // @@protoc_insertion_point(field_get:lalune.GameAction.time_from_game_start)
   return time_from_game_start_;
 }
-inline void GameAction::set_time_from_game_start(::google_lalune::protobuf::uint32 value) {
+inline void GameAction::set_time_from_game_start(::google_lalune::protobuf::uint64 value) {
   set_has_time_from_game_start();
   time_from_game_start_ = value;
   // @@protoc_insertion_point(field_set:lalune.GameAction.time_from_game_start)
 }
 
-// optional uint32 player_id = 3;
-inline bool GameAction::has_player_id() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+// optional uint32 player_uid = 3;
+inline bool GameAction::has_player_uid() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
-inline void GameAction::set_has_player_id() {
-  _has_bits_[0] |= 0x00000010u;
+inline void GameAction::set_has_player_uid() {
+  _has_bits_[0] |= 0x00000004u;
 }
-inline void GameAction::clear_has_player_id() {
-  _has_bits_[0] &= ~0x00000010u;
+inline void GameAction::clear_has_player_uid() {
+  _has_bits_[0] &= ~0x00000004u;
 }
-inline void GameAction::clear_player_id() {
-  player_id_ = 0u;
-  clear_has_player_id();
+inline void GameAction::clear_player_uid() {
+  player_uid_ = 0u;
+  clear_has_player_uid();
 }
-inline ::google_lalune::protobuf::uint32 GameAction::player_id() const {
-  // @@protoc_insertion_point(field_get:lalune.GameAction.player_id)
-  return player_id_;
+inline ::google_lalune::protobuf::uint32 GameAction::player_uid() const {
+  // @@protoc_insertion_point(field_get:lalune.GameAction.player_uid)
+  return player_uid_;
 }
-inline void GameAction::set_player_id(::google_lalune::protobuf::uint32 value) {
-  set_has_player_id();
-  player_id_ = value;
-  // @@protoc_insertion_point(field_set:lalune.GameAction.player_id)
-}
-
-inline bool GameAction::has_action() {
-  return action_case() != ACTION_NOT_SET;
-}
-inline void GameAction::clear_has_action() {
-  _oneof_case_[0] = ACTION_NOT_SET;
-}
-inline GameAction::ActionCase GameAction::action_case() const {
-  return GameAction::ActionCase(_oneof_case_[0]);
-}
-// -------------------------------------------------------------------
-
-// GameActions
-
-// repeated .lalune.GameAction actions = 1;
-inline int GameActions::actions_size() const {
-  return actions_.size();
-}
-inline void GameActions::clear_actions() {
-  actions_.Clear();
-}
-inline const ::lalune::GameAction& GameActions::actions(int index) const {
-  // @@protoc_insertion_point(field_get:lalune.GameActions.actions)
-  return actions_.Get(index);
-}
-inline ::lalune::GameAction* GameActions::mutable_actions(int index) {
-  // @@protoc_insertion_point(field_mutable:lalune.GameActions.actions)
-  return actions_.Mutable(index);
-}
-inline ::lalune::GameAction* GameActions::add_actions() {
-  // @@protoc_insertion_point(field_add:lalune.GameActions.actions)
-  return actions_.Add();
-}
-inline const ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >&
-GameActions::actions() const {
-  // @@protoc_insertion_point(field_list:lalune.GameActions.actions)
-  return actions_;
-}
-inline ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >*
-GameActions::mutable_actions() {
-  // @@protoc_insertion_point(field_mutable_list:lalune.GameActions.actions)
-  return &actions_;
+inline void GameAction::set_player_uid(::google_lalune::protobuf::uint32 value) {
+  set_has_player_uid();
+  player_uid_ = value;
+  // @@protoc_insertion_point(field_set:lalune.GameAction.player_uid)
 }
 
 
