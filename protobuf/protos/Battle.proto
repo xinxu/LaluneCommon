@@ -22,6 +22,21 @@ message MatchResponse
 	required bytes access_token	= 5;
 }
 
+message ActionData {
+	message PositionData {
+		required uint32 unit_id = 1;
+		required float position_x = 2;
+		required float position_y = 3;
+	}
+
+	message SkillData {
+		required unit32 unit_id = 1;
+		required unit32 skill_id = 2;
+	}
+	repeated PositionData position_data_list = 1;
+	repeated SkillData skill_data_list = 2;
+}
+
 //和战斗服务之间的通信
 
 message ConnectToGame //连接战斗服务器，access_token是用来验证的，相当于临时密码
@@ -32,7 +47,8 @@ message ConnectToGame //连接战斗服务器，access_token是用来验证的，相当于临时密码
 
 message ConnectToGameResponse //临时方案
 {
-	required uint32 team	= 1;
+	required uint32 team = 1;
+
 }
 
 message GameStart //启动游戏，并统一随机种子，及逻辑帧每帧时间
@@ -43,11 +59,6 @@ message GameStart //启动游戏，并统一随机种子，及逻辑帧每帧时间
 
 message GameAction //客户端发是每次发一条
 {
-	required bytes action_data	= 1;
+	repeated ActionData action_data_list = 1
 	optional uint64 time_from_game_start	= 2; //客户端发过来的时候不填时间和player_id，服务端发过去的有时间和player_id
-	optional uint32 player_uid	= 3;
 }
-
-
-
-
