@@ -48,6 +48,11 @@ message GameAction //客户端发是每次发一条
 	optional uint32 player_uid	= 3;
 }
 
+message GameActions
+{
+    repeated GameAction  actions;
+}
+
 
 
 
