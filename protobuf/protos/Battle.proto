@@ -43,14 +43,14 @@ message GameStart //启动游戏，并统一随机种子，及逻辑帧每帧时间
 
 message GameAction //客户端发是每次发一条
 {
-	required bytes action_data	= 1;
+	optional bytes action_data	= 1;
 	optional uint64 time_from_game_start	= 2; //客户端发过来的时候不填时间和player_id，服务端发过去的有时间和player_id
 	optional uint32 player_uid	= 3;
 }
 
 message GameActions
 {
-    repeated GameAction  actions;
+    repeated GameAction  actions=1;
 }
 
 

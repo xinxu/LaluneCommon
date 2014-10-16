@@ -40,6 +40,7 @@ class ConnectToGame;
 class ConnectToGameResponse;
 class GameStart;
 class GameAction;
+class GameActions;
 
 // ===================================================================
 
@@ -668,7 +669,7 @@ class GameAction : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required bytes action_data = 1;
+  // optional bytes action_data = 1;
   inline bool has_action_data() const;
   inline void clear_action_data();
   static const int kActionDataFieldNumber = 1;
@@ -716,6 +717,88 @@ class GameAction : public ::google_lalune::protobuf::Message {
 
   void InitAsDefaultInstance();
   static GameAction* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class GameActions : public ::google_lalune::protobuf::Message {
+ public:
+  GameActions();
+  virtual ~GameActions();
+
+  GameActions(const GameActions& from);
+
+  inline GameActions& operator=(const GameActions& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google_lalune::protobuf::Descriptor* descriptor();
+  static const GameActions& default_instance();
+
+  void Swap(GameActions* other);
+
+  // implements Message ----------------------------------------------
+
+  GameActions* New() const;
+  void CopyFrom(const ::google_lalune::protobuf::Message& from);
+  void MergeFrom(const ::google_lalune::protobuf::Message& from);
+  void CopyFrom(const GameActions& from);
+  void MergeFrom(const GameActions& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google_lalune::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
+  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google_lalune::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // repeated .lalune.GameAction actions = 1;
+  inline int actions_size() const;
+  inline void clear_actions();
+  static const int kActionsFieldNumber = 1;
+  inline const ::lalune::GameAction& actions(int index) const;
+  inline ::lalune::GameAction* mutable_actions(int index);
+  inline ::lalune::GameAction* add_actions();
+  inline const ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >&
+      actions() const;
+  inline ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >*
+      mutable_actions();
+
+  // @@protoc_insertion_point(class_scope:lalune.GameActions)
+ private:
+
+  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google_lalune::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction > actions_;
+  friend void  protobuf_AddDesc_Battle_2eproto();
+  friend void protobuf_AssignDesc_Battle_2eproto();
+  friend void protobuf_ShutdownFile_Battle_2eproto();
+
+  void InitAsDefaultInstance();
+  static GameActions* default_instance_;
 };
 // ===================================================================
 
@@ -1326,7 +1409,7 @@ inline void GameStart::set_time_per_frame(::google_lalune::protobuf::uint32 valu
 
 // GameAction
 
-// required bytes action_data = 1;
+// optional bytes action_data = 1;
 inline bool GameAction::has_action_data() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -1448,6 +1531,40 @@ inline void GameAction::set_player_uid(::google_lalune::protobuf::uint32 value) 
   set_has_player_uid();
   player_uid_ = value;
   // @@protoc_insertion_point(field_set:lalune.GameAction.player_uid)
+}
+
+// -------------------------------------------------------------------
+
+// GameActions
+
+// repeated .lalune.GameAction actions = 1;
+inline int GameActions::actions_size() const {
+  return actions_.size();
+}
+inline void GameActions::clear_actions() {
+  actions_.Clear();
+}
+inline const ::lalune::GameAction& GameActions::actions(int index) const {
+  // @@protoc_insertion_point(field_get:lalune.GameActions.actions)
+  return actions_.Get(index);
+}
+inline ::lalune::GameAction* GameActions::mutable_actions(int index) {
+  // @@protoc_insertion_point(field_mutable:lalune.GameActions.actions)
+  return actions_.Mutable(index);
+}
+inline ::lalune::GameAction* GameActions::add_actions() {
+  // @@protoc_insertion_point(field_add:lalune.GameActions.actions)
+  return actions_.Add();
+}
+inline const ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >&
+GameActions::actions() const {
+  // @@protoc_insertion_point(field_list:lalune.GameActions.actions)
+  return actions_;
+}
+inline ::google_lalune::protobuf::RepeatedPtrField< ::lalune::GameAction >*
+GameActions::mutable_actions() {
+  // @@protoc_insertion_point(field_mutable_list:lalune.GameActions.actions)
+  return &actions_;
 }
 
 
