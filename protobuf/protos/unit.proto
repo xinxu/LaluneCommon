@@ -1,0 +1,18 @@
+package lalune;
+
+message UnitTalent {
+	required int32 tid = 1;
+	optional int32 need_points = 2;
+}
+
+message UnitInfo {
+	required int32 obj_id = 1;
+	required int32 unit_id = 2;
+	optional bool is_activated = 3;
+	optional int32 level = 4;
+	optional int32 exp = 5;
+	optional int32 quality = 6;
+	optional int32 star = 7;
+	optional int32 pieces = 8;
+	repeat UnitTalent talents = 9;
+}

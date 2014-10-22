@@ -1,0 +1,10 @@
+package lalune;
+
+message GambleEquipData {
+	enum GambleEquipMode {
+		kModeOnce,
+		kModeTenTimes
+	}
+	
+	required GambleEquipMode mode = 1;
+}

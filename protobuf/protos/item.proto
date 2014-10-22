@@ -1,0 +1,9 @@
+package lalune;
+
+message ItemInfo {
+	required int32 obj_id = 1;
+	required int32 item_id = 2;
+	required int32 count = 3 [default = 0];	
+}
+
+
