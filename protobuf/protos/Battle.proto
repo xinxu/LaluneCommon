@@ -4,7 +4,8 @@ package lalune;
 
 message MatchRequest
 {
-	required uint32 game_type	= 1;
+    required uint32 player_id = 1;
+	//required uint32 game_type	= 1;
 }
 
 message GamePlayer
@@ -16,10 +17,10 @@ message GamePlayer
 message MatchResponse
 {
 	required bytes game_uuid	= 1;
-	repeated GamePlayer players	= 2;
-	required string game_server_ip	= 3;
-	required uint32 game_server_port	= 4;
-	required bytes access_token	= 5;
+	//repeated GamePlayer players	= 2;
+	//required string game_server_ip	= 3;
+	//required uint32 game_server_port	= 4;
+	//required bytes access_token	= 5;
 }
 
 //和战斗服务之间的通信
@@ -54,5 +55,9 @@ message GameActions
 }
 
 
-
+//匹配和战斗通信
+message SendGameId
+{
+	required bytes game_id=1;
+}
 

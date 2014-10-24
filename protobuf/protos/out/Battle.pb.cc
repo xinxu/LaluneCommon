@@ -44,6 +44,9 @@ const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
 const ::google_lalune::protobuf::Descriptor* GameActions_descriptor_ = NULL;
 const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
   GameActions_reflection_ = NULL;
+const ::google_lalune::protobuf::Descriptor* SendGameId_descriptor_ = NULL;
+const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
+  SendGameId_reflection_ = NULL;
 
 }  // namespace
 
@@ -56,7 +59,7 @@ void protobuf_AssignDesc_Battle_2eproto() {
   GOOGLE_CHECK(file != NULL);
   MatchRequest_descriptor_ = file->message_type(0);
   static const int MatchRequest_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchRequest, game_type_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchRequest, player_id_),
   };
   MatchRequest_reflection_ =
     new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
@@ -86,12 +89,8 @@ void protobuf_AssignDesc_Battle_2eproto() {
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(GamePlayer));
   MatchResponse_descriptor_ = file->message_type(2);
-  static const int MatchResponse_offsets_[5] = {
+  static const int MatchResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, game_uuid_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, players_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, game_server_ip_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, game_server_port_),
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, access_token_),
   };
   MatchResponse_reflection_ =
     new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
@@ -183,6 +182,21 @@ void protobuf_AssignDesc_Battle_2eproto() {
       ::google_lalune::protobuf::DescriptorPool::generated_pool(),
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(GameActions));
+  SendGameId_descriptor_ = file->message_type(8);
+  static const int SendGameId_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SendGameId, game_id_),
+  };
+  SendGameId_reflection_ =
+    new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
+      SendGameId_descriptor_,
+      SendGameId::default_instance_,
+      SendGameId_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SendGameId, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SendGameId, _unknown_fields_),
+      -1,
+      ::google_lalune::protobuf::DescriptorPool::generated_pool(),
+      ::google_lalune::protobuf::MessageFactory::generated_factory(),
+      sizeof(SendGameId));
 }
 
 namespace {
@@ -211,6 +225,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
     GameAction_descriptor_, &GameAction::default_instance());
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     GameActions_descriptor_, &GameActions::default_instance());
+  ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    SendGameId_descriptor_, &SendGameId::default_instance());
 }
 
 }  // namespace
@@ -232,6 +248,8 @@ void protobuf_ShutdownFile_Battle_2eproto() {
   delete GameAction_reflection_;
   delete GameActions::default_instance_;
   delete GameActions_reflection_;
+  delete SendGameId::default_instance_;
+  delete SendGameId_reflection_;
 }
 
 void protobuf_AddDesc_Battle_2eproto() {
@@ -242,19 +260,17 @@ void protobuf_AddDesc_Battle_2eproto() {
 
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014Battle.proto\022\006lalune\"!\n\014MatchRequest\022\021"
-    "\n\tgame_type\030\001 \002(\r\"-\n\nGamePlayer\022\014\n\004name\030"
-    "\001 \002(\t\022\021\n\tplayer_id\030\002 \002(\r\"\217\001\n\rMatchRespon"
-    "se\022\021\n\tgame_uuid\030\001 \002(\014\022#\n\007players\030\002 \003(\0132\022"
-    ".lalune.GamePlayer\022\026\n\016game_server_ip\030\003 \002"
-    "(\t\022\030\n\020game_server_port\030\004 \002(\r\022\024\n\014access_t"
-    "oken\030\005 \002(\014\"9\n\rConnectToGame\022\022\n\nplayer_ui"
-    "d\030\001 \002(\r\022\024\n\014access_token\030\002 \002(\014\"%\n\025Connect"
-    "ToGameResponse\022\014\n\004team\030\001 \002(\r\"6\n\tGameStar"
-    "t\022\021\n\trand_seed\030\001 \002(\r\022\026\n\016time_per_frame\030\002"
-    " \002(\r\"S\n\nGameAction\022\023\n\013action_data\030\001 \001(\014\022"
-    "\034\n\024time_from_game_start\030\002 \001(\004\022\022\n\nplayer_"
-    "uid\030\003 \001(\r\"2\n\013GameActions\022#\n\007actions\030\001 \003("
-    "\0132\022.lalune.GameAction", 541);
+    "\n\tplayer_id\030\001 \002(\r\"-\n\nGamePlayer\022\014\n\004name\030"
+    "\001 \002(\t\022\021\n\tplayer_id\030\002 \002(\r\"\"\n\rMatchRespons"
+    "e\022\021\n\tgame_uuid\030\001 \002(\014\"9\n\rConnectToGame\022\022\n"
+    "\nplayer_uid\030\001 \002(\r\022\024\n\014access_token\030\002 \002(\014\""
+    "%\n\025ConnectToGameResponse\022\014\n\004team\030\001 \002(\r\"6"
+    "\n\tGameStart\022\021\n\trand_seed\030\001 \002(\r\022\026\n\016time_p"
+    "er_frame\030\002 \002(\r\"S\n\nGameAction\022\023\n\013action_d"
+    "ata\030\001 \001(\014\022\034\n\024time_from_game_start\030\002 \001(\004\022"
+    "\022\n\nplayer_uid\030\003 \001(\r\"2\n\013GameActions\022#\n\007ac"
+    "tions\030\001 \003(\0132\022.lalune.GameAction\"\035\n\nSendG"
+    "ameId\022\017\n\007game_id\030\001 \002(\014", 462);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "Battle.proto", &protobuf_RegisterTypes);
   MatchRequest::default_instance_ = new MatchRequest();
@@ -265,6 +281,7 @@ void protobuf_AddDesc_Battle_2eproto() {
   GameStart::default_instance_ = new GameStart();
   GameAction::default_instance_ = new GameAction();
   GameActions::default_instance_ = new GameActions();
+  SendGameId::default_instance_ = new SendGameId();
   MatchRequest::default_instance_->InitAsDefaultInstance();
   GamePlayer::default_instance_->InitAsDefaultInstance();
   MatchResponse::default_instance_->InitAsDefaultInstance();
@@ -273,6 +290,7 @@ void protobuf_AddDesc_Battle_2eproto() {
   GameStart::default_instance_->InitAsDefaultInstance();
   GameAction::default_instance_->InitAsDefaultInstance();
   GameActions::default_instance_->InitAsDefaultInstance();
+  SendGameId::default_instance_->InitAsDefaultInstance();
   ::google_lalune::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_Battle_2eproto);
 }
 
@@ -286,7 +304,7 @@ struct StaticDescriptorInitializer_Battle_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MatchRequest::kGameTypeFieldNumber;
+const int MatchRequest::kPlayerIdFieldNumber;
 #endif  // !_MSC_VER
 
 MatchRequest::MatchRequest()
@@ -307,7 +325,7 @@ MatchRequest::MatchRequest(const MatchRequest& from)
 
 void MatchRequest::SharedCtor() {
   _cached_size_ = 0;
-  game_type_ = 0u;
+  player_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -343,7 +361,7 @@ MatchRequest* MatchRequest::New() const {
 }
 
 void MatchRequest::Clear() {
-  game_type_ = 0u;
+  player_id_ = 0u;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -358,13 +376,13 @@ bool MatchRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 game_type = 1;
+      // required uint32 player_id = 1;
       case 1: {
         if (tag == 8) {
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &game_type_)));
-          set_has_game_type();
+                 input, &player_id_)));
+          set_has_player_id();
         } else {
           goto handle_unusual;
         }
@@ -397,9 +415,9 @@ failure:
 void MatchRequest::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:lalune.MatchRequest)
-  // required uint32 game_type = 1;
-  if (has_game_type()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(1, this->game_type(), output);
+  // required uint32 player_id = 1;
+  if (has_player_id()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(1, this->player_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -412,9 +430,9 @@ void MatchRequest::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* MatchRequest::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:lalune.MatchRequest)
-  // required uint32 game_type = 1;
-  if (has_game_type()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->game_type(), target);
+  // required uint32 player_id = 1;
+  if (has_player_id()) {
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->player_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -429,11 +447,11 @@ int MatchRequest::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 game_type = 1;
-    if (has_game_type()) {
+    // required uint32 player_id = 1;
+    if (has_player_id()) {
       total_size += 1 +
         ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
-          this->game_type());
+          this->player_id());
     }
 
   }
@@ -463,8 +481,8 @@ void MatchRequest::MergeFrom(const ::google_lalune::protobuf::Message& from) {
 void MatchRequest::MergeFrom(const MatchRequest& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_game_type()) {
-      set_game_type(from.game_type());
+    if (from.has_player_id()) {
+      set_player_id(from.player_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -490,7 +508,7 @@ bool MatchRequest::IsInitialized() const {
 
 void MatchRequest::Swap(MatchRequest* other) {
   if (other != this) {
-    std::swap(game_type_, other->game_type_);
+    std::swap(player_id_, other->player_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -795,10 +813,6 @@ void GamePlayer::Swap(GamePlayer* other) {
 
 #ifndef _MSC_VER
 const int MatchResponse::kGameUuidFieldNumber;
-const int MatchResponse::kPlayersFieldNumber;
-const int MatchResponse::kGameServerIpFieldNumber;
-const int MatchResponse::kGameServerPortFieldNumber;
-const int MatchResponse::kAccessTokenFieldNumber;
 #endif  // !_MSC_VER
 
 MatchResponse::MatchResponse()
@@ -821,9 +835,6 @@ void MatchResponse::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
   game_uuid_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-  game_server_ip_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-  game_server_port_ = 0u;
-  access_token_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -835,12 +846,6 @@ MatchResponse::~MatchResponse() {
 void MatchResponse::SharedDtor() {
   if (game_uuid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
     delete game_uuid_;
-  }
-  if (game_server_ip_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete game_server_ip_;
-  }
-  if (access_token_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete access_token_;
   }
   if (this != default_instance_) {
   }
@@ -868,25 +873,11 @@ MatchResponse* MatchResponse::New() const {
 }
 
 void MatchResponse::Clear() {
-  if (_has_bits_[0 / 32] & 29) {
-    if (has_game_uuid()) {
-      if (game_uuid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        game_uuid_->clear();
-      }
-    }
-    if (has_game_server_ip()) {
-      if (game_server_ip_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        game_server_ip_->clear();
-      }
-    }
-    game_server_port_ = 0u;
-    if (has_access_token()) {
-      if (access_token_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-        access_token_->clear();
-      }
+  if (has_game_uuid()) {
+    if (game_uuid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+      game_uuid_->clear();
     }
   }
-  players_.Clear();
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -906,65 +897,6 @@ bool MatchResponse::MergePartialFromCodedStream(
         if (tag == 10) {
           DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadBytes(
                 input, this->mutable_game_uuid()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_players;
-        break;
-      }
-
-      // repeated .lalune.GamePlayer players = 2;
-      case 2: {
-        if (tag == 18) {
-         parse_players:
-          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
-                input, add_players()));
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(18)) goto parse_players;
-        if (input->ExpectTag(26)) goto parse_game_server_ip;
-        break;
-      }
-
-      // required string game_server_ip = 3;
-      case 3: {
-        if (tag == 26) {
-         parse_game_server_ip:
-          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_game_server_ip()));
-          ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-            this->game_server_ip().data(), this->game_server_ip().length(),
-            ::google_lalune::protobuf::internal::WireFormat::PARSE,
-            "game_server_ip");
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(32)) goto parse_game_server_port;
-        break;
-      }
-
-      // required uint32 game_server_port = 4;
-      case 4: {
-        if (tag == 32) {
-         parse_game_server_port:
-          DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &game_server_port_)));
-          set_has_game_server_port();
-        } else {
-          goto handle_unusual;
-        }
-        if (input->ExpectTag(42)) goto parse_access_token;
-        break;
-      }
-
-      // required bytes access_token = 5;
-      case 5: {
-        if (tag == 42) {
-         parse_access_token:
-          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadBytes(
-                input, this->mutable_access_token()));
         } else {
           goto handle_unusual;
         }
@@ -1003,33 +935,6 @@ void MatchResponse::SerializeWithCachedSizes(
       1, this->game_uuid(), output);
   }
 
-  // repeated .lalune.GamePlayer players = 2;
-  for (int i = 0; i < this->players_size(); i++) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-      2, this->players(i), output);
-  }
-
-  // required string game_server_ip = 3;
-  if (has_game_server_ip()) {
-    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->game_server_ip().data(), this->game_server_ip().length(),
-      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
-      "game_server_ip");
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      3, this->game_server_ip(), output);
-  }
-
-  // required uint32 game_server_port = 4;
-  if (has_game_server_port()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(4, this->game_server_port(), output);
-  }
-
-  // required bytes access_token = 5;
-  if (has_access_token()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
-      5, this->access_token(), output);
-  }
-
   if (!unknown_fields().empty()) {
     ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -1045,36 +950,6 @@ void MatchResponse::SerializeWithCachedSizes(
     target =
       ::google_lalune::protobuf::internal::WireFormatLite::WriteBytesToArray(
         1, this->game_uuid(), target);
-  }
-
-  // repeated .lalune.GamePlayer players = 2;
-  for (int i = 0; i < this->players_size(); i++) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::
-      WriteMessageNoVirtualToArray(
-        2, this->players(i), target);
-  }
-
-  // required string game_server_ip = 3;
-  if (has_game_server_ip()) {
-    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
-      this->game_server_ip().data(), this->game_server_ip().length(),
-      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
-      "game_server_ip");
-    target =
-      ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
-        3, this->game_server_ip(), target);
-  }
-
-  // required uint32 game_server_port = 4;
-  if (has_game_server_port()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(4, this->game_server_port(), target);
-  }
-
-  // required bytes access_token = 5;
-  if (has_access_token()) {
-    target =
-      ::google_lalune::protobuf::internal::WireFormatLite::WriteBytesToArray(
-        5, this->access_token(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1096,36 +971,7 @@ int MatchResponse::ByteSize() const {
           this->game_uuid());
     }
 
-    // required string game_server_ip = 3;
-    if (has_game_server_ip()) {
-      total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
-          this->game_server_ip());
-    }
-
-    // required uint32 game_server_port = 4;
-    if (has_game_server_port()) {
-      total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
-          this->game_server_port());
-    }
-
-    // required bytes access_token = 5;
-    if (has_access_token()) {
-      total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::BytesSize(
-          this->access_token());
-    }
-
   }
-  // repeated .lalune.GamePlayer players = 2;
-  total_size += 1 * this->players_size();
-  for (int i = 0; i < this->players_size(); i++) {
-    total_size +=
-      ::google_lalune::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
-        this->players(i));
-  }
-
   if (!unknown_fields().empty()) {
     total_size +=
       ::google_lalune::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
@@ -1151,19 +997,9 @@ void MatchResponse::MergeFrom(const ::google_lalune::protobuf::Message& from) {
 
 void MatchResponse::MergeFrom(const MatchResponse& from) {
   GOOGLE_CHECK_NE(&from, this);
-  players_.MergeFrom(from.players_);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
     if (from.has_game_uuid()) {
       set_game_uuid(from.game_uuid());
-    }
-    if (from.has_game_server_ip()) {
-      set_game_server_ip(from.game_server_ip());
-    }
-    if (from.has_game_server_port()) {
-      set_game_server_port(from.game_server_port());
-    }
-    if (from.has_access_token()) {
-      set_access_token(from.access_token());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -1182,19 +1018,14 @@ void MatchResponse::CopyFrom(const MatchResponse& from) {
 }
 
 bool MatchResponse::IsInitialized() const {
-  if ((_has_bits_[0] & 0x0000001d) != 0x0000001d) return false;
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
 
-  if (!::google_lalune::protobuf::internal::AllAreInitialized(this->players())) return false;
   return true;
 }
 
 void MatchResponse::Swap(MatchResponse* other) {
   if (other != this) {
     std::swap(game_uuid_, other->game_uuid_);
-    players_.Swap(&other->players_);
-    std::swap(game_server_ip_, other->game_server_ip_);
-    std::swap(game_server_port_, other->game_server_port_);
-    std::swap(access_token_, other->access_token_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);
@@ -2520,6 +2351,238 @@ void GameActions::Swap(GameActions* other) {
   ::google_lalune::protobuf::Metadata metadata;
   metadata.descriptor = GameActions_descriptor_;
   metadata.reflection = GameActions_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int SendGameId::kGameIdFieldNumber;
+#endif  // !_MSC_VER
+
+SendGameId::SendGameId()
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:lalune.SendGameId)
+}
+
+void SendGameId::InitAsDefaultInstance() {
+}
+
+SendGameId::SendGameId(const SendGameId& from)
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:lalune.SendGameId)
+}
+
+void SendGameId::SharedCtor() {
+  ::google_lalune::protobuf::internal::GetEmptyString();
+  _cached_size_ = 0;
+  game_id_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+SendGameId::~SendGameId() {
+  // @@protoc_insertion_point(destructor:lalune.SendGameId)
+  SharedDtor();
+}
+
+void SendGameId::SharedDtor() {
+  if (game_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete game_id_;
+  }
+  if (this != default_instance_) {
+  }
+}
+
+void SendGameId::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google_lalune::protobuf::Descriptor* SendGameId::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return SendGameId_descriptor_;
+}
+
+const SendGameId& SendGameId::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_Battle_2eproto();
+  return *default_instance_;
+}
+
+SendGameId* SendGameId::default_instance_ = NULL;
+
+SendGameId* SendGameId::New() const {
+  return new SendGameId;
+}
+
+void SendGameId::Clear() {
+  if (has_game_id()) {
+    if (game_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+      game_id_->clear();
+    }
+  }
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool SendGameId::MergePartialFromCodedStream(
+    ::google_lalune::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google_lalune::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:lalune.SendGameId)
+  for (;;) {
+    ::std::pair< ::google_lalune::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required bytes game_id = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_game_id()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google_lalune::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google_lalune::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google_lalune::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:lalune.SendGameId)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:lalune.SendGameId)
+  return false;
+#undef DO_
+}
+
+void SendGameId::SerializeWithCachedSizes(
+    ::google_lalune::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:lalune.SendGameId)
+  // required bytes game_id = 1;
+  if (has_game_id()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->game_id(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:lalune.SendGameId)
+}
+
+::google_lalune::protobuf::uint8* SendGameId::SerializeWithCachedSizesToArray(
+    ::google_lalune::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:lalune.SendGameId)
+  // required bytes game_id = 1;
+  if (has_game_id()) {
+    target =
+      ::google_lalune::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->game_id(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:lalune.SendGameId)
+  return target;
+}
+
+int SendGameId::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required bytes game_id = 1;
+    if (has_game_id()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::BytesSize(
+          this->game_id());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google_lalune::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void SendGameId::MergeFrom(const ::google_lalune::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const SendGameId* source =
+    ::google_lalune::protobuf::internal::dynamic_cast_if_available<const SendGameId*>(
+      &from);
+  if (source == NULL) {
+    ::google_lalune::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void SendGameId::MergeFrom(const SendGameId& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_game_id()) {
+      set_game_id(from.game_id());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void SendGameId::CopyFrom(const ::google_lalune::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void SendGameId::CopyFrom(const SendGameId& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool SendGameId::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void SendGameId::Swap(SendGameId* other) {
+  if (other != this) {
+    std::swap(game_id_, other->game_id_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google_lalune::protobuf::Metadata SendGameId::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google_lalune::protobuf::Metadata metadata;
+  metadata.descriptor = SendGameId_descriptor_;
+  metadata.reflection = SendGameId_reflection_;
   return metadata;
 }
 
