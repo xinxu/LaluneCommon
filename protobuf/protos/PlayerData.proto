@@ -1,8 +1,0 @@
-message PlayerData {
-	enum DataType {
-		kDataTypeBaseInfo = 1,
-		kDataTypeDepot = 2
-	}
-	
-	required DataType type = 1;
-}

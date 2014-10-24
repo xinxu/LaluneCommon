@@ -1,0 +1,9 @@
+package lalune;
+
+message BuddyInfo {
+	required int32 uid = 1;
+	optional string nick = 2;
+	optional int32 level = 3;
+	optional int32 gender = 4;
+	optional bool is_online = 5;
+}

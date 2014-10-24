@@ -1,0 +1,15 @@
+package lalune;
+
+message BaseInfo {
+	optional string name = 1;
+	optional string avatar = 2;
+	optional int32 gold = 3;
+	optional int32 diamond = 4;
+	optional int32 exp = 5;
+	optional int32 level = 6;
+	optional int32 max_level = 7;
+	optional int32 energy = 8;
+	optional int32 max_energy = 9;
+	optional int32 vip = 10;
+}
+

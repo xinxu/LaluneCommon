@@ -1,18 +1,8 @@
 package lalune;
 
-message CheckVersion {
-	required string version_name	= 1;
-}
-
 message VersionFile {
 	optional string url_prefix	= 2;
 	required string file_path	= 1;
-}
-
-message CheckVersionResult {	
-	optional string now_version	= 3;
-	optional string url_prefix	= 2;
-	repeated VersionFile file	= 1;
 }
 
 message AddVersion {

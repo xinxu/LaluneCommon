@@ -1,0 +1,15 @@
+package lalune;
+
+message BattleInfo {
+	required int32 chapter = 1;
+	required int32 section = 2;
+	required int32 mode = 3;
+	optional int32 rank = 4;
+	optional int32 cost = 5;
+	optional int32 daily_used_times = 6;
+	optional int32 daily_max_times = 7;
+}
+
+message BattleRecordJson {
+	required string json_data = 1;
+}

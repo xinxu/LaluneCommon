@@ -1,0 +1,9 @@
+package lalune;
+
+message MissionInfo {
+	enum MissionType {
+	
+	}
+	
+	required MissionType type = 1;
+}

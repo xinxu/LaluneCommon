@@ -1,0 +1,104 @@
+#import "version.proto"
+#import "player.proto"
+#import "unit.proto"
+#import "item.proto"
+
+package lalune;
+
+message ResponseHeader {
+	required int32 code = 1 [default = 0];
+	optional string err_str = 2;
+}
+
+message CheckVersionRequest {
+	required string version_name = 1;
+}
+
+message CheckVersionResponse {
+	required ResponseHeader header = 4;
+	optional string now_version	= 3;
+	optional string url_prefix	= 2;
+	repeated VersionFile file	= 1;
+}
+
+message RandomNickRequest {
+	required uint32 gender = 1;
+}
+
+message RandomNickResponce {
+	required ResponseHeader header = 1;
+	required string nick = 2;
+}
+
+message AutoRegisterRequest {
+	required string nick = 1;
+}
+
+message AutoRegisterResponce {
+	required ResponseHeader header = 1;
+	optional uint32 uid = 2;
+	optional string pwd = 3;
+}
+
+message LoginRequest {
+	required uint32 uid = 1;
+	required string pwd = 2;
+}
+
+message LoginResponce {
+	required ResponseHeader header = 1;
+}
+
+message SyncBaseInfoRequest {
+}
+
+message SyncBaseInfoResponse {
+	required ResponseHeader header = 1;
+	optional BaseInfo base_info = 2;
+}
+
+message SyncUnitCollectionRequest {
+
+}
+
+message SyncUnitCollectionResponse {
+	required ResponseHeader header = 1;
+	repeat UnitInfo units = 2;
+}
+
+message SyncItemCollectionRequest {
+
+}
+
+message SyncItemCollectionResponse {
+	required ResponseHeader header = 1;
+	repeat ItemInfo items = 2;
+}
+
+message SyncBattleRecordRequest {
+	optional int32 chapter = 1;
+	optional int32 section = 2;
+	optional int32 mode = 3;
+}
+
+message SyncBattleRecordResponse {
+	required ResponseHeader = 1;
+	repeat BattleInfo records = 2;
+}
+
+message StartPveBattleRequest {
+	required BattleInfo battle_info = 1;
+}
+
+message StartPveBattleResponse {
+	required ResponseHeader header = 1;
+	optional BattleInfo battle_info = 2;
+}
+
+message GambleEquipRequest {
+
+}
+
+message GambleEquipResponse {
+	
+}
