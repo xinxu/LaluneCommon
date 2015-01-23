@@ -1,7 +1,7 @@
-#import "version.proto"
-#import "player.proto"
-#import "unit.proto"
-#import "item.proto"
+import "version.proto";
+import "player.proto";
+import "unit.proto";
+import "item.proto";
 
 package lalune;
 
@@ -36,7 +36,7 @@ message AutoRegisterRequest {
 
 message AutoRegisterResponce {
 	required ResponseHeader header = 1;
-	optional uint32 uid = 2;
+	optional uint64 uid = 2;
 	optional string pwd = 3;
 }
 

@@ -1,2 +1,60 @@
-package lalune;
+package boids;
+
+message UnitData {
+	required string unit_name = 1;
+	required uint32 unit_level = 2;
+}
+
+message ForceData {
+	required string user_id = 1;
+	required uint32 force_id = 2;
+	repeated UnitData units = 3;
+}
+
+message GameInitData {
+	repeated ForceData forces = 1;
+}
+
+message UserOperation {
+	enum OperationType
+	{
+		EnterGame = 1;
+		QuitGame = 2;
+		Move = 3;
+		UseSkill = 4;
+	}
+	required string user_id = 1;
+	optional OperationType op_type = 2;
+	optional uint32 game_id = 3;
+	optional uint32 unit_id = 4;
+	optional uint32 skill_id = 5;
+	optional int32 dir_x = 6;
+	optional int32 dir_y = 7;
+	optional uint32 timestamp = 8;
+}
+
+message UserOperationPackage {
+	repeated UserOperation operations = 1;
+}
+
+message GameMessage {
+	enum MessageType {
+		GameInitData = 1;
+		UserOperation = 2;
+		UserOperationPackage = 3;
+	}
+	required MessageType type = 1;
+	optional GameInitData game_init_data = 2;
+	optional UserOperation user_op = 3;
+	optional UserOperationPackage user_op_package = 4;
+}
+
+message PvpMessage {
+	required uint32 version = 1;
+	required uint32 proto_id = 2;
+	required uint32 seq_no = 3;
+	required uint32 ack_no = 4;
+	required uint32 ack_bits = 5;
+	optional bytes data = 6;
+}
 
