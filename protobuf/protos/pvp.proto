@@ -39,9 +39,10 @@ message UserOperationPackage {
 
 message GameMessage {
 	enum MessageType {
-		GameInitData = 1;
-		UserOperation = 2;
-		UserOperationPackage = 3;
+		HeartBeat = 1;
+		GameInitData = 2;
+		UserOperation = 3;
+		UserOperationPackage = 4;
 	}
 	required MessageType type = 1;
 	optional GameInitData game_init_data = 2;
