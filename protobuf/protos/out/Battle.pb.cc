@@ -35,6 +35,9 @@ const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
 const ::google_lalune::protobuf::Descriptor* PvPServerRegister_descriptor_ = NULL;
 const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
   PvPServerRegister_reflection_ = NULL;
+const ::google_lalune::protobuf::Descriptor* PvPServerRegisterResponse_descriptor_ = NULL;
+const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
+  PvPServerRegisterResponse_reflection_ = NULL;
 const ::google_lalune::protobuf::Descriptor* PvPServerHeartBeat_descriptor_ = NULL;
 const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
   PvPServerHeartBeat_reflection_ = NULL;
@@ -132,7 +135,22 @@ void protobuf_AssignDesc_battle_2eproto() {
       ::google_lalune::protobuf::DescriptorPool::generated_pool(),
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(PvPServerRegister));
-  PvPServerHeartBeat_descriptor_ = file->message_type(5);
+  PvPServerRegisterResponse_descriptor_ = file->message_type(5);
+  static const int PvPServerRegisterResponse_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PvPServerRegisterResponse, ret_value_),
+  };
+  PvPServerRegisterResponse_reflection_ =
+    new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
+      PvPServerRegisterResponse_descriptor_,
+      PvPServerRegisterResponse::default_instance_,
+      PvPServerRegisterResponse_offsets_,
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PvPServerRegisterResponse, _has_bits_[0]),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PvPServerRegisterResponse, _unknown_fields_),
+      -1,
+      ::google_lalune::protobuf::DescriptorPool::generated_pool(),
+      ::google_lalune::protobuf::MessageFactory::generated_factory(),
+      sizeof(PvPServerRegisterResponse));
+  PvPServerHeartBeat_descriptor_ = file->message_type(6);
   static const int PvPServerHeartBeat_offsets_[2] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PvPServerHeartBeat, ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(PvPServerHeartBeat, port_),
@@ -171,6 +189,8 @@ void protobuf_RegisterTypes(const ::std::string&) {
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     PvPServerRegister_descriptor_, &PvPServerRegister::default_instance());
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+    PvPServerRegisterResponse_descriptor_, &PvPServerRegisterResponse::default_instance());
+  ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
     PvPServerHeartBeat_descriptor_, &PvPServerHeartBeat::default_instance());
 }
 
@@ -187,6 +207,8 @@ void protobuf_ShutdownFile_battle_2eproto() {
   delete CreateGameResponse_reflection_;
   delete PvPServerRegister::default_instance_;
   delete PvPServerRegister_reflection_;
+  delete PvPServerRegisterResponse::default_instance_;
+  delete PvPServerRegisterResponse_reflection_;
   delete PvPServerHeartBeat::default_instance_;
   delete PvPServerHeartBeat_reflection_;
 }
@@ -209,8 +231,9 @@ void protobuf_AddDesc_battle_2eproto() {
     "eResponse\022\017\n\007game_id\030\001 \002(\014\022\021\n\tret_value\030"
     "\002 \002(\005\"O\n\021PvPServerRegister\022\n\n\002ip\030\001 \002(\t\022\014"
     "\n\004port\030\002 \002(\r\022\016\n\006region\030\003 \001(\005\022\020\n\010priority"
-    "\030\004 \001(\005\".\n\022PvPServerHeartBeat\022\n\n\002ip\030\001 \002(\t"
-    "\022\014\n\004port\030\002 \002(\r", 454);
+    "\030\004 \001(\005\"1\n\031PvPServerRegisterResponse\022\024\n\tr"
+    "et_value\030\001 \002(\005:\0010\".\n\022PvPServerHeartBeat\022"
+    "\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r", 505);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "battle.proto", &protobuf_RegisterTypes);
   MatchRequest::default_instance_ = new MatchRequest();
@@ -218,12 +241,14 @@ void protobuf_AddDesc_battle_2eproto() {
   CreateGame::default_instance_ = new CreateGame();
   CreateGameResponse::default_instance_ = new CreateGameResponse();
   PvPServerRegister::default_instance_ = new PvPServerRegister();
+  PvPServerRegisterResponse::default_instance_ = new PvPServerRegisterResponse();
   PvPServerHeartBeat::default_instance_ = new PvPServerHeartBeat();
   MatchRequest::default_instance_->InitAsDefaultInstance();
   MatchResponse::default_instance_->InitAsDefaultInstance();
   CreateGame::default_instance_->InitAsDefaultInstance();
   CreateGameResponse::default_instance_->InitAsDefaultInstance();
   PvPServerRegister::default_instance_->InitAsDefaultInstance();
+  PvPServerRegisterResponse::default_instance_->InitAsDefaultInstance();
   PvPServerHeartBeat::default_instance_->InitAsDefaultInstance();
   ::google_lalune::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_battle_2eproto);
 }
@@ -1824,6 +1849,229 @@ void PvPServerRegister::Swap(PvPServerRegister* other) {
   ::google_lalune::protobuf::Metadata metadata;
   metadata.descriptor = PvPServerRegister_descriptor_;
   metadata.reflection = PvPServerRegister_reflection_;
+  return metadata;
+}
+
+
+// ===================================================================
+
+#ifndef _MSC_VER
+const int PvPServerRegisterResponse::kRetValueFieldNumber;
+#endif  // !_MSC_VER
+
+PvPServerRegisterResponse::PvPServerRegisterResponse()
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:boids.PvPServerRegisterResponse)
+}
+
+void PvPServerRegisterResponse::InitAsDefaultInstance() {
+}
+
+PvPServerRegisterResponse::PvPServerRegisterResponse(const PvPServerRegisterResponse& from)
+  : ::google_lalune::protobuf::Message() {
+  SharedCtor();
+  MergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:boids.PvPServerRegisterResponse)
+}
+
+void PvPServerRegisterResponse::SharedCtor() {
+  _cached_size_ = 0;
+  ret_value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+}
+
+PvPServerRegisterResponse::~PvPServerRegisterResponse() {
+  // @@protoc_insertion_point(destructor:boids.PvPServerRegisterResponse)
+  SharedDtor();
+}
+
+void PvPServerRegisterResponse::SharedDtor() {
+  if (this != default_instance_) {
+  }
+}
+
+void PvPServerRegisterResponse::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google_lalune::protobuf::Descriptor* PvPServerRegisterResponse::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return PvPServerRegisterResponse_descriptor_;
+}
+
+const PvPServerRegisterResponse& PvPServerRegisterResponse::default_instance() {
+  if (default_instance_ == NULL) protobuf_AddDesc_battle_2eproto();
+  return *default_instance_;
+}
+
+PvPServerRegisterResponse* PvPServerRegisterResponse::default_instance_ = NULL;
+
+PvPServerRegisterResponse* PvPServerRegisterResponse::New() const {
+  return new PvPServerRegisterResponse;
+}
+
+void PvPServerRegisterResponse::Clear() {
+  ret_value_ = 0;
+  ::memset(_has_bits_, 0, sizeof(_has_bits_));
+  mutable_unknown_fields()->Clear();
+}
+
+bool PvPServerRegisterResponse::MergePartialFromCodedStream(
+    ::google_lalune::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!(EXPRESSION)) goto failure
+  ::google_lalune::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:boids.PvPServerRegisterResponse)
+  for (;;) {
+    ::std::pair< ::google_lalune::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // required int32 ret_value = 1 [default = 0];
+      case 1: {
+        if (tag == 8) {
+          DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
+                   ::google_lalune::protobuf::int32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT32>(
+                 input, &ret_value_)));
+          set_has_ret_value();
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google_lalune::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google_lalune::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google_lalune::protobuf::internal::WireFormat::SkipField(
+              input, tag, mutable_unknown_fields()));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:boids.PvPServerRegisterResponse)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:boids.PvPServerRegisterResponse)
+  return false;
+#undef DO_
+}
+
+void PvPServerRegisterResponse::SerializeWithCachedSizes(
+    ::google_lalune::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:boids.PvPServerRegisterResponse)
+  // required int32 ret_value = 1 [default = 0];
+  if (has_ret_value()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_value(), output);
+  }
+
+  if (!unknown_fields().empty()) {
+    ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFields(
+        unknown_fields(), output);
+  }
+  // @@protoc_insertion_point(serialize_end:boids.PvPServerRegisterResponse)
+}
+
+::google_lalune::protobuf::uint8* PvPServerRegisterResponse::SerializeWithCachedSizesToArray(
+    ::google_lalune::protobuf::uint8* target) const {
+  // @@protoc_insertion_point(serialize_to_array_start:boids.PvPServerRegisterResponse)
+  // required int32 ret_value = 1 [default = 0];
+  if (has_ret_value()) {
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_value(), target);
+  }
+
+  if (!unknown_fields().empty()) {
+    target = ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
+        unknown_fields(), target);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:boids.PvPServerRegisterResponse)
+  return target;
+}
+
+int PvPServerRegisterResponse::ByteSize() const {
+  int total_size = 0;
+
+  if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    // required int32 ret_value = 1 [default = 0];
+    if (has_ret_value()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::Int32Size(
+          this->ret_value());
+    }
+
+  }
+  if (!unknown_fields().empty()) {
+    total_size +=
+      ::google_lalune::protobuf::internal::WireFormat::ComputeUnknownFieldsSize(
+        unknown_fields());
+  }
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = total_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void PvPServerRegisterResponse::MergeFrom(const ::google_lalune::protobuf::Message& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  const PvPServerRegisterResponse* source =
+    ::google_lalune::protobuf::internal::dynamic_cast_if_available<const PvPServerRegisterResponse*>(
+      &from);
+  if (source == NULL) {
+    ::google_lalune::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+    MergeFrom(*source);
+  }
+}
+
+void PvPServerRegisterResponse::MergeFrom(const PvPServerRegisterResponse& from) {
+  GOOGLE_CHECK_NE(&from, this);
+  if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_ret_value()) {
+      set_ret_value(from.ret_value());
+    }
+  }
+  mutable_unknown_fields()->MergeFrom(from.unknown_fields());
+}
+
+void PvPServerRegisterResponse::CopyFrom(const ::google_lalune::protobuf::Message& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void PvPServerRegisterResponse::CopyFrom(const PvPServerRegisterResponse& from) {
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool PvPServerRegisterResponse::IsInitialized() const {
+  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+
+  return true;
+}
+
+void PvPServerRegisterResponse::Swap(PvPServerRegisterResponse* other) {
+  if (other != this) {
+    std::swap(ret_value_, other->ret_value_);
+    std::swap(_has_bits_[0], other->_has_bits_[0]);
+    _unknown_fields_.Swap(&other->_unknown_fields_);
+    std::swap(_cached_size_, other->_cached_size_);
+  }
+}
+
+::google_lalune::protobuf::Metadata PvPServerRegisterResponse::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google_lalune::protobuf::Metadata metadata;
+  metadata.descriptor = PvPServerRegisterResponse_descriptor_;
+  metadata.reflection = PvPServerRegisterResponse_reflection_;
   return metadata;
 }
 

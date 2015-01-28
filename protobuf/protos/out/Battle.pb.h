@@ -39,6 +39,7 @@ class MatchResponse;
 class CreateGame;
 class CreateGameResponse;
 class PvPServerRegister;
+class PvPServerRegisterResponse;
 class PvPServerHeartBeat;
 
 // ===================================================================
@@ -557,6 +558,85 @@ class PvPServerRegister : public ::google_lalune::protobuf::Message {
 
   void InitAsDefaultInstance();
   static PvPServerRegister* default_instance_;
+};
+// -------------------------------------------------------------------
+
+class PvPServerRegisterResponse : public ::google_lalune::protobuf::Message {
+ public:
+  PvPServerRegisterResponse();
+  virtual ~PvPServerRegisterResponse();
+
+  PvPServerRegisterResponse(const PvPServerRegisterResponse& from);
+
+  inline PvPServerRegisterResponse& operator=(const PvPServerRegisterResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
+    return _unknown_fields_;
+  }
+
+  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
+    return &_unknown_fields_;
+  }
+
+  static const ::google_lalune::protobuf::Descriptor* descriptor();
+  static const PvPServerRegisterResponse& default_instance();
+
+  void Swap(PvPServerRegisterResponse* other);
+
+  // implements Message ----------------------------------------------
+
+  PvPServerRegisterResponse* New() const;
+  void CopyFrom(const ::google_lalune::protobuf::Message& from);
+  void MergeFrom(const ::google_lalune::protobuf::Message& from);
+  void CopyFrom(const PvPServerRegisterResponse& from);
+  void MergeFrom(const PvPServerRegisterResponse& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  int ByteSize() const;
+  bool MergePartialFromCodedStream(
+      ::google_lalune::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
+  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  public:
+  ::google_lalune::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // required int32 ret_value = 1 [default = 0];
+  inline bool has_ret_value() const;
+  inline void clear_ret_value();
+  static const int kRetValueFieldNumber = 1;
+  inline ::google_lalune::protobuf::int32 ret_value() const;
+  inline void set_ret_value(::google_lalune::protobuf::int32 value);
+
+  // @@protoc_insertion_point(class_scope:boids.PvPServerRegisterResponse)
+ private:
+  inline void set_has_ret_value();
+  inline void clear_has_ret_value();
+
+  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
+
+  ::google_lalune::protobuf::uint32 _has_bits_[1];
+  mutable int _cached_size_;
+  ::google_lalune::protobuf::int32 ret_value_;
+  friend void  protobuf_AddDesc_battle_2eproto();
+  friend void protobuf_AssignDesc_battle_2eproto();
+  friend void protobuf_ShutdownFile_battle_2eproto();
+
+  void InitAsDefaultInstance();
+  static PvPServerRegisterResponse* default_instance_;
 };
 // -------------------------------------------------------------------
 
@@ -1338,6 +1418,34 @@ inline void PvPServerRegister::set_priority(::google_lalune::protobuf::int32 val
   set_has_priority();
   priority_ = value;
   // @@protoc_insertion_point(field_set:boids.PvPServerRegister.priority)
+}
+
+// -------------------------------------------------------------------
+
+// PvPServerRegisterResponse
+
+// required int32 ret_value = 1 [default = 0];
+inline bool PvPServerRegisterResponse::has_ret_value() const {
+  return (_has_bits_[0] & 0x00000001u) != 0;
+}
+inline void PvPServerRegisterResponse::set_has_ret_value() {
+  _has_bits_[0] |= 0x00000001u;
+}
+inline void PvPServerRegisterResponse::clear_has_ret_value() {
+  _has_bits_[0] &= ~0x00000001u;
+}
+inline void PvPServerRegisterResponse::clear_ret_value() {
+  ret_value_ = 0;
+  clear_has_ret_value();
+}
+inline ::google_lalune::protobuf::int32 PvPServerRegisterResponse::ret_value() const {
+  // @@protoc_insertion_point(field_get:boids.PvPServerRegisterResponse.ret_value)
+  return ret_value_;
+}
+inline void PvPServerRegisterResponse::set_ret_value(::google_lalune::protobuf::int32 value) {
+  set_has_ret_value();
+  ret_value_ = value;
+  // @@protoc_insertion_point(field_set:boids.PvPServerRegisterResponse.ret_value)
 }
 
 // -------------------------------------------------------------------

@@ -42,6 +42,11 @@ message PvPServerRegister
 	optional int32 priority		= 4;
 }
 
+message PvPServerRegisterResponse
+{
+	required int32 ret_value	= 1 [default=0];  //0表示成功
+}
+
 message PvPServerHeartBeat
 {
 	required string ip			= 1;	//用ip和port唯一标示一台服务
