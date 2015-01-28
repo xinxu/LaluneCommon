@@ -24,6 +24,7 @@
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
 #include <google/protobuf/unknown_field_set.h>
+#include "pvp.pb.h"
 // @@protoc_insertion_point(includes)
 
 namespace boids {
@@ -34,7 +35,6 @@ void protobuf_AssignDesc_battle_2eproto();
 void protobuf_ShutdownFile_battle_2eproto();
 
 class MatchRequest;
-class GamePlayer;
 class MatchResponse;
 class CreateGame;
 class CreateGameResponse;
@@ -122,100 +122,6 @@ class MatchRequest : public ::google_lalune::protobuf::Message {
 };
 // -------------------------------------------------------------------
 
-class GamePlayer : public ::google_lalune::protobuf::Message {
- public:
-  GamePlayer();
-  virtual ~GamePlayer();
-
-  GamePlayer(const GamePlayer& from);
-
-  inline GamePlayer& operator=(const GamePlayer& from) {
-    CopyFrom(from);
-    return *this;
-  }
-
-  inline const ::google_lalune::protobuf::UnknownFieldSet& unknown_fields() const {
-    return _unknown_fields_;
-  }
-
-  inline ::google_lalune::protobuf::UnknownFieldSet* mutable_unknown_fields() {
-    return &_unknown_fields_;
-  }
-
-  static const ::google_lalune::protobuf::Descriptor* descriptor();
-  static const GamePlayer& default_instance();
-
-  void Swap(GamePlayer* other);
-
-  // implements Message ----------------------------------------------
-
-  GamePlayer* New() const;
-  void CopyFrom(const ::google_lalune::protobuf::Message& from);
-  void MergeFrom(const ::google_lalune::protobuf::Message& from);
-  void CopyFrom(const GamePlayer& from);
-  void MergeFrom(const GamePlayer& from);
-  void Clear();
-  bool IsInitialized() const;
-
-  int ByteSize() const;
-  bool MergePartialFromCodedStream(
-      ::google_lalune::protobuf::io::CodedInputStream* input);
-  void SerializeWithCachedSizes(
-      ::google_lalune::protobuf::io::CodedOutputStream* output) const;
-  ::google_lalune::protobuf::uint8* SerializeWithCachedSizesToArray(::google_lalune::protobuf::uint8* output) const;
-  int GetCachedSize() const { return _cached_size_; }
-  private:
-  void SharedCtor();
-  void SharedDtor();
-  void SetCachedSize(int size) const;
-  public:
-  ::google_lalune::protobuf::Metadata GetMetadata() const;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  // required string name = 1;
-  inline bool has_name() const;
-  inline void clear_name();
-  static const int kNameFieldNumber = 1;
-  inline const ::std::string& name() const;
-  inline void set_name(const ::std::string& value);
-  inline void set_name(const char* value);
-  inline void set_name(const char* value, size_t size);
-  inline ::std::string* mutable_name();
-  inline ::std::string* release_name();
-  inline void set_allocated_name(::std::string* name);
-
-  // required uint32 player_id = 2;
-  inline bool has_player_id() const;
-  inline void clear_player_id();
-  static const int kPlayerIdFieldNumber = 2;
-  inline ::google_lalune::protobuf::uint32 player_id() const;
-  inline void set_player_id(::google_lalune::protobuf::uint32 value);
-
-  // @@protoc_insertion_point(class_scope:boids.GamePlayer)
- private:
-  inline void set_has_name();
-  inline void clear_has_name();
-  inline void set_has_player_id();
-  inline void clear_has_player_id();
-
-  ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
-
-  ::google_lalune::protobuf::uint32 _has_bits_[1];
-  mutable int _cached_size_;
-  ::std::string* name_;
-  ::google_lalune::protobuf::uint32 player_id_;
-  friend void  protobuf_AddDesc_battle_2eproto();
-  friend void protobuf_AssignDesc_battle_2eproto();
-  friend void protobuf_ShutdownFile_battle_2eproto();
-
-  void InitAsDefaultInstance();
-  static GamePlayer* default_instance_;
-};
-// -------------------------------------------------------------------
-
 class MatchResponse : public ::google_lalune::protobuf::Message {
  public:
   MatchResponse();
@@ -281,16 +187,78 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_game_uuid();
   inline void set_allocated_game_uuid(::std::string* game_uuid);
 
+  // required .boids.GameInitData game_init_data = 2;
+  inline bool has_game_init_data() const;
+  inline void clear_game_init_data();
+  static const int kGameInitDataFieldNumber = 2;
+  inline const ::boids::GameInitData& game_init_data() const;
+  inline ::boids::GameInitData* mutable_game_init_data();
+  inline ::boids::GameInitData* release_game_init_data();
+  inline void set_allocated_game_init_data(::boids::GameInitData* game_init_data);
+
+  // required string game_server_ip = 3;
+  inline bool has_game_server_ip() const;
+  inline void clear_game_server_ip();
+  static const int kGameServerIpFieldNumber = 3;
+  inline const ::std::string& game_server_ip() const;
+  inline void set_game_server_ip(const ::std::string& value);
+  inline void set_game_server_ip(const char* value);
+  inline void set_game_server_ip(const char* value, size_t size);
+  inline ::std::string* mutable_game_server_ip();
+  inline ::std::string* release_game_server_ip();
+  inline void set_allocated_game_server_ip(::std::string* game_server_ip);
+
+  // required uint32 game_server_port = 4;
+  inline bool has_game_server_port() const;
+  inline void clear_game_server_port();
+  static const int kGameServerPortFieldNumber = 4;
+  inline ::google_lalune::protobuf::uint32 game_server_port() const;
+  inline void set_game_server_port(::google_lalune::protobuf::uint32 value);
+
+  // required int32 ret_value = 5;
+  inline bool has_ret_value() const;
+  inline void clear_ret_value();
+  static const int kRetValueFieldNumber = 5;
+  inline ::google_lalune::protobuf::int32 ret_value() const;
+  inline void set_ret_value(::google_lalune::protobuf::int32 value);
+
+  // optional string ret_info = 6;
+  inline bool has_ret_info() const;
+  inline void clear_ret_info();
+  static const int kRetInfoFieldNumber = 6;
+  inline const ::std::string& ret_info() const;
+  inline void set_ret_info(const ::std::string& value);
+  inline void set_ret_info(const char* value);
+  inline void set_ret_info(const char* value, size_t size);
+  inline ::std::string* mutable_ret_info();
+  inline ::std::string* release_ret_info();
+  inline void set_allocated_ret_info(::std::string* ret_info);
+
   // @@protoc_insertion_point(class_scope:boids.MatchResponse)
  private:
   inline void set_has_game_uuid();
   inline void clear_has_game_uuid();
+  inline void set_has_game_init_data();
+  inline void clear_has_game_init_data();
+  inline void set_has_game_server_ip();
+  inline void clear_has_game_server_ip();
+  inline void set_has_game_server_port();
+  inline void clear_has_game_server_port();
+  inline void set_has_ret_value();
+  inline void clear_has_ret_value();
+  inline void set_has_ret_info();
+  inline void clear_has_ret_info();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::std::string* game_uuid_;
+  ::boids::GameInitData* game_init_data_;
+  ::std::string* game_server_ip_;
+  ::google_lalune::protobuf::uint32 game_server_port_;
+  ::google_lalune::protobuf::int32 ret_value_;
+  ::std::string* ret_info_;
   friend void  protobuf_AddDesc_battle_2eproto();
   friend void protobuf_AssignDesc_battle_2eproto();
   friend void protobuf_ShutdownFile_battle_2eproto();
@@ -702,110 +670,6 @@ inline void MatchRequest::set_player_id(::google_lalune::protobuf::uint32 value)
 
 // -------------------------------------------------------------------
 
-// GamePlayer
-
-// required string name = 1;
-inline bool GamePlayer::has_name() const {
-  return (_has_bits_[0] & 0x00000001u) != 0;
-}
-inline void GamePlayer::set_has_name() {
-  _has_bits_[0] |= 0x00000001u;
-}
-inline void GamePlayer::clear_has_name() {
-  _has_bits_[0] &= ~0x00000001u;
-}
-inline void GamePlayer::clear_name() {
-  if (name_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    name_->clear();
-  }
-  clear_has_name();
-}
-inline const ::std::string& GamePlayer::name() const {
-  // @@protoc_insertion_point(field_get:boids.GamePlayer.name)
-  return *name_;
-}
-inline void GamePlayer::set_name(const ::std::string& value) {
-  set_has_name();
-  if (name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    name_ = new ::std::string;
-  }
-  name_->assign(value);
-  // @@protoc_insertion_point(field_set:boids.GamePlayer.name)
-}
-inline void GamePlayer::set_name(const char* value) {
-  set_has_name();
-  if (name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    name_ = new ::std::string;
-  }
-  name_->assign(value);
-  // @@protoc_insertion_point(field_set_char:boids.GamePlayer.name)
-}
-inline void GamePlayer::set_name(const char* value, size_t size) {
-  set_has_name();
-  if (name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    name_ = new ::std::string;
-  }
-  name_->assign(reinterpret_cast<const char*>(value), size);
-  // @@protoc_insertion_point(field_set_pointer:boids.GamePlayer.name)
-}
-inline ::std::string* GamePlayer::mutable_name() {
-  set_has_name();
-  if (name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    name_ = new ::std::string;
-  }
-  // @@protoc_insertion_point(field_mutable:boids.GamePlayer.name)
-  return name_;
-}
-inline ::std::string* GamePlayer::release_name() {
-  clear_has_name();
-  if (name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    return NULL;
-  } else {
-    ::std::string* temp = name_;
-    name_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-    return temp;
-  }
-}
-inline void GamePlayer::set_allocated_name(::std::string* name) {
-  if (name_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
-    delete name_;
-  }
-  if (name) {
-    set_has_name();
-    name_ = name;
-  } else {
-    clear_has_name();
-    name_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
-  }
-  // @@protoc_insertion_point(field_set_allocated:boids.GamePlayer.name)
-}
-
-// required uint32 player_id = 2;
-inline bool GamePlayer::has_player_id() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void GamePlayer::set_has_player_id() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void GamePlayer::clear_has_player_id() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void GamePlayer::clear_player_id() {
-  player_id_ = 0u;
-  clear_has_player_id();
-}
-inline ::google_lalune::protobuf::uint32 GamePlayer::player_id() const {
-  // @@protoc_insertion_point(field_get:boids.GamePlayer.player_id)
-  return player_id_;
-}
-inline void GamePlayer::set_player_id(::google_lalune::protobuf::uint32 value) {
-  set_has_player_id();
-  player_id_ = value;
-  // @@protoc_insertion_point(field_set:boids.GamePlayer.player_id)
-}
-
-// -------------------------------------------------------------------
-
 // MatchResponse
 
 // required bytes game_uuid = 1;
@@ -882,6 +746,247 @@ inline void MatchResponse::set_allocated_game_uuid(::std::string* game_uuid) {
     game_uuid_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.game_uuid)
+}
+
+// required .boids.GameInitData game_init_data = 2;
+inline bool MatchResponse::has_game_init_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MatchResponse::set_has_game_init_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MatchResponse::clear_has_game_init_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MatchResponse::clear_game_init_data() {
+  if (game_init_data_ != NULL) game_init_data_->::boids::GameInitData::Clear();
+  clear_has_game_init_data();
+}
+inline const ::boids::GameInitData& MatchResponse::game_init_data() const {
+  // @@protoc_insertion_point(field_get:boids.MatchResponse.game_init_data)
+  return game_init_data_ != NULL ? *game_init_data_ : *default_instance_->game_init_data_;
+}
+inline ::boids::GameInitData* MatchResponse::mutable_game_init_data() {
+  set_has_game_init_data();
+  if (game_init_data_ == NULL) game_init_data_ = new ::boids::GameInitData;
+  // @@protoc_insertion_point(field_mutable:boids.MatchResponse.game_init_data)
+  return game_init_data_;
+}
+inline ::boids::GameInitData* MatchResponse::release_game_init_data() {
+  clear_has_game_init_data();
+  ::boids::GameInitData* temp = game_init_data_;
+  game_init_data_ = NULL;
+  return temp;
+}
+inline void MatchResponse::set_allocated_game_init_data(::boids::GameInitData* game_init_data) {
+  delete game_init_data_;
+  game_init_data_ = game_init_data;
+  if (game_init_data) {
+    set_has_game_init_data();
+  } else {
+    clear_has_game_init_data();
+  }
+  // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.game_init_data)
+}
+
+// required string game_server_ip = 3;
+inline bool MatchResponse::has_game_server_ip() const {
+  return (_has_bits_[0] & 0x00000004u) != 0;
+}
+inline void MatchResponse::set_has_game_server_ip() {
+  _has_bits_[0] |= 0x00000004u;
+}
+inline void MatchResponse::clear_has_game_server_ip() {
+  _has_bits_[0] &= ~0x00000004u;
+}
+inline void MatchResponse::clear_game_server_ip() {
+  if (game_server_ip_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    game_server_ip_->clear();
+  }
+  clear_has_game_server_ip();
+}
+inline const ::std::string& MatchResponse::game_server_ip() const {
+  // @@protoc_insertion_point(field_get:boids.MatchResponse.game_server_ip)
+  return *game_server_ip_;
+}
+inline void MatchResponse::set_game_server_ip(const ::std::string& value) {
+  set_has_game_server_ip();
+  if (game_server_ip_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    game_server_ip_ = new ::std::string;
+  }
+  game_server_ip_->assign(value);
+  // @@protoc_insertion_point(field_set:boids.MatchResponse.game_server_ip)
+}
+inline void MatchResponse::set_game_server_ip(const char* value) {
+  set_has_game_server_ip();
+  if (game_server_ip_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    game_server_ip_ = new ::std::string;
+  }
+  game_server_ip_->assign(value);
+  // @@protoc_insertion_point(field_set_char:boids.MatchResponse.game_server_ip)
+}
+inline void MatchResponse::set_game_server_ip(const char* value, size_t size) {
+  set_has_game_server_ip();
+  if (game_server_ip_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    game_server_ip_ = new ::std::string;
+  }
+  game_server_ip_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:boids.MatchResponse.game_server_ip)
+}
+inline ::std::string* MatchResponse::mutable_game_server_ip() {
+  set_has_game_server_ip();
+  if (game_server_ip_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    game_server_ip_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:boids.MatchResponse.game_server_ip)
+  return game_server_ip_;
+}
+inline ::std::string* MatchResponse::release_game_server_ip() {
+  clear_has_game_server_ip();
+  if (game_server_ip_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = game_server_ip_;
+    game_server_ip_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void MatchResponse::set_allocated_game_server_ip(::std::string* game_server_ip) {
+  if (game_server_ip_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete game_server_ip_;
+  }
+  if (game_server_ip) {
+    set_has_game_server_ip();
+    game_server_ip_ = game_server_ip;
+  } else {
+    clear_has_game_server_ip();
+    game_server_ip_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.game_server_ip)
+}
+
+// required uint32 game_server_port = 4;
+inline bool MatchResponse::has_game_server_port() const {
+  return (_has_bits_[0] & 0x00000008u) != 0;
+}
+inline void MatchResponse::set_has_game_server_port() {
+  _has_bits_[0] |= 0x00000008u;
+}
+inline void MatchResponse::clear_has_game_server_port() {
+  _has_bits_[0] &= ~0x00000008u;
+}
+inline void MatchResponse::clear_game_server_port() {
+  game_server_port_ = 0u;
+  clear_has_game_server_port();
+}
+inline ::google_lalune::protobuf::uint32 MatchResponse::game_server_port() const {
+  // @@protoc_insertion_point(field_get:boids.MatchResponse.game_server_port)
+  return game_server_port_;
+}
+inline void MatchResponse::set_game_server_port(::google_lalune::protobuf::uint32 value) {
+  set_has_game_server_port();
+  game_server_port_ = value;
+  // @@protoc_insertion_point(field_set:boids.MatchResponse.game_server_port)
+}
+
+// required int32 ret_value = 5;
+inline bool MatchResponse::has_ret_value() const {
+  return (_has_bits_[0] & 0x00000010u) != 0;
+}
+inline void MatchResponse::set_has_ret_value() {
+  _has_bits_[0] |= 0x00000010u;
+}
+inline void MatchResponse::clear_has_ret_value() {
+  _has_bits_[0] &= ~0x00000010u;
+}
+inline void MatchResponse::clear_ret_value() {
+  ret_value_ = 0;
+  clear_has_ret_value();
+}
+inline ::google_lalune::protobuf::int32 MatchResponse::ret_value() const {
+  // @@protoc_insertion_point(field_get:boids.MatchResponse.ret_value)
+  return ret_value_;
+}
+inline void MatchResponse::set_ret_value(::google_lalune::protobuf::int32 value) {
+  set_has_ret_value();
+  ret_value_ = value;
+  // @@protoc_insertion_point(field_set:boids.MatchResponse.ret_value)
+}
+
+// optional string ret_info = 6;
+inline bool MatchResponse::has_ret_info() const {
+  return (_has_bits_[0] & 0x00000020u) != 0;
+}
+inline void MatchResponse::set_has_ret_info() {
+  _has_bits_[0] |= 0x00000020u;
+}
+inline void MatchResponse::clear_has_ret_info() {
+  _has_bits_[0] &= ~0x00000020u;
+}
+inline void MatchResponse::clear_ret_info() {
+  if (ret_info_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    ret_info_->clear();
+  }
+  clear_has_ret_info();
+}
+inline const ::std::string& MatchResponse::ret_info() const {
+  // @@protoc_insertion_point(field_get:boids.MatchResponse.ret_info)
+  return *ret_info_;
+}
+inline void MatchResponse::set_ret_info(const ::std::string& value) {
+  set_has_ret_info();
+  if (ret_info_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    ret_info_ = new ::std::string;
+  }
+  ret_info_->assign(value);
+  // @@protoc_insertion_point(field_set:boids.MatchResponse.ret_info)
+}
+inline void MatchResponse::set_ret_info(const char* value) {
+  set_has_ret_info();
+  if (ret_info_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    ret_info_ = new ::std::string;
+  }
+  ret_info_->assign(value);
+  // @@protoc_insertion_point(field_set_char:boids.MatchResponse.ret_info)
+}
+inline void MatchResponse::set_ret_info(const char* value, size_t size) {
+  set_has_ret_info();
+  if (ret_info_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    ret_info_ = new ::std::string;
+  }
+  ret_info_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:boids.MatchResponse.ret_info)
+}
+inline ::std::string* MatchResponse::mutable_ret_info() {
+  set_has_ret_info();
+  if (ret_info_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    ret_info_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:boids.MatchResponse.ret_info)
+  return ret_info_;
+}
+inline ::std::string* MatchResponse::release_ret_info() {
+  clear_has_ret_info();
+  if (ret_info_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = ret_info_;
+    ret_info_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void MatchResponse::set_allocated_ret_info(::std::string* ret_info) {
+  if (ret_info_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete ret_info_;
+  }
+  if (ret_info) {
+    set_has_ret_info();
+    ret_info_ = ret_info;
+  } else {
+    clear_has_ret_info();
+    ret_info_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.ret_info)
 }
 
 // -------------------------------------------------------------------

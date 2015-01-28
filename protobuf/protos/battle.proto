@@ -1,6 +1,8 @@
 package boids;
 
-//玩家和自动匹配服务的通信 TOMODIFY
+import "pvp.proto";
+
+//玩家和自动匹配服务的通信
 
 message MatchRequest
 {
@@ -8,19 +10,15 @@ message MatchRequest
 	//required uint32 game_type	= 1;
 }
 
-message GamePlayer
-{
-	required string name		= 1;
-	required uint32 player_id	= 2;
-}
-
 message MatchResponse
 {
 	required bytes game_uuid	= 1;
-	//repeated GamePlayer players	= 2;
-	//required string game_server_ip	= 3;
-	//required uint32 game_server_port	= 4;
-	//required bytes access_token	= 5;
+	required GameInitData game_init_data = 2;
+	required string game_server_ip	= 3;
+	required uint32 game_server_port	= 4;	
+	required int32 ret_value	= 5; //0表示成功
+	optional string ret_info	= 6; //具体的错误信息
+	//required bytes access_token	= 7;
 }
 
 //匹配和战斗服务之间的通信
@@ -32,7 +30,7 @@ message CreateGame
 
 message CreateGameResponse
 {
-	required int32 ret_value	= 1;
+	required int32 ret_value	= 1; //0表示成功
 }
 
 message PvPServerRegister
