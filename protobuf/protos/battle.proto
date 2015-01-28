@@ -1,12 +1,12 @@
-package boids;
+ï»¿package boids;
 
 import "pvp.proto";
 
-//Íæ¼ÒºÍ×Ô¶¯Æ¥Åä·şÎñµÄÍ¨ĞÅ
+//ç©å®¶å’Œè‡ªåŠ¨åŒ¹é…æœåŠ¡çš„é€šä¿¡
 
 message MatchRequest
 {
-    required uint32 player_id = 1;
+    required uint32 player_id = 1; //ä»¥åæ˜¯ä¸ç”¨å‘è¿™ä¸ªå­—æ®µçš„ï¼Œtcpè¿æ¥æœ¬èº«å°±æ ‡ç¤ºäº†æ˜¯å“ªä¸ªç”¨æˆ·
 	//required uint32 game_type	= 1;
 }
 
@@ -16,12 +16,12 @@ message MatchResponse
 	required GameInitData game_init_data = 2;
 	required string game_server_ip	= 3;
 	required uint32 game_server_port	= 4;	
-	required int32 ret_value	= 5; //0±íÊ¾³É¹¦
-	optional string ret_info	= 6; //¾ßÌåµÄ´íÎóĞÅÏ¢
+	required int32 ret_value	= 5; //0è¡¨ç¤ºæˆåŠŸ
+	optional string ret_info	= 6; //å…·ä½“çš„é”™è¯¯ä¿¡æ¯
 	//required bytes access_token	= 7;
 }
 
-//Æ¥ÅäºÍÕ½¶··şÎñÖ®¼äµÄÍ¨ĞÅ
+//åŒ¹é…å’Œæˆ˜æ–—æœåŠ¡ä¹‹é—´çš„é€šä¿¡
 
 message CreateGame
 {
@@ -30,21 +30,21 @@ message CreateGame
 
 message CreateGameResponse
 {
-	required bytes game_id		= 1; //²»´øÉÏµÄ²»ÖªµÀÊÇÄÄ¾Ögame_idµÄ
-	required int32 ret_value	= 2; //0±íÊ¾³É¹¦
+	required bytes game_id		= 1; //ä¸å¸¦ä¸Šçš„ä¸çŸ¥é“æ˜¯å“ªå±€game_idçš„
+	required int32 ret_value	= 2; //0è¡¨ç¤ºæˆåŠŸ
 }
 
 message PvPServerRegister
 {
 	required string ip			= 1;
 	required uint32 port		= 2;
-	optional int32 region		= 3; //0µçĞÅ£¬1ÁªÍ¨£¬...£¬-1ÄÚÍø
+	optional int32 region		= 3; //0ç”µä¿¡ï¼Œ1è”é€šï¼Œ...ï¼Œ-1å†…ç½‘
 	optional int32 priority		= 4;
 }
 
 message PvPServerHeartBeat
 {
-	required string ip			= 1;	//ÓÃipºÍportÎ¨Ò»±êÊ¾Ò»Ì¨·şÎñ
+	required string ip			= 1;	//ç”¨ipå’Œportå”¯ä¸€æ ‡ç¤ºä¸€å°æœåŠ¡
 	required uint32 port		= 2;
 }
 
