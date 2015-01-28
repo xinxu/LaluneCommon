@@ -53,7 +53,7 @@ void protobuf_AssignDesc_battle_2eproto() {
   GOOGLE_CHECK(file != NULL);
   MatchRequest_descriptor_ = file->message_type(0);
   static const int MatchRequest_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchRequest, player_id_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchRequest, user_id_),
   };
   MatchRequest_reflection_ =
     new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
@@ -221,19 +221,19 @@ void protobuf_AddDesc_battle_2eproto() {
 
   ::boids::protobuf_AddDesc_pvp_2eproto();
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\014battle.proto\022\005boids\032\tpvp.proto\"!\n\014Matc"
-    "hRequest\022\021\n\tplayer_id\030\001 \002(\r\"y\n\rMatchResp"
-    "onse\022\021\n\tgame_uuid\030\001 \002(\014\022\026\n\016game_server_i"
-    "p\030\003 \002(\t\022\030\n\020game_server_port\030\004 \002(\r\022\021\n\tret"
-    "_value\030\005 \002(\005\022\020\n\010ret_info\030\006 \001(\t\"J\n\nCreate"
-    "Game\022\017\n\007game_id\030\001 \002(\014\022+\n\016game_init_data\030"
-    "\002 \002(\0132\023.boids.GameInitData\"8\n\022CreateGame"
-    "Response\022\017\n\007game_id\030\001 \002(\014\022\021\n\tret_value\030\002"
-    " \002(\005\"O\n\021PvPServerRegister\022\n\n\002ip\030\001 \002(\t\022\014\n"
-    "\004port\030\002 \002(\r\022\016\n\006region\030\003 \001(\005\022\020\n\010priority\030"
-    "\004 \001(\005\"1\n\031PvPServerRegisterResponse\022\024\n\tre"
-    "t_value\030\001 \002(\005:\0010\".\n\022PvPServerHeartBeat\022\n"
-    "\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r", 504);
+    "\n\014battle.proto\022\005boids\032\tpvp.proto\"\037\n\014Matc"
+    "hRequest\022\017\n\007user_id\030\001 \002(\t\"y\n\rMatchRespon"
+    "se\022\021\n\tgame_uuid\030\001 \002(\014\022\026\n\016game_server_ip\030"
+    "\003 \002(\t\022\030\n\020game_server_port\030\004 \002(\r\022\021\n\tret_v"
+    "alue\030\005 \002(\005\022\020\n\010ret_info\030\006 \001(\t\"J\n\nCreateGa"
+    "me\022\017\n\007game_id\030\001 \002(\014\022+\n\016game_init_data\030\002 "
+    "\002(\0132\023.boids.GameInitData\"8\n\022CreateGameRe"
+    "sponse\022\017\n\007game_id\030\001 \002(\014\022\021\n\tret_value\030\002 \002"
+    "(\005\"O\n\021PvPServerRegister\022\n\n\002ip\030\001 \002(\t\022\014\n\004p"
+    "ort\030\002 \002(\r\022\016\n\006region\030\003 \001(\005\022\020\n\010priority\030\004 "
+    "\001(\005\"1\n\031PvPServerRegisterResponse\022\024\n\tret_"
+    "value\030\001 \002(\005:\0010\".\n\022PvPServerHeartBeat\022\n\n\002"
+    "ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r", 502);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "battle.proto", &protobuf_RegisterTypes);
   MatchRequest::default_instance_ = new MatchRequest();
@@ -263,7 +263,7 @@ struct StaticDescriptorInitializer_battle_2eproto {
 // ===================================================================
 
 #ifndef _MSC_VER
-const int MatchRequest::kPlayerIdFieldNumber;
+const int MatchRequest::kUserIdFieldNumber;
 #endif  // !_MSC_VER
 
 MatchRequest::MatchRequest()
@@ -283,8 +283,9 @@ MatchRequest::MatchRequest(const MatchRequest& from)
 }
 
 void MatchRequest::SharedCtor() {
+  ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  player_id_ = 0u;
+  user_id_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -294,6 +295,9 @@ MatchRequest::~MatchRequest() {
 }
 
 void MatchRequest::SharedDtor() {
+  if (user_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete user_id_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -320,7 +324,11 @@ MatchRequest* MatchRequest::New() const {
 }
 
 void MatchRequest::Clear() {
-  player_id_ = 0u;
+  if (has_user_id()) {
+    if (user_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+      user_id_->clear();
+    }
+  }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -335,13 +343,15 @@ bool MatchRequest::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required uint32 player_id = 1;
+      // required string user_id = 1;
       case 1: {
-        if (tag == 8) {
-          DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
-                   ::google_lalune::protobuf::uint32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_UINT32>(
-                 input, &player_id_)));
-          set_has_player_id();
+        if (tag == 10) {
+          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_user_id()));
+          ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+            this->user_id().data(), this->user_id().length(),
+            ::google_lalune::protobuf::internal::WireFormat::PARSE,
+            "user_id");
         } else {
           goto handle_unusual;
         }
@@ -374,9 +384,14 @@ failure:
 void MatchRequest::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:boids.MatchRequest)
-  // required uint32 player_id = 1;
-  if (has_player_id()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32(1, this->player_id(), output);
+  // required string user_id = 1;
+  if (has_user_id()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->user_id().data(), this->user_id().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "user_id");
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->user_id(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -389,9 +404,15 @@ void MatchRequest::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* MatchRequest::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:boids.MatchRequest)
-  // required uint32 player_id = 1;
-  if (has_player_id()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->player_id(), target);
+  // required string user_id = 1;
+  if (has_user_id()) {
+    ::google_lalune::protobuf::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->user_id().data(), this->user_id().length(),
+      ::google_lalune::protobuf::internal::WireFormat::SERIALIZE,
+      "user_id");
+    target =
+      ::google_lalune::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->user_id(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -406,11 +427,11 @@ int MatchRequest::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required uint32 player_id = 1;
-    if (has_player_id()) {
+    // required string user_id = 1;
+    if (has_user_id()) {
       total_size += 1 +
-        ::google_lalune::protobuf::internal::WireFormatLite::UInt32Size(
-          this->player_id());
+        ::google_lalune::protobuf::internal::WireFormatLite::StringSize(
+          this->user_id());
     }
 
   }
@@ -440,8 +461,8 @@ void MatchRequest::MergeFrom(const ::google_lalune::protobuf::Message& from) {
 void MatchRequest::MergeFrom(const MatchRequest& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    if (from.has_player_id()) {
-      set_player_id(from.player_id());
+    if (from.has_user_id()) {
+      set_user_id(from.user_id());
     }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
@@ -467,7 +488,7 @@ bool MatchRequest::IsInitialized() const {
 
 void MatchRequest::Swap(MatchRequest* other) {
   if (other != this) {
-    std::swap(player_id_, other->player_id_);
+    std::swap(user_id_, other->user_id_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

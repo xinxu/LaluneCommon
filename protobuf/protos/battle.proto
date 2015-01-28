@@ -6,7 +6,7 @@ import "pvp.proto";
 
 message MatchRequest
 {
-    required uint32 player_id = 1; //以后是不用发这个字段的，tcp连接本身就标示了是哪个用户
+    required string user_id = 1; //以后是不用发这个字段的，tcp连接本身就标示了是哪个用户
 	//required uint32 game_type	= 1;
 }
 

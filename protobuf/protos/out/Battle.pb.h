@@ -97,23 +97,28 @@ class MatchRequest : public ::google_lalune::protobuf::Message {
 
   // accessors -------------------------------------------------------
 
-  // required uint32 player_id = 1;
-  inline bool has_player_id() const;
-  inline void clear_player_id();
-  static const int kPlayerIdFieldNumber = 1;
-  inline ::google_lalune::protobuf::uint32 player_id() const;
-  inline void set_player_id(::google_lalune::protobuf::uint32 value);
+  // required string user_id = 1;
+  inline bool has_user_id() const;
+  inline void clear_user_id();
+  static const int kUserIdFieldNumber = 1;
+  inline const ::std::string& user_id() const;
+  inline void set_user_id(const ::std::string& value);
+  inline void set_user_id(const char* value);
+  inline void set_user_id(const char* value, size_t size);
+  inline ::std::string* mutable_user_id();
+  inline ::std::string* release_user_id();
+  inline void set_allocated_user_id(::std::string* user_id);
 
   // @@protoc_insertion_point(class_scope:boids.MatchRequest)
  private:
-  inline void set_has_player_id();
-  inline void clear_has_player_id();
+  inline void set_has_user_id();
+  inline void clear_has_user_id();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
-  ::google_lalune::protobuf::uint32 player_id_;
+  ::std::string* user_id_;
   friend void  protobuf_AddDesc_battle_2eproto();
   friend void protobuf_AssignDesc_battle_2eproto();
   friend void protobuf_ShutdownFile_battle_2eproto();
@@ -739,28 +744,80 @@ class PvPServerHeartBeat : public ::google_lalune::protobuf::Message {
 
 // MatchRequest
 
-// required uint32 player_id = 1;
-inline bool MatchRequest::has_player_id() const {
+// required string user_id = 1;
+inline bool MatchRequest::has_user_id() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
-inline void MatchRequest::set_has_player_id() {
+inline void MatchRequest::set_has_user_id() {
   _has_bits_[0] |= 0x00000001u;
 }
-inline void MatchRequest::clear_has_player_id() {
+inline void MatchRequest::clear_has_user_id() {
   _has_bits_[0] &= ~0x00000001u;
 }
-inline void MatchRequest::clear_player_id() {
-  player_id_ = 0u;
-  clear_has_player_id();
+inline void MatchRequest::clear_user_id() {
+  if (user_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    user_id_->clear();
+  }
+  clear_has_user_id();
 }
-inline ::google_lalune::protobuf::uint32 MatchRequest::player_id() const {
-  // @@protoc_insertion_point(field_get:boids.MatchRequest.player_id)
-  return player_id_;
+inline const ::std::string& MatchRequest::user_id() const {
+  // @@protoc_insertion_point(field_get:boids.MatchRequest.user_id)
+  return *user_id_;
 }
-inline void MatchRequest::set_player_id(::google_lalune::protobuf::uint32 value) {
-  set_has_player_id();
-  player_id_ = value;
-  // @@protoc_insertion_point(field_set:boids.MatchRequest.player_id)
+inline void MatchRequest::set_user_id(const ::std::string& value) {
+  set_has_user_id();
+  if (user_id_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    user_id_ = new ::std::string;
+  }
+  user_id_->assign(value);
+  // @@protoc_insertion_point(field_set:boids.MatchRequest.user_id)
+}
+inline void MatchRequest::set_user_id(const char* value) {
+  set_has_user_id();
+  if (user_id_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    user_id_ = new ::std::string;
+  }
+  user_id_->assign(value);
+  // @@protoc_insertion_point(field_set_char:boids.MatchRequest.user_id)
+}
+inline void MatchRequest::set_user_id(const char* value, size_t size) {
+  set_has_user_id();
+  if (user_id_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    user_id_ = new ::std::string;
+  }
+  user_id_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:boids.MatchRequest.user_id)
+}
+inline ::std::string* MatchRequest::mutable_user_id() {
+  set_has_user_id();
+  if (user_id_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    user_id_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:boids.MatchRequest.user_id)
+  return user_id_;
+}
+inline ::std::string* MatchRequest::release_user_id() {
+  clear_has_user_id();
+  if (user_id_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = user_id_;
+    user_id_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void MatchRequest::set_allocated_user_id(::std::string* user_id) {
+  if (user_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete user_id_;
+  }
+  if (user_id) {
+    set_has_user_id();
+    user_id_ = user_id;
+  } else {
+    clear_has_user_id();
+    user_id_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:boids.MatchRequest.user_id)
 }
 
 // -------------------------------------------------------------------
