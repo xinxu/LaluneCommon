@@ -13,7 +13,6 @@ message MatchRequest
 message MatchResponse
 {
 	required bytes game_uuid	= 1;
-	required GameInitData game_init_data = 2;
 	required string game_server_ip	= 3;
 	required uint32 game_server_port	= 4;	
 	required int32 ret_value	= 5; //0表示成功
@@ -26,6 +25,7 @@ message MatchResponse
 message CreateGame
 {
 	required bytes game_id		= 1;
+	required GameInitData game_init_data = 2; //告诉战斗服，由战斗服告诉用户
 }
 
 message CreateGameResponse

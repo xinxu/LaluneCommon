@@ -188,15 +188,6 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_game_uuid();
   inline void set_allocated_game_uuid(::std::string* game_uuid);
 
-  // required .boids.GameInitData game_init_data = 2;
-  inline bool has_game_init_data() const;
-  inline void clear_game_init_data();
-  static const int kGameInitDataFieldNumber = 2;
-  inline const ::boids::GameInitData& game_init_data() const;
-  inline ::boids::GameInitData* mutable_game_init_data();
-  inline ::boids::GameInitData* release_game_init_data();
-  inline void set_allocated_game_init_data(::boids::GameInitData* game_init_data);
-
   // required string game_server_ip = 3;
   inline bool has_game_server_ip() const;
   inline void clear_game_server_ip();
@@ -239,8 +230,6 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
  private:
   inline void set_has_game_uuid();
   inline void clear_has_game_uuid();
-  inline void set_has_game_init_data();
-  inline void clear_has_game_init_data();
   inline void set_has_game_server_ip();
   inline void clear_has_game_server_ip();
   inline void set_has_game_server_port();
@@ -255,7 +244,6 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::std::string* game_uuid_;
-  ::boids::GameInitData* game_init_data_;
   ::std::string* game_server_ip_;
   ::google_lalune::protobuf::uint32 game_server_port_;
   ::google_lalune::protobuf::int32 ret_value_;
@@ -334,16 +322,28 @@ class CreateGame : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_game_id();
   inline void set_allocated_game_id(::std::string* game_id);
 
+  // required .boids.GameInitData game_init_data = 2;
+  inline bool has_game_init_data() const;
+  inline void clear_game_init_data();
+  static const int kGameInitDataFieldNumber = 2;
+  inline const ::boids::GameInitData& game_init_data() const;
+  inline ::boids::GameInitData* mutable_game_init_data();
+  inline ::boids::GameInitData* release_game_init_data();
+  inline void set_allocated_game_init_data(::boids::GameInitData* game_init_data);
+
   // @@protoc_insertion_point(class_scope:boids.CreateGame)
  private:
   inline void set_has_game_id();
   inline void clear_has_game_id();
+  inline void set_has_game_init_data();
+  inline void clear_has_game_init_data();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::std::string* game_id_;
+  ::boids::GameInitData* game_init_data_;
   friend void  protobuf_AddDesc_battle_2eproto();
   friend void protobuf_AssignDesc_battle_2eproto();
   friend void protobuf_ShutdownFile_battle_2eproto();
@@ -843,56 +843,15 @@ inline void MatchResponse::set_allocated_game_uuid(::std::string* game_uuid) {
   // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.game_uuid)
 }
 
-// required .boids.GameInitData game_init_data = 2;
-inline bool MatchResponse::has_game_init_data() const {
-  return (_has_bits_[0] & 0x00000002u) != 0;
-}
-inline void MatchResponse::set_has_game_init_data() {
-  _has_bits_[0] |= 0x00000002u;
-}
-inline void MatchResponse::clear_has_game_init_data() {
-  _has_bits_[0] &= ~0x00000002u;
-}
-inline void MatchResponse::clear_game_init_data() {
-  if (game_init_data_ != NULL) game_init_data_->::boids::GameInitData::Clear();
-  clear_has_game_init_data();
-}
-inline const ::boids::GameInitData& MatchResponse::game_init_data() const {
-  // @@protoc_insertion_point(field_get:boids.MatchResponse.game_init_data)
-  return game_init_data_ != NULL ? *game_init_data_ : *default_instance_->game_init_data_;
-}
-inline ::boids::GameInitData* MatchResponse::mutable_game_init_data() {
-  set_has_game_init_data();
-  if (game_init_data_ == NULL) game_init_data_ = new ::boids::GameInitData;
-  // @@protoc_insertion_point(field_mutable:boids.MatchResponse.game_init_data)
-  return game_init_data_;
-}
-inline ::boids::GameInitData* MatchResponse::release_game_init_data() {
-  clear_has_game_init_data();
-  ::boids::GameInitData* temp = game_init_data_;
-  game_init_data_ = NULL;
-  return temp;
-}
-inline void MatchResponse::set_allocated_game_init_data(::boids::GameInitData* game_init_data) {
-  delete game_init_data_;
-  game_init_data_ = game_init_data;
-  if (game_init_data) {
-    set_has_game_init_data();
-  } else {
-    clear_has_game_init_data();
-  }
-  // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.game_init_data)
-}
-
 // required string game_server_ip = 3;
 inline bool MatchResponse::has_game_server_ip() const {
-  return (_has_bits_[0] & 0x00000004u) != 0;
+  return (_has_bits_[0] & 0x00000002u) != 0;
 }
 inline void MatchResponse::set_has_game_server_ip() {
-  _has_bits_[0] |= 0x00000004u;
+  _has_bits_[0] |= 0x00000002u;
 }
 inline void MatchResponse::clear_has_game_server_ip() {
-  _has_bits_[0] &= ~0x00000004u;
+  _has_bits_[0] &= ~0x00000002u;
 }
 inline void MatchResponse::clear_game_server_ip() {
   if (game_server_ip_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -962,13 +921,13 @@ inline void MatchResponse::set_allocated_game_server_ip(::std::string* game_serv
 
 // required uint32 game_server_port = 4;
 inline bool MatchResponse::has_game_server_port() const {
-  return (_has_bits_[0] & 0x00000008u) != 0;
+  return (_has_bits_[0] & 0x00000004u) != 0;
 }
 inline void MatchResponse::set_has_game_server_port() {
-  _has_bits_[0] |= 0x00000008u;
+  _has_bits_[0] |= 0x00000004u;
 }
 inline void MatchResponse::clear_has_game_server_port() {
-  _has_bits_[0] &= ~0x00000008u;
+  _has_bits_[0] &= ~0x00000004u;
 }
 inline void MatchResponse::clear_game_server_port() {
   game_server_port_ = 0u;
@@ -986,13 +945,13 @@ inline void MatchResponse::set_game_server_port(::google_lalune::protobuf::uint3
 
 // required int32 ret_value = 5;
 inline bool MatchResponse::has_ret_value() const {
-  return (_has_bits_[0] & 0x00000010u) != 0;
+  return (_has_bits_[0] & 0x00000008u) != 0;
 }
 inline void MatchResponse::set_has_ret_value() {
-  _has_bits_[0] |= 0x00000010u;
+  _has_bits_[0] |= 0x00000008u;
 }
 inline void MatchResponse::clear_has_ret_value() {
-  _has_bits_[0] &= ~0x00000010u;
+  _has_bits_[0] &= ~0x00000008u;
 }
 inline void MatchResponse::clear_ret_value() {
   ret_value_ = 0;
@@ -1010,13 +969,13 @@ inline void MatchResponse::set_ret_value(::google_lalune::protobuf::int32 value)
 
 // optional string ret_info = 6;
 inline bool MatchResponse::has_ret_info() const {
-  return (_has_bits_[0] & 0x00000020u) != 0;
+  return (_has_bits_[0] & 0x00000010u) != 0;
 }
 inline void MatchResponse::set_has_ret_info() {
-  _has_bits_[0] |= 0x00000020u;
+  _has_bits_[0] |= 0x00000010u;
 }
 inline void MatchResponse::clear_has_ret_info() {
-  _has_bits_[0] &= ~0x00000020u;
+  _has_bits_[0] &= ~0x00000010u;
 }
 inline void MatchResponse::clear_ret_info() {
   if (ret_info_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -1162,6 +1121,47 @@ inline void CreateGame::set_allocated_game_id(::std::string* game_id) {
     game_id_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   // @@protoc_insertion_point(field_set_allocated:boids.CreateGame.game_id)
+}
+
+// required .boids.GameInitData game_init_data = 2;
+inline bool CreateGame::has_game_init_data() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void CreateGame::set_has_game_init_data() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void CreateGame::clear_has_game_init_data() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void CreateGame::clear_game_init_data() {
+  if (game_init_data_ != NULL) game_init_data_->::boids::GameInitData::Clear();
+  clear_has_game_init_data();
+}
+inline const ::boids::GameInitData& CreateGame::game_init_data() const {
+  // @@protoc_insertion_point(field_get:boids.CreateGame.game_init_data)
+  return game_init_data_ != NULL ? *game_init_data_ : *default_instance_->game_init_data_;
+}
+inline ::boids::GameInitData* CreateGame::mutable_game_init_data() {
+  set_has_game_init_data();
+  if (game_init_data_ == NULL) game_init_data_ = new ::boids::GameInitData;
+  // @@protoc_insertion_point(field_mutable:boids.CreateGame.game_init_data)
+  return game_init_data_;
+}
+inline ::boids::GameInitData* CreateGame::release_game_init_data() {
+  clear_has_game_init_data();
+  ::boids::GameInitData* temp = game_init_data_;
+  game_init_data_ = NULL;
+  return temp;
+}
+inline void CreateGame::set_allocated_game_init_data(::boids::GameInitData* game_init_data) {
+  delete game_init_data_;
+  game_init_data_ = game_init_data;
+  if (game_init_data) {
+    set_has_game_init_data();
+  } else {
+    clear_has_game_init_data();
+  }
+  // @@protoc_insertion_point(field_set_allocated:boids.CreateGame.game_init_data)
 }
 
 // -------------------------------------------------------------------
