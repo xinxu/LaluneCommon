@@ -1,4 +1,4 @@
-﻿package boids;
+package boids;
 
 import "pvp.proto";
 
