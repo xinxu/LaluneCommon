@@ -30,7 +30,8 @@ message CreateGame
 
 message CreateGameResponse
 {
-	required int32 ret_value	= 1; //0表示成功
+	required bytes game_id		= 1; //不带上的不知道是哪局game_id的
+	required int32 ret_value	= 2; //0表示成功
 }
 
 message PvPServerRegister
@@ -43,7 +44,7 @@ message PvPServerRegister
 
 message PvPServerHeartBeat
 {
-	required string ip			= 1;	
+	required string ip			= 1;	//用ip和port唯一标示一台服务
 	required uint32 port		= 2;
 }
 

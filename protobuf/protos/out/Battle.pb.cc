@@ -99,7 +99,8 @@ void protobuf_AssignDesc_battle_2eproto() {
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(CreateGame));
   CreateGameResponse_descriptor_ = file->message_type(3);
-  static const int CreateGameResponse_offsets_[1] = {
+  static const int CreateGameResponse_offsets_[2] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateGameResponse, game_id_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(CreateGameResponse, ret_value_),
   };
   CreateGameResponse_reflection_ =
@@ -204,11 +205,12 @@ void protobuf_AddDesc_battle_2eproto() {
     "ta\030\002 \002(\0132\023.boids.GameInitData\022\026\n\016game_se"
     "rver_ip\030\003 \002(\t\022\030\n\020game_server_port\030\004 \002(\r\022"
     "\021\n\tret_value\030\005 \002(\005\022\020\n\010ret_info\030\006 \001(\t\"\035\n\n"
-    "CreateGame\022\017\n\007game_id\030\001 \002(\014\"\'\n\022CreateGam"
-    "eResponse\022\021\n\tret_value\030\001 \002(\005\"O\n\021PvPServe"
-    "rRegister\022\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r\022\016\n\006r"
-    "egion\030\003 \001(\005\022\020\n\010priority\030\004 \001(\005\".\n\022PvPServ"
-    "erHeartBeat\022\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r", 437);
+    "CreateGame\022\017\n\007game_id\030\001 \002(\014\"8\n\022CreateGam"
+    "eResponse\022\017\n\007game_id\030\001 \002(\014\022\021\n\tret_value\030"
+    "\002 \002(\005\"O\n\021PvPServerRegister\022\n\n\002ip\030\001 \002(\t\022\014"
+    "\n\004port\030\002 \002(\r\022\016\n\006region\030\003 \001(\005\022\020\n\010priority"
+    "\030\004 \001(\005\".\n\022PvPServerHeartBeat\022\n\n\002ip\030\001 \002(\t"
+    "\022\014\n\004port\030\002 \002(\r", 454);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "battle.proto", &protobuf_RegisterTypes);
   MatchRequest::default_instance_ = new MatchRequest();
@@ -1181,6 +1183,7 @@ void CreateGame::Swap(CreateGame* other) {
 // ===================================================================
 
 #ifndef _MSC_VER
+const int CreateGameResponse::kGameIdFieldNumber;
 const int CreateGameResponse::kRetValueFieldNumber;
 #endif  // !_MSC_VER
 
@@ -1201,7 +1204,9 @@ CreateGameResponse::CreateGameResponse(const CreateGameResponse& from)
 }
 
 void CreateGameResponse::SharedCtor() {
+  ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
+  game_id_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ret_value_ = 0;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
@@ -1212,6 +1217,9 @@ CreateGameResponse::~CreateGameResponse() {
 }
 
 void CreateGameResponse::SharedDtor() {
+  if (game_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete game_id_;
+  }
   if (this != default_instance_) {
   }
 }
@@ -1238,7 +1246,14 @@ CreateGameResponse* CreateGameResponse::New() const {
 }
 
 void CreateGameResponse::Clear() {
-  ret_value_ = 0;
+  if (_has_bits_[0 / 32] & 3) {
+    if (has_game_id()) {
+      if (game_id_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+        game_id_->clear();
+      }
+    }
+    ret_value_ = 0;
+  }
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
   mutable_unknown_fields()->Clear();
 }
@@ -1253,9 +1268,22 @@ bool CreateGameResponse::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required int32 ret_value = 1;
+      // required bytes game_id = 1;
       case 1: {
-        if (tag == 8) {
+        if (tag == 10) {
+          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadBytes(
+                input, this->mutable_game_id()));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(16)) goto parse_ret_value;
+        break;
+      }
+
+      // required int32 ret_value = 2;
+      case 2: {
+        if (tag == 16) {
+         parse_ret_value:
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
                    ::google_lalune::protobuf::int32, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_INT32>(
                  input, &ret_value_)));
@@ -1292,9 +1320,15 @@ failure:
 void CreateGameResponse::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:boids.CreateGameResponse)
-  // required int32 ret_value = 1;
+  // required bytes game_id = 1;
+  if (has_game_id()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteBytesMaybeAliased(
+      1, this->game_id(), output);
+  }
+
+  // required int32 ret_value = 2;
   if (has_ret_value()) {
-    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(1, this->ret_value(), output);
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32(2, this->ret_value(), output);
   }
 
   if (!unknown_fields().empty()) {
@@ -1307,9 +1341,16 @@ void CreateGameResponse::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* CreateGameResponse::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:boids.CreateGameResponse)
-  // required int32 ret_value = 1;
+  // required bytes game_id = 1;
+  if (has_game_id()) {
+    target =
+      ::google_lalune::protobuf::internal::WireFormatLite::WriteBytesToArray(
+        1, this->game_id(), target);
+  }
+
+  // required int32 ret_value = 2;
   if (has_ret_value()) {
-    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(1, this->ret_value(), target);
+    target = ::google_lalune::protobuf::internal::WireFormatLite::WriteInt32ToArray(2, this->ret_value(), target);
   }
 
   if (!unknown_fields().empty()) {
@@ -1324,7 +1365,14 @@ int CreateGameResponse::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required int32 ret_value = 1;
+    // required bytes game_id = 1;
+    if (has_game_id()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::BytesSize(
+          this->game_id());
+    }
+
+    // required int32 ret_value = 2;
     if (has_ret_value()) {
       total_size += 1 +
         ::google_lalune::protobuf::internal::WireFormatLite::Int32Size(
@@ -1358,6 +1406,9 @@ void CreateGameResponse::MergeFrom(const ::google_lalune::protobuf::Message& fro
 void CreateGameResponse::MergeFrom(const CreateGameResponse& from) {
   GOOGLE_CHECK_NE(&from, this);
   if (from._has_bits_[0 / 32] & (0xffu << (0 % 32))) {
+    if (from.has_game_id()) {
+      set_game_id(from.game_id());
+    }
     if (from.has_ret_value()) {
       set_ret_value(from.ret_value());
     }
@@ -1378,13 +1429,14 @@ void CreateGameResponse::CopyFrom(const CreateGameResponse& from) {
 }
 
 bool CreateGameResponse::IsInitialized() const {
-  if ((_has_bits_[0] & 0x00000001) != 0x00000001) return false;
+  if ((_has_bits_[0] & 0x00000003) != 0x00000003) return false;
 
   return true;
 }
 
 void CreateGameResponse::Swap(CreateGameResponse* other) {
   if (other != this) {
+    std::swap(game_id_, other->game_id_);
     std::swap(ret_value_, other->ret_value_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
