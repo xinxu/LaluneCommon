@@ -23,7 +23,7 @@ namespace {
 const ::google_lalune::protobuf::Descriptor* BoidsMessageHeader_descriptor_ = NULL;
 const ::google_lalune::protobuf::internal::GeneratedMessageReflection*
   BoidsMessageHeader_reflection_ = NULL;
-const ::google_lalune::protobuf::EnumDescriptor* BoidsMessageHeader_MessageType_descriptor_ = NULL;
+const ::google_lalune::protobuf::EnumDescriptor* MessageType_descriptor_ = NULL;
 
 }  // namespace
 
@@ -51,7 +51,7 @@ void protobuf_AssignDesc_boids_2eproto() {
       ::google_lalune::protobuf::DescriptorPool::generated_pool(),
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(BoidsMessageHeader));
-  BoidsMessageHeader_MessageType_descriptor_ = BoidsMessageHeader_descriptor_->enum_type(0);
+  MessageType_descriptor_ = file->enum_type(0);
 }
 
 namespace {
@@ -82,15 +82,15 @@ void protobuf_AddDesc_boids_2eproto() {
   GOOGLE_PROTOBUF_VERIFY_VERSION;
 
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
-    "\n\013boids.proto\022\005boids\"\321\002\n\022BoidsMessageHea"
-    "der\0223\n\004type\030\001 \002(\0162%.boids.BoidsMessageHe"
-    "ader.MessageType\022\020\n\005error\030\002 \002(\005:\0010\022\014\n\004da"
-    "ta\030\003 \001(\014\"\345\001\n\013MessageType\022\031\n\025PVP_SERVER_H"
-    "EART_BEAT\020\001\022\026\n\022AUTO_MATCH_REQUEST\020\002\022\027\n\023A"
-    "UTO_MATCH_RESPONSE\020\003\022\"\n\036PVP_SERVER_CREAT"
-    "E_GAME_REQUEST\020\004\022#\n\037PVP_SERVER_CREATE_GA"
-    "ME_RESPONSE\020\005\022\037\n\033PVP_SERVER_REGISTER_REQ"
-    "UEST\020\006\022 \n\034PVP_SERVER_REGISTER_RESPONSE\020\007", 360);
+    "\n\013boids.proto\022\005boids\"V\n\022BoidsMessageHead"
+    "er\022 \n\004type\030\001 \002(\0162\022.boids.MessageType\022\020\n\005"
+    "error\030\002 \002(\005:\0010\022\014\n\004data\030\003 \001(\014*\345\001\n\013Message"
+    "Type\022\026\n\022AUTO_MATCH_REQUEST\020\002\022\027\n\023AUTO_MAT"
+    "CH_RESPONSE\020\003\022\"\n\036PVP_SERVER_CREATE_GAME_"
+    "REQUEST\020\004\022#\n\037PVP_SERVER_CREATE_GAME_RESP"
+    "ONSE\020\005\022\037\n\033PVP_SERVER_REGISTER_REQUEST\020\006\022"
+    " \n\034PVP_SERVER_REGISTER_RESPONSE\020\007\022\031\n\025PVP"
+    "_SERVER_HEART_BEAT\020\001", 340);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "boids.proto", &protobuf_RegisterTypes);
   BoidsMessageHeader::default_instance_ = new BoidsMessageHeader();
@@ -104,14 +104,11 @@ struct StaticDescriptorInitializer_boids_2eproto {
     protobuf_AddDesc_boids_2eproto();
   }
 } static_descriptor_initializer_boids_2eproto_;
-
-// ===================================================================
-
-const ::google_lalune::protobuf::EnumDescriptor* BoidsMessageHeader_MessageType_descriptor() {
+const ::google_lalune::protobuf::EnumDescriptor* MessageType_descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return BoidsMessageHeader_MessageType_descriptor_;
+  return MessageType_descriptor_;
 }
-bool BoidsMessageHeader_MessageType_IsValid(int value) {
+bool MessageType_IsValid(int value) {
   switch(value) {
     case 1:
     case 2:
@@ -126,18 +123,9 @@ bool BoidsMessageHeader_MessageType_IsValid(int value) {
   }
 }
 
-#ifndef _MSC_VER
-const BoidsMessageHeader_MessageType BoidsMessageHeader::PVP_SERVER_HEART_BEAT;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::AUTO_MATCH_REQUEST;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::AUTO_MATCH_RESPONSE;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::PVP_SERVER_CREATE_GAME_REQUEST;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::PVP_SERVER_CREATE_GAME_RESPONSE;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::PVP_SERVER_REGISTER_REQUEST;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::PVP_SERVER_REGISTER_RESPONSE;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::MessageType_MIN;
-const BoidsMessageHeader_MessageType BoidsMessageHeader::MessageType_MAX;
-const int BoidsMessageHeader::MessageType_ARRAYSIZE;
-#endif  // _MSC_VER
+
+// ===================================================================
+
 #ifndef _MSC_VER
 const int BoidsMessageHeader::kTypeFieldNumber;
 const int BoidsMessageHeader::kErrorFieldNumber;
@@ -163,7 +151,7 @@ BoidsMessageHeader::BoidsMessageHeader(const BoidsMessageHeader& from)
 void BoidsMessageHeader::SharedCtor() {
   ::google_lalune::protobuf::internal::GetEmptyString();
   _cached_size_ = 0;
-  type_ = 1;
+  type_ = 2;
   error_ = 0;
   data_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
@@ -205,7 +193,7 @@ BoidsMessageHeader* BoidsMessageHeader::New() const {
 
 void BoidsMessageHeader::Clear() {
   if (_has_bits_[0 / 32] & 7) {
-    type_ = 1;
+    type_ = 2;
     error_ = 0;
     if (has_data()) {
       if (data_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -227,15 +215,15 @@ bool BoidsMessageHeader::MergePartialFromCodedStream(
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google_lalune::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // required .boids.BoidsMessageHeader.MessageType type = 1;
+      // required .boids.MessageType type = 1;
       case 1: {
         if (tag == 8) {
           int value;
           DO_((::google_lalune::protobuf::internal::WireFormatLite::ReadPrimitive<
                    int, ::google_lalune::protobuf::internal::WireFormatLite::TYPE_ENUM>(
                  input, &value)));
-          if (::boids::BoidsMessageHeader_MessageType_IsValid(value)) {
-            set_type(static_cast< ::boids::BoidsMessageHeader_MessageType >(value));
+          if (::boids::MessageType_IsValid(value)) {
+            set_type(static_cast< ::boids::MessageType >(value));
           } else {
             mutable_unknown_fields()->AddVarint(1, value);
           }
@@ -299,7 +287,7 @@ failure:
 void BoidsMessageHeader::SerializeWithCachedSizes(
     ::google_lalune::protobuf::io::CodedOutputStream* output) const {
   // @@protoc_insertion_point(serialize_start:boids.BoidsMessageHeader)
-  // required .boids.BoidsMessageHeader.MessageType type = 1;
+  // required .boids.MessageType type = 1;
   if (has_type()) {
     ::google_lalune::protobuf::internal::WireFormatLite::WriteEnum(
       1, this->type(), output);
@@ -326,7 +314,7 @@ void BoidsMessageHeader::SerializeWithCachedSizes(
 ::google_lalune::protobuf::uint8* BoidsMessageHeader::SerializeWithCachedSizesToArray(
     ::google_lalune::protobuf::uint8* target) const {
   // @@protoc_insertion_point(serialize_to_array_start:boids.BoidsMessageHeader)
-  // required .boids.BoidsMessageHeader.MessageType type = 1;
+  // required .boids.MessageType type = 1;
   if (has_type()) {
     target = ::google_lalune::protobuf::internal::WireFormatLite::WriteEnumToArray(
       1, this->type(), target);
@@ -356,7 +344,7 @@ int BoidsMessageHeader::ByteSize() const {
   int total_size = 0;
 
   if (_has_bits_[0 / 32] & (0xffu << (0 % 32))) {
-    // required .boids.BoidsMessageHeader.MessageType type = 1;
+    // required .boids.MessageType type = 1;
     if (has_type()) {
       total_size += 1 +
         ::google_lalune::protobuf::internal::WireFormatLite::EnumSize(this->type());

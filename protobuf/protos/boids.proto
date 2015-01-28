@@ -1,16 +1,16 @@
 package boids;
 
-message BoidsMessageHeader {
-	enum MessageType {
-		PVP_SERVER_HEART_BEAT = 1;
-		AUTO_MATCH_REQUEST = 2;
-		AUTO_MATCH_RESPONSE = 3;
-		PVP_SERVER_CREATE_GAME_REQUEST = 4;
-		PVP_SERVER_CREATE_GAME_RESPONSE = 5;
-		PVP_SERVER_REGISTER_REQUEST = 6;
-		PVP_SERVER_REGISTER_RESPONSE = 7;
-	};
-	
+enum MessageType {
+	AUTO_MATCH_REQUEST = 2;
+	AUTO_MATCH_RESPONSE = 3;
+	PVP_SERVER_CREATE_GAME_REQUEST = 4;
+	PVP_SERVER_CREATE_GAME_RESPONSE = 5;
+	PVP_SERVER_REGISTER_REQUEST = 6;
+	PVP_SERVER_REGISTER_RESPONSE = 7;
+	PVP_SERVER_HEART_BEAT = 1;
+};
+
+message BoidsMessageHeader {	
 	required MessageType type = 1;
 	required int32 error = 2 [default=0];
 	optional bytes data = 3;

@@ -36,29 +36,29 @@ void protobuf_ShutdownFile_boids_2eproto();
 
 class BoidsMessageHeader;
 
-enum BoidsMessageHeader_MessageType {
-  BoidsMessageHeader_MessageType_PVP_SERVER_HEART_BEAT = 1,
-  BoidsMessageHeader_MessageType_AUTO_MATCH_REQUEST = 2,
-  BoidsMessageHeader_MessageType_AUTO_MATCH_RESPONSE = 3,
-  BoidsMessageHeader_MessageType_PVP_SERVER_CREATE_GAME_REQUEST = 4,
-  BoidsMessageHeader_MessageType_PVP_SERVER_CREATE_GAME_RESPONSE = 5,
-  BoidsMessageHeader_MessageType_PVP_SERVER_REGISTER_REQUEST = 6,
-  BoidsMessageHeader_MessageType_PVP_SERVER_REGISTER_RESPONSE = 7
+enum MessageType {
+  AUTO_MATCH_REQUEST = 2,
+  AUTO_MATCH_RESPONSE = 3,
+  PVP_SERVER_CREATE_GAME_REQUEST = 4,
+  PVP_SERVER_CREATE_GAME_RESPONSE = 5,
+  PVP_SERVER_REGISTER_REQUEST = 6,
+  PVP_SERVER_REGISTER_RESPONSE = 7,
+  PVP_SERVER_HEART_BEAT = 1
 };
-bool BoidsMessageHeader_MessageType_IsValid(int value);
-const BoidsMessageHeader_MessageType BoidsMessageHeader_MessageType_MessageType_MIN = BoidsMessageHeader_MessageType_PVP_SERVER_HEART_BEAT;
-const BoidsMessageHeader_MessageType BoidsMessageHeader_MessageType_MessageType_MAX = BoidsMessageHeader_MessageType_PVP_SERVER_REGISTER_RESPONSE;
-const int BoidsMessageHeader_MessageType_MessageType_ARRAYSIZE = BoidsMessageHeader_MessageType_MessageType_MAX + 1;
+bool MessageType_IsValid(int value);
+const MessageType MessageType_MIN = PVP_SERVER_HEART_BEAT;
+const MessageType MessageType_MAX = PVP_SERVER_REGISTER_RESPONSE;
+const int MessageType_ARRAYSIZE = MessageType_MAX + 1;
 
-const ::google_lalune::protobuf::EnumDescriptor* BoidsMessageHeader_MessageType_descriptor();
-inline const ::std::string& BoidsMessageHeader_MessageType_Name(BoidsMessageHeader_MessageType value) {
+const ::google_lalune::protobuf::EnumDescriptor* MessageType_descriptor();
+inline const ::std::string& MessageType_Name(MessageType value) {
   return ::google_lalune::protobuf::internal::NameOfEnum(
-    BoidsMessageHeader_MessageType_descriptor(), value);
+    MessageType_descriptor(), value);
 }
-inline bool BoidsMessageHeader_MessageType_Parse(
-    const ::std::string& name, BoidsMessageHeader_MessageType* value) {
-  return ::google_lalune::protobuf::internal::ParseNamedEnum<BoidsMessageHeader_MessageType>(
-    BoidsMessageHeader_MessageType_descriptor(), name, value);
+inline bool MessageType_Parse(
+    const ::std::string& name, MessageType* value) {
+  return ::google_lalune::protobuf::internal::ParseNamedEnum<MessageType>(
+    MessageType_descriptor(), name, value);
 }
 // ===================================================================
 
@@ -113,43 +113,14 @@ class BoidsMessageHeader : public ::google_lalune::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
-  typedef BoidsMessageHeader_MessageType MessageType;
-  static const MessageType PVP_SERVER_HEART_BEAT = BoidsMessageHeader_MessageType_PVP_SERVER_HEART_BEAT;
-  static const MessageType AUTO_MATCH_REQUEST = BoidsMessageHeader_MessageType_AUTO_MATCH_REQUEST;
-  static const MessageType AUTO_MATCH_RESPONSE = BoidsMessageHeader_MessageType_AUTO_MATCH_RESPONSE;
-  static const MessageType PVP_SERVER_CREATE_GAME_REQUEST = BoidsMessageHeader_MessageType_PVP_SERVER_CREATE_GAME_REQUEST;
-  static const MessageType PVP_SERVER_CREATE_GAME_RESPONSE = BoidsMessageHeader_MessageType_PVP_SERVER_CREATE_GAME_RESPONSE;
-  static const MessageType PVP_SERVER_REGISTER_REQUEST = BoidsMessageHeader_MessageType_PVP_SERVER_REGISTER_REQUEST;
-  static const MessageType PVP_SERVER_REGISTER_RESPONSE = BoidsMessageHeader_MessageType_PVP_SERVER_REGISTER_RESPONSE;
-  static inline bool MessageType_IsValid(int value) {
-    return BoidsMessageHeader_MessageType_IsValid(value);
-  }
-  static const MessageType MessageType_MIN =
-    BoidsMessageHeader_MessageType_MessageType_MIN;
-  static const MessageType MessageType_MAX =
-    BoidsMessageHeader_MessageType_MessageType_MAX;
-  static const int MessageType_ARRAYSIZE =
-    BoidsMessageHeader_MessageType_MessageType_ARRAYSIZE;
-  static inline const ::google_lalune::protobuf::EnumDescriptor*
-  MessageType_descriptor() {
-    return BoidsMessageHeader_MessageType_descriptor();
-  }
-  static inline const ::std::string& MessageType_Name(MessageType value) {
-    return BoidsMessageHeader_MessageType_Name(value);
-  }
-  static inline bool MessageType_Parse(const ::std::string& name,
-      MessageType* value) {
-    return BoidsMessageHeader_MessageType_Parse(name, value);
-  }
-
   // accessors -------------------------------------------------------
 
-  // required .boids.BoidsMessageHeader.MessageType type = 1;
+  // required .boids.MessageType type = 1;
   inline bool has_type() const;
   inline void clear_type();
   static const int kTypeFieldNumber = 1;
-  inline ::boids::BoidsMessageHeader_MessageType type() const;
-  inline void set_type(::boids::BoidsMessageHeader_MessageType value);
+  inline ::boids::MessageType type() const;
+  inline void set_type(::boids::MessageType value);
 
   // required int32 error = 2 [default = 0];
   inline bool has_error() const;
@@ -200,7 +171,7 @@ class BoidsMessageHeader : public ::google_lalune::protobuf::Message {
 
 // BoidsMessageHeader
 
-// required .boids.BoidsMessageHeader.MessageType type = 1;
+// required .boids.MessageType type = 1;
 inline bool BoidsMessageHeader::has_type() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -211,15 +182,15 @@ inline void BoidsMessageHeader::clear_has_type() {
   _has_bits_[0] &= ~0x00000001u;
 }
 inline void BoidsMessageHeader::clear_type() {
-  type_ = 1;
+  type_ = 2;
   clear_has_type();
 }
-inline ::boids::BoidsMessageHeader_MessageType BoidsMessageHeader::type() const {
+inline ::boids::MessageType BoidsMessageHeader::type() const {
   // @@protoc_insertion_point(field_get:boids.BoidsMessageHeader.type)
-  return static_cast< ::boids::BoidsMessageHeader_MessageType >(type_);
+  return static_cast< ::boids::MessageType >(type_);
 }
-inline void BoidsMessageHeader::set_type(::boids::BoidsMessageHeader_MessageType value) {
-  assert(::boids::BoidsMessageHeader_MessageType_IsValid(value));
+inline void BoidsMessageHeader::set_type(::boids::MessageType value) {
+  assert(::boids::MessageType_IsValid(value));
   set_has_type();
   type_ = value;
   // @@protoc_insertion_point(field_set:boids.BoidsMessageHeader.type)
@@ -334,10 +305,10 @@ inline void BoidsMessageHeader::set_allocated_data(::std::string* data) {
 namespace google_lalune {
 namespace protobuf {
 
-template <> struct is_proto_enum< ::boids::BoidsMessageHeader_MessageType> : ::google_lalune::protobuf::internal::true_type {};
+template <> struct is_proto_enum< ::boids::MessageType> : ::google_lalune::protobuf::internal::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::boids::BoidsMessageHeader_MessageType>() {
-  return ::boids::BoidsMessageHeader_MessageType_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::boids::MessageType>() {
+  return ::boids::MessageType_descriptor();
 }
 
 }  // namespace google
