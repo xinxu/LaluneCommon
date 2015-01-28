@@ -1,0 +1,51 @@
+package boids;
+
+//玩家和自动匹配服务的通信 TOMODIFY
+
+message MatchRequest
+{
+    required uint32 player_id = 1;
+	//required uint32 game_type	= 1;
+}
+
+message GamePlayer
+{
+	required string name		= 1;
+	required uint32 player_id	= 2;
+}
+
+message MatchResponse
+{
+	required bytes game_uuid	= 1;
+	//repeated GamePlayer players	= 2;
+	//required string game_server_ip	= 3;
+	//required uint32 game_server_port	= 4;
+	//required bytes access_token	= 5;
+}
+
+//匹配和战斗服务之间的通信
+
+message CreateGame
+{
+	required bytes game_id		= 1;
+}
+
+message CreateGameResponse
+{
+	required int32 ret_value	= 1;
+}
+
+message PvPServerRegister
+{
+	required string ip			= 1;
+	required uint32 port		= 2;
+	optional int32 region		= 3; //0电信，1联通，...，-1内网
+	optional int32 priority		= 4;
+}
+
+message PvPServerHeartBeat
+{
+	required string ip			= 1;	
+	required uint32 port		= 2;
+}
+
