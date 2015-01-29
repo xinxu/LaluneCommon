@@ -12,6 +12,6 @@ enum MessageType {
 
 message BoidsMessageHeader {	
 	required MessageType type = 1;
-	required int32 error = 2 [default=0];
+	optional int32 error = 2 [default=0];
 	optional bytes data = 3;
 }

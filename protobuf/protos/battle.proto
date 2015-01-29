@@ -12,10 +12,17 @@ message MatchRequest
 
 message MatchResponse
 {
-	required bytes game_uuid	= 1;
-	required string game_server_ip	= 3;
-	required uint32 game_server_port	= 4;	
-	required int32 ret_value	= 5; //0表示成功; 1没有服务器; 2匹配超时; 3战斗服务创建游戏失败
+	enum Value
+	{
+		Success		= 0;
+		No_Server	= 1; //没有服务器; 
+		MatchTimeout	= 2; //匹配超时(现在不会);
+		CreateFail		= 3; //战斗服务创建游戏失败
+	}
+	optional bytes game_uuid	= 1;
+	optional string game_server_ip	= 3;
+	optional uint32 game_server_port	= 4;	
+	required Value ret_value	= 5 [default=Success]; //0表示成功; 
 	optional string ret_info	= 6; //具体的错误信息
 	//required bytes access_token	= 7;
 }

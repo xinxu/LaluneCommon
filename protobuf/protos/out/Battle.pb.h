@@ -23,6 +23,7 @@
 #include <google/protobuf/message.h>
 #include <google/protobuf/repeated_field.h>
 #include <google/protobuf/extension_set.h>
+#include <google/protobuf/generated_enum_reflection.h>
 #include <google/protobuf/unknown_field_set.h>
 #include "pvp.pb.h"
 // @@protoc_insertion_point(includes)
@@ -42,6 +43,27 @@ class PvPServerRegister;
 class PvPServerRegisterResponse;
 class PvPServerHeartBeat;
 
+enum MatchResponse_Value {
+  MatchResponse_Value_Success = 0,
+  MatchResponse_Value_No_Server = 1,
+  MatchResponse_Value_MatchTimeout = 2,
+  MatchResponse_Value_CreateFail = 3
+};
+bool MatchResponse_Value_IsValid(int value);
+const MatchResponse_Value MatchResponse_Value_Value_MIN = MatchResponse_Value_Success;
+const MatchResponse_Value MatchResponse_Value_Value_MAX = MatchResponse_Value_CreateFail;
+const int MatchResponse_Value_Value_ARRAYSIZE = MatchResponse_Value_Value_MAX + 1;
+
+const ::google_lalune::protobuf::EnumDescriptor* MatchResponse_Value_descriptor();
+inline const ::std::string& MatchResponse_Value_Name(MatchResponse_Value value) {
+  return ::google_lalune::protobuf::internal::NameOfEnum(
+    MatchResponse_Value_descriptor(), value);
+}
+inline bool MatchResponse_Value_Parse(
+    const ::std::string& name, MatchResponse_Value* value) {
+  return ::google_lalune::protobuf::internal::ParseNamedEnum<MatchResponse_Value>(
+    MatchResponse_Value_descriptor(), name, value);
+}
 // ===================================================================
 
 class MatchRequest : public ::google_lalune::protobuf::Message {
@@ -194,9 +216,35 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
 
   // nested types ----------------------------------------------------
 
+  typedef MatchResponse_Value Value;
+  static const Value Success = MatchResponse_Value_Success;
+  static const Value No_Server = MatchResponse_Value_No_Server;
+  static const Value MatchTimeout = MatchResponse_Value_MatchTimeout;
+  static const Value CreateFail = MatchResponse_Value_CreateFail;
+  static inline bool Value_IsValid(int value) {
+    return MatchResponse_Value_IsValid(value);
+  }
+  static const Value Value_MIN =
+    MatchResponse_Value_Value_MIN;
+  static const Value Value_MAX =
+    MatchResponse_Value_Value_MAX;
+  static const int Value_ARRAYSIZE =
+    MatchResponse_Value_Value_ARRAYSIZE;
+  static inline const ::google_lalune::protobuf::EnumDescriptor*
+  Value_descriptor() {
+    return MatchResponse_Value_descriptor();
+  }
+  static inline const ::std::string& Value_Name(Value value) {
+    return MatchResponse_Value_Name(value);
+  }
+  static inline bool Value_Parse(const ::std::string& name,
+      Value* value) {
+    return MatchResponse_Value_Parse(name, value);
+  }
+
   // accessors -------------------------------------------------------
 
-  // required bytes game_uuid = 1;
+  // optional bytes game_uuid = 1;
   inline bool has_game_uuid() const;
   inline void clear_game_uuid();
   static const int kGameUuidFieldNumber = 1;
@@ -208,7 +256,7 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_game_uuid();
   inline void set_allocated_game_uuid(::std::string* game_uuid);
 
-  // required string game_server_ip = 3;
+  // optional string game_server_ip = 3;
   inline bool has_game_server_ip() const;
   inline void clear_game_server_ip();
   static const int kGameServerIpFieldNumber = 3;
@@ -220,19 +268,19 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_game_server_ip();
   inline void set_allocated_game_server_ip(::std::string* game_server_ip);
 
-  // required uint32 game_server_port = 4;
+  // optional uint32 game_server_port = 4;
   inline bool has_game_server_port() const;
   inline void clear_game_server_port();
   static const int kGameServerPortFieldNumber = 4;
   inline ::google_lalune::protobuf::uint32 game_server_port() const;
   inline void set_game_server_port(::google_lalune::protobuf::uint32 value);
 
-  // required int32 ret_value = 5;
+  // required .boids.MatchResponse.Value ret_value = 5 [default = Success];
   inline bool has_ret_value() const;
   inline void clear_ret_value();
   static const int kRetValueFieldNumber = 5;
-  inline ::google_lalune::protobuf::int32 ret_value() const;
-  inline void set_ret_value(::google_lalune::protobuf::int32 value);
+  inline ::boids::MatchResponse_Value ret_value() const;
+  inline void set_ret_value(::boids::MatchResponse_Value value);
 
   // optional string ret_info = 6;
   inline bool has_ret_info() const;
@@ -266,7 +314,7 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
   ::std::string* game_uuid_;
   ::std::string* game_server_ip_;
   ::google_lalune::protobuf::uint32 game_server_port_;
-  ::google_lalune::protobuf::int32 ret_value_;
+  int ret_value_;
   ::std::string* ret_info_;
   friend void  protobuf_AddDesc_battle_2eproto();
   friend void protobuf_AssignDesc_battle_2eproto();
@@ -915,7 +963,7 @@ inline void MatchRequest::set_allocated_map_name(::std::string* map_name) {
 
 // MatchResponse
 
-// required bytes game_uuid = 1;
+// optional bytes game_uuid = 1;
 inline bool MatchResponse::has_game_uuid() const {
   return (_has_bits_[0] & 0x00000001u) != 0;
 }
@@ -991,7 +1039,7 @@ inline void MatchResponse::set_allocated_game_uuid(::std::string* game_uuid) {
   // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.game_uuid)
 }
 
-// required string game_server_ip = 3;
+// optional string game_server_ip = 3;
 inline bool MatchResponse::has_game_server_ip() const {
   return (_has_bits_[0] & 0x00000002u) != 0;
 }
@@ -1067,7 +1115,7 @@ inline void MatchResponse::set_allocated_game_server_ip(::std::string* game_serv
   // @@protoc_insertion_point(field_set_allocated:boids.MatchResponse.game_server_ip)
 }
 
-// required uint32 game_server_port = 4;
+// optional uint32 game_server_port = 4;
 inline bool MatchResponse::has_game_server_port() const {
   return (_has_bits_[0] & 0x00000004u) != 0;
 }
@@ -1091,7 +1139,7 @@ inline void MatchResponse::set_game_server_port(::google_lalune::protobuf::uint3
   // @@protoc_insertion_point(field_set:boids.MatchResponse.game_server_port)
 }
 
-// required int32 ret_value = 5;
+// required .boids.MatchResponse.Value ret_value = 5 [default = Success];
 inline bool MatchResponse::has_ret_value() const {
   return (_has_bits_[0] & 0x00000008u) != 0;
 }
@@ -1105,11 +1153,12 @@ inline void MatchResponse::clear_ret_value() {
   ret_value_ = 0;
   clear_has_ret_value();
 }
-inline ::google_lalune::protobuf::int32 MatchResponse::ret_value() const {
+inline ::boids::MatchResponse_Value MatchResponse::ret_value() const {
   // @@protoc_insertion_point(field_get:boids.MatchResponse.ret_value)
-  return ret_value_;
+  return static_cast< ::boids::MatchResponse_Value >(ret_value_);
 }
-inline void MatchResponse::set_ret_value(::google_lalune::protobuf::int32 value) {
+inline void MatchResponse::set_ret_value(::boids::MatchResponse_Value value) {
+  assert(::boids::MatchResponse_Value_IsValid(value));
   set_has_ret_value();
   ret_value_ = value;
   // @@protoc_insertion_point(field_set:boids.MatchResponse.ret_value)
@@ -1709,6 +1758,11 @@ inline void PvPServerHeartBeat::set_port(::google_lalune::protobuf::uint32 value
 namespace google_lalune {
 namespace protobuf {
 
+template <> struct is_proto_enum< ::boids::MatchResponse_Value> : ::google_lalune::protobuf::internal::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::boids::MatchResponse_Value>() {
+  return ::boids::MatchResponse_Value_descriptor();
+}
 
 }  // namespace google
 }  // namespace protobuf
