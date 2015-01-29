@@ -6,8 +6,8 @@ import "pvp.proto";
 
 message MatchRequest
 {
-    required string user_id = 1; //以后是不用发这个字段的，tcp连接本身就标示了是哪个用户
-	//required uint32 game_type	= 1;
+    required string user_id		= 1; //以后是不用发这个字段的，tcp连接本身就标示了是哪个用户
+	required string map_name	= 2; //玩哪张地图
 }
 
 message MatchResponse
@@ -15,7 +15,7 @@ message MatchResponse
 	required bytes game_uuid	= 1;
 	required string game_server_ip	= 3;
 	required uint32 game_server_port	= 4;	
-	required int32 ret_value	= 5; //0表示成功
+	required int32 ret_value	= 5; //0表示成功; 1没有服务器; 2匹配超时; 3战斗服务创建游戏失败
 	optional string ret_info	= 6; //具体的错误信息
 	//required bytes access_token	= 7;
 }

@@ -109,16 +109,31 @@ class MatchRequest : public ::google_lalune::protobuf::Message {
   inline ::std::string* release_user_id();
   inline void set_allocated_user_id(::std::string* user_id);
 
+  // required string map_name = 2;
+  inline bool has_map_name() const;
+  inline void clear_map_name();
+  static const int kMapNameFieldNumber = 2;
+  inline const ::std::string& map_name() const;
+  inline void set_map_name(const ::std::string& value);
+  inline void set_map_name(const char* value);
+  inline void set_map_name(const char* value, size_t size);
+  inline ::std::string* mutable_map_name();
+  inline ::std::string* release_map_name();
+  inline void set_allocated_map_name(::std::string* map_name);
+
   // @@protoc_insertion_point(class_scope:boids.MatchRequest)
  private:
   inline void set_has_user_id();
   inline void clear_has_user_id();
+  inline void set_has_map_name();
+  inline void clear_has_map_name();
 
   ::google_lalune::protobuf::UnknownFieldSet _unknown_fields_;
 
   ::google_lalune::protobuf::uint32 _has_bits_[1];
   mutable int _cached_size_;
   ::std::string* user_id_;
+  ::std::string* map_name_;
   friend void  protobuf_AddDesc_battle_2eproto();
   friend void protobuf_AssignDesc_battle_2eproto();
   friend void protobuf_ShutdownFile_battle_2eproto();
@@ -818,6 +833,82 @@ inline void MatchRequest::set_allocated_user_id(::std::string* user_id) {
     user_id_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
   }
   // @@protoc_insertion_point(field_set_allocated:boids.MatchRequest.user_id)
+}
+
+// required string map_name = 2;
+inline bool MatchRequest::has_map_name() const {
+  return (_has_bits_[0] & 0x00000002u) != 0;
+}
+inline void MatchRequest::set_has_map_name() {
+  _has_bits_[0] |= 0x00000002u;
+}
+inline void MatchRequest::clear_has_map_name() {
+  _has_bits_[0] &= ~0x00000002u;
+}
+inline void MatchRequest::clear_map_name() {
+  if (map_name_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    map_name_->clear();
+  }
+  clear_has_map_name();
+}
+inline const ::std::string& MatchRequest::map_name() const {
+  // @@protoc_insertion_point(field_get:boids.MatchRequest.map_name)
+  return *map_name_;
+}
+inline void MatchRequest::set_map_name(const ::std::string& value) {
+  set_has_map_name();
+  if (map_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    map_name_ = new ::std::string;
+  }
+  map_name_->assign(value);
+  // @@protoc_insertion_point(field_set:boids.MatchRequest.map_name)
+}
+inline void MatchRequest::set_map_name(const char* value) {
+  set_has_map_name();
+  if (map_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    map_name_ = new ::std::string;
+  }
+  map_name_->assign(value);
+  // @@protoc_insertion_point(field_set_char:boids.MatchRequest.map_name)
+}
+inline void MatchRequest::set_map_name(const char* value, size_t size) {
+  set_has_map_name();
+  if (map_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    map_name_ = new ::std::string;
+  }
+  map_name_->assign(reinterpret_cast<const char*>(value), size);
+  // @@protoc_insertion_point(field_set_pointer:boids.MatchRequest.map_name)
+}
+inline ::std::string* MatchRequest::mutable_map_name() {
+  set_has_map_name();
+  if (map_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    map_name_ = new ::std::string;
+  }
+  // @@protoc_insertion_point(field_mutable:boids.MatchRequest.map_name)
+  return map_name_;
+}
+inline ::std::string* MatchRequest::release_map_name() {
+  clear_has_map_name();
+  if (map_name_ == &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    return NULL;
+  } else {
+    ::std::string* temp = map_name_;
+    map_name_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+    return temp;
+  }
+}
+inline void MatchRequest::set_allocated_map_name(::std::string* map_name) {
+  if (map_name_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
+    delete map_name_;
+  }
+  if (map_name) {
+    set_has_map_name();
+    map_name_ = map_name;
+  } else {
+    clear_has_map_name();
+    map_name_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  }
+  // @@protoc_insertion_point(field_set_allocated:boids.MatchRequest.map_name)
 }
 
 // -------------------------------------------------------------------
