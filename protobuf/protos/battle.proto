@@ -18,6 +18,7 @@ message MatchResponse
 		No_Server	= 1; //没有服务器; 
 		MatchTimeout	= 2; //匹配超时(现在不会);
 		CreateFail		= 3; //战斗服务创建游戏失败
+		IllegalRequest	= 4; //非法的请求(按正常的流程和逻辑是不会出现的)，比如重复的用户名
 	}
 	optional bytes game_uuid	= 1;
 	optional string game_server_ip	= 3;

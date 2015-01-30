@@ -47,11 +47,12 @@ enum MatchResponse_Value {
   MatchResponse_Value_Success = 0,
   MatchResponse_Value_No_Server = 1,
   MatchResponse_Value_MatchTimeout = 2,
-  MatchResponse_Value_CreateFail = 3
+  MatchResponse_Value_CreateFail = 3,
+  MatchResponse_Value_IllegalRequest = 4
 };
 bool MatchResponse_Value_IsValid(int value);
 const MatchResponse_Value MatchResponse_Value_Value_MIN = MatchResponse_Value_Success;
-const MatchResponse_Value MatchResponse_Value_Value_MAX = MatchResponse_Value_CreateFail;
+const MatchResponse_Value MatchResponse_Value_Value_MAX = MatchResponse_Value_IllegalRequest;
 const int MatchResponse_Value_Value_ARRAYSIZE = MatchResponse_Value_Value_MAX + 1;
 
 const ::google_lalune::protobuf::EnumDescriptor* MatchResponse_Value_descriptor();
@@ -221,6 +222,7 @@ class MatchResponse : public ::google_lalune::protobuf::Message {
   static const Value No_Server = MatchResponse_Value_No_Server;
   static const Value MatchTimeout = MatchResponse_Value_MatchTimeout;
   static const Value CreateFail = MatchResponse_Value_CreateFail;
+  static const Value IllegalRequest = MatchResponse_Value_IllegalRequest;
   static inline bool Value_IsValid(int value) {
     return MatchResponse_Value_IsValid(value);
   }

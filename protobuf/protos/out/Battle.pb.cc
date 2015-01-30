@@ -226,20 +226,21 @@ void protobuf_AddDesc_battle_2eproto() {
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014battle.proto\022\005boids\032\tpvp.proto\"1\n\014Matc"
     "hRequest\022\017\n\007user_id\030\001 \002(\t\022\020\n\010map_name\030\002 "
-    "\002(\t\"\345\001\n\rMatchResponse\022\021\n\tgame_uuid\030\001 \001(\014"
+    "\002(\t\"\371\001\n\rMatchResponse\022\021\n\tgame_uuid\030\001 \001(\014"
     "\022\026\n\016game_server_ip\030\003 \001(\t\022\030\n\020game_server_"
     "port\030\004 \001(\r\0226\n\tret_value\030\005 \002(\0162\032.boids.Ma"
     "tchResponse.Value:\007Success\022\020\n\010ret_info\030\006"
-    " \001(\t\"E\n\005Value\022\013\n\007Success\020\000\022\r\n\tNo_Server\020"
-    "\001\022\020\n\014MatchTimeout\020\002\022\016\n\nCreateFail\020\003\"J\n\nC"
-    "reateGame\022\017\n\007game_id\030\001 \002(\014\022+\n\016game_init_"
-    "data\030\002 \002(\0132\023.boids.GameInitData\"8\n\022Creat"
-    "eGameResponse\022\017\n\007game_id\030\001 \002(\014\022\021\n\tret_va"
-    "lue\030\002 \002(\005\"O\n\021PvPServerRegister\022\n\n\002ip\030\001 \002"
-    "(\t\022\014\n\004port\030\002 \002(\r\022\016\n\006region\030\003 \001(\005\022\020\n\010prio"
-    "rity\030\004 \001(\005\"1\n\031PvPServerRegisterResponse\022"
-    "\024\n\tret_value\030\001 \002(\005:\0010\".\n\022PvPServerHeartB"
-    "eat\022\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r", 629);
+    " \001(\t\"Y\n\005Value\022\013\n\007Success\020\000\022\r\n\tNo_Server\020"
+    "\001\022\020\n\014MatchTimeout\020\002\022\016\n\nCreateFail\020\003\022\022\n\016I"
+    "llegalRequest\020\004\"J\n\nCreateGame\022\017\n\007game_id"
+    "\030\001 \002(\014\022+\n\016game_init_data\030\002 \002(\0132\023.boids.G"
+    "ameInitData\"8\n\022CreateGameResponse\022\017\n\007gam"
+    "e_id\030\001 \002(\014\022\021\n\tret_value\030\002 \002(\005\"O\n\021PvPServ"
+    "erRegister\022\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r\022\016\n\006"
+    "region\030\003 \001(\005\022\020\n\010priority\030\004 \001(\005\"1\n\031PvPSer"
+    "verRegisterResponse\022\024\n\tret_value\030\001 \002(\005:\001"
+    "0\".\n\022PvPServerHeartBeat\022\n\n\002ip\030\001 \002(\t\022\014\n\004p"
+    "ort\030\002 \002(\r", 649);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "battle.proto", &protobuf_RegisterTypes);
   MatchRequest::default_instance_ = new MatchRequest();
@@ -583,6 +584,7 @@ bool MatchResponse_Value_IsValid(int value) {
     case 1:
     case 2:
     case 3:
+    case 4:
       return true;
     default:
       return false;
@@ -594,6 +596,7 @@ const MatchResponse_Value MatchResponse::Success;
 const MatchResponse_Value MatchResponse::No_Server;
 const MatchResponse_Value MatchResponse::MatchTimeout;
 const MatchResponse_Value MatchResponse::CreateFail;
+const MatchResponse_Value MatchResponse::IllegalRequest;
 const MatchResponse_Value MatchResponse::Value_MIN;
 const MatchResponse_Value MatchResponse::Value_MAX;
 const int MatchResponse::Value_ARRAYSIZE;
