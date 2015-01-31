@@ -35,7 +35,8 @@ message UserOperation {
 }
 
 message UserOperationPackage {
-	repeated UserOperation operations = 1;
+	repeated UserOperation operations = 1;	
+	optional uint32 timestamp = 2;
 }
 
 message GameMessage {
