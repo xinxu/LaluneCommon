@@ -69,12 +69,13 @@ void protobuf_AssignDesc_battle_2eproto() {
       ::google_lalune::protobuf::MessageFactory::generated_factory(),
       sizeof(MatchRequest));
   MatchResponse_descriptor_ = file->message_type(1);
-  static const int MatchResponse_offsets_[5] = {
+  static const int MatchResponse_offsets_[6] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, game_uuid_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, game_server_ip_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, game_server_port_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, ret_value_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, ret_info_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(MatchResponse, game_init_data_),
   };
   MatchResponse_reflection_ =
     new ::google_lalune::protobuf::internal::GeneratedMessageReflection(
@@ -226,21 +227,22 @@ void protobuf_AddDesc_battle_2eproto() {
   ::google_lalune::protobuf::DescriptorPool::InternalAddGeneratedFile(
     "\n\014battle.proto\022\005boids\032\tpvp.proto\"1\n\014Matc"
     "hRequest\022\017\n\007user_id\030\001 \002(\t\022\020\n\010map_name\030\002 "
-    "\002(\t\"\371\001\n\rMatchResponse\022\021\n\tgame_uuid\030\001 \001(\014"
+    "\002(\t\"\246\002\n\rMatchResponse\022\021\n\tgame_uuid\030\001 \001(\014"
     "\022\026\n\016game_server_ip\030\003 \001(\t\022\030\n\020game_server_"
     "port\030\004 \001(\r\0226\n\tret_value\030\005 \002(\0162\032.boids.Ma"
     "tchResponse.Value:\007Success\022\020\n\010ret_info\030\006"
-    " \001(\t\"Y\n\005Value\022\013\n\007Success\020\000\022\r\n\tNo_Server\020"
-    "\001\022\020\n\014MatchTimeout\020\002\022\016\n\nCreateFail\020\003\022\022\n\016I"
-    "llegalRequest\020\004\"J\n\nCreateGame\022\017\n\007game_id"
-    "\030\001 \002(\014\022+\n\016game_init_data\030\002 \002(\0132\023.boids.G"
-    "ameInitData\"8\n\022CreateGameResponse\022\017\n\007gam"
-    "e_id\030\001 \002(\014\022\021\n\tret_value\030\002 \002(\005\"O\n\021PvPServ"
-    "erRegister\022\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002(\r\022\016\n\006"
-    "region\030\003 \001(\005\022\020\n\010priority\030\004 \001(\005\"1\n\031PvPSer"
-    "verRegisterResponse\022\024\n\tret_value\030\001 \002(\005:\001"
-    "0\".\n\022PvPServerHeartBeat\022\n\n\002ip\030\001 \002(\t\022\014\n\004p"
-    "ort\030\002 \002(\r", 649);
+    " \001(\t\022+\n\016game_init_data\030\010 \001(\0132\023.boids.Gam"
+    "eInitData\"Y\n\005Value\022\013\n\007Success\020\000\022\r\n\tNo_Se"
+    "rver\020\001\022\020\n\014MatchTimeout\020\002\022\016\n\nCreateFail\020\003"
+    "\022\022\n\016IllegalRequest\020\004\"J\n\nCreateGame\022\017\n\007ga"
+    "me_id\030\001 \002(\014\022+\n\016game_init_data\030\002 \002(\0132\023.bo"
+    "ids.GameInitData\"8\n\022CreateGameResponse\022\017"
+    "\n\007game_id\030\001 \002(\014\022\021\n\tret_value\030\002 \002(\005\"O\n\021Pv"
+    "PServerRegister\022\n\n\002ip\030\001 \002(\t\022\014\n\004port\030\002 \002("
+    "\r\022\016\n\006region\030\003 \001(\005\022\020\n\010priority\030\004 \001(\005\"1\n\031P"
+    "vPServerRegisterResponse\022\024\n\tret_value\030\001 "
+    "\002(\005:\0010\".\n\022PvPServerHeartBeat\022\n\n\002ip\030\001 \002(\t"
+    "\022\014\n\004port\030\002 \002(\r", 694);
   ::google_lalune::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "battle.proto", &protobuf_RegisterTypes);
   MatchRequest::default_instance_ = new MatchRequest();
@@ -607,6 +609,7 @@ const int MatchResponse::kGameServerIpFieldNumber;
 const int MatchResponse::kGameServerPortFieldNumber;
 const int MatchResponse::kRetValueFieldNumber;
 const int MatchResponse::kRetInfoFieldNumber;
+const int MatchResponse::kGameInitDataFieldNumber;
 #endif  // !_MSC_VER
 
 MatchResponse::MatchResponse()
@@ -616,6 +619,7 @@ MatchResponse::MatchResponse()
 }
 
 void MatchResponse::InitAsDefaultInstance() {
+  game_init_data_ = const_cast< ::boids::GameInitData*>(&::boids::GameInitData::default_instance());
 }
 
 MatchResponse::MatchResponse(const MatchResponse& from)
@@ -633,6 +637,7 @@ void MatchResponse::SharedCtor() {
   game_server_port_ = 0u;
   ret_value_ = 0;
   ret_info_ = const_cast< ::std::string*>(&::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited());
+  game_init_data_ = NULL;
   ::memset(_has_bits_, 0, sizeof(_has_bits_));
 }
 
@@ -652,6 +657,7 @@ void MatchResponse::SharedDtor() {
     delete ret_info_;
   }
   if (this != default_instance_) {
+    delete game_init_data_;
   }
 }
 
@@ -687,7 +693,7 @@ void MatchResponse::Clear() {
     ::memset(&first, 0, n);                                \
   } while (0)
 
-  if (_has_bits_[0 / 32] & 31) {
+  if (_has_bits_[0 / 32] & 63) {
     ZR_(game_server_port_, ret_value_);
     if (has_game_uuid()) {
       if (game_uuid_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
@@ -703,6 +709,9 @@ void MatchResponse::Clear() {
       if (ret_info_ != &::google_lalune::protobuf::internal::GetEmptyStringAlreadyInited()) {
         ret_info_->clear();
       }
+    }
+    if (has_game_init_data()) {
+      if (game_init_data_ != NULL) game_init_data_->::boids::GameInitData::Clear();
     }
   }
 
@@ -800,6 +809,19 @@ bool MatchResponse::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
+        if (input->ExpectTag(66)) goto parse_game_init_data;
+        break;
+      }
+
+      // optional .boids.GameInitData game_init_data = 8;
+      case 8: {
+        if (tag == 66) {
+         parse_game_init_data:
+          DO_(::google_lalune::protobuf::internal::WireFormatLite::ReadMessageNoVirtual(
+               input, mutable_game_init_data()));
+        } else {
+          goto handle_unusual;
+        }
         if (input->ExpectAtEnd()) goto success;
         break;
       }
@@ -866,6 +888,12 @@ void MatchResponse::SerializeWithCachedSizes(
       6, this->ret_info(), output);
   }
 
+  // optional .boids.GameInitData game_init_data = 8;
+  if (has_game_init_data()) {
+    ::google_lalune::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
+      8, this->game_init_data(), output);
+  }
+
   if (!unknown_fields().empty()) {
     ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFields(
         unknown_fields(), output);
@@ -916,6 +944,13 @@ void MatchResponse::SerializeWithCachedSizes(
         6, this->ret_info(), target);
   }
 
+  // optional .boids.GameInitData game_init_data = 8;
+  if (has_game_init_data()) {
+    target = ::google_lalune::protobuf::internal::WireFormatLite::
+      WriteMessageNoVirtualToArray(
+        8, this->game_init_data(), target);
+  }
+
   if (!unknown_fields().empty()) {
     target = ::google_lalune::protobuf::internal::WireFormat::SerializeUnknownFieldsToArray(
         unknown_fields(), target);
@@ -962,6 +997,13 @@ int MatchResponse::ByteSize() const {
           this->ret_info());
     }
 
+    // optional .boids.GameInitData game_init_data = 8;
+    if (has_game_init_data()) {
+      total_size += 1 +
+        ::google_lalune::protobuf::internal::WireFormatLite::MessageSizeNoVirtual(
+          this->game_init_data());
+    }
+
   }
   if (!unknown_fields().empty()) {
     total_size +=
@@ -1004,6 +1046,9 @@ void MatchResponse::MergeFrom(const MatchResponse& from) {
     if (from.has_ret_info()) {
       set_ret_info(from.ret_info());
     }
+    if (from.has_game_init_data()) {
+      mutable_game_init_data()->::boids::GameInitData::MergeFrom(from.game_init_data());
+    }
   }
   mutable_unknown_fields()->MergeFrom(from.unknown_fields());
 }
@@ -1023,6 +1068,9 @@ void MatchResponse::CopyFrom(const MatchResponse& from) {
 bool MatchResponse::IsInitialized() const {
   if ((_has_bits_[0] & 0x00000008) != 0x00000008) return false;
 
+  if (has_game_init_data()) {
+    if (!this->game_init_data().IsInitialized()) return false;
+  }
   return true;
 }
 
@@ -1033,6 +1081,7 @@ void MatchResponse::Swap(MatchResponse* other) {
     std::swap(game_server_port_, other->game_server_port_);
     std::swap(ret_value_, other->ret_value_);
     std::swap(ret_info_, other->ret_info_);
+    std::swap(game_init_data_, other->game_init_data_);
     std::swap(_has_bits_[0], other->_has_bits_[0]);
     _unknown_fields_.Swap(&other->_unknown_fields_);
     std::swap(_cached_size_, other->_cached_size_);

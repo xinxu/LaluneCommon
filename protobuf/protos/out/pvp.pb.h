@@ -65,7 +65,6 @@ inline bool UserOperation_OperationType_Parse(
 }
 enum GameMessage_MessageType {
   GameMessage_MessageType_HeartBeat = 1,
-  GameMessage_MessageType_GameInitData = 2,
   GameMessage_MessageType_UserOperation = 3,
   GameMessage_MessageType_UserOperationPackage = 4
 };
@@ -704,7 +703,6 @@ class GameMessage : public ::google_lalune::protobuf::Message {
 
   typedef GameMessage_MessageType MessageType;
   static const MessageType HeartBeat = GameMessage_MessageType_HeartBeat;
-  static const MessageType GameInitData = GameMessage_MessageType_GameInitData;
   static const MessageType UserOperation = GameMessage_MessageType_UserOperation;
   static const MessageType UserOperationPackage = GameMessage_MessageType_UserOperationPackage;
   static inline bool MessageType_IsValid(int value) {

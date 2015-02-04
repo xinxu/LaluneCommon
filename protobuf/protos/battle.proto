@@ -26,6 +26,7 @@ message MatchResponse
 	required Value ret_value	= 5 [default=Success]; //0表示成功; 
 	optional string ret_info	= 6; //具体的错误信息
 	//required bytes access_token	= 7;
+	optional GameInitData game_init_data	= 8; //如果匹配成功，那么由匹配服返回game_init_data数据
 }
 
 //匹配和战斗服务之间的通信

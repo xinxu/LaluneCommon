@@ -42,7 +42,6 @@ message UserOperationPackage {
 message GameMessage {
 	enum MessageType {
 		HeartBeat = 1;
-		GameInitData = 2;
 		UserOperation = 3;
 		UserOperationPackage = 4;
 	}
